@@ -1,0 +1,48 @@
+[
+    {
+      "id": 1,
+      "text": "What is your age?",
+      "type": "input",
+      "placeholder": "Enter your age"
+    },
+
+    {
+      "id": 2,
+      "text": "What is your favorite color?",
+      "type": "multiple-choice",
+      "options": [
+        { "id": 1, "text": "Red" },
+        { "id": 2, "text": "Green" },
+        { "id": 3, "text": "Blue" },
+        { "id": 4, "text": "Light" }
+      ]
+    },
+    {
+        "id": 3,
+        "text": "Is your country of residence different from your nationality?",
+        "type": "yes-no"
+      },
+      {
+        "id": 4,
+        "text": "What is your nationality?",
+        "type": "dropdown",
+        "options": [
+          { "id": 1, "text": "American" },
+          { "id": 2, "text": "Canadian" },
+          { "id": 3, "text": "German" }
+        ],
+        "placeholder": "Select your nationality"
+      },
+      {
+        "id": 5,
+        "text": "What are your favorite fruits?",
+        "type": "multiselect",
+        "options": [
+          { "id": 1, "text": "Apple" },
+          { "id": 2, "text": "Banana" },
+          { "id": 3, "text": "Cherry" },
+          { "id": 4, "text": "Date" }
+        ],
+        "placeholder": "Select your favorite fruits"
+      }
+  ]
