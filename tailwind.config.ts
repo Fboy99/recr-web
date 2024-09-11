@@ -8,6 +8,14 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      screens: {
+        'sm': {'min': '0px', 'max': '767px'},
+        'md': {'min': '768px', 'max': '1024px'},
+        'lg': {'min': '1025px'},
+      },
+      backgroundImage: {
+        'hero-bg-image': "url('/assets/hero.jpeg')",
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",

@@ -1,19 +1,28 @@
 // "use client";
 
 // import * as Accordion from "@radix-ui/react-accordion";
-// import Plus from "../../public/assets/Plus.svg";
+// // import Plus from "../assets//Plus.svg";
+// import Plus from  '../assets/Plus.svg';
 // import Image from "next/image";
 // import { useEffect, useState } from "react";
 // import ToggleButton from "./Button/ToggleButton"; // Import the ToggleButton component
+// import faqData from "../data/faqs.json"
+
+// // Define the structure of each FAQ item
+// type FaqItem = {
+//   category: string;
+//   question: string;
+//   answer: string;
+// };
 
 // export default function Faq() {
-//   const [items, setItems] = useState([]);
+//   const [items, setItems] = useState<FaqItem[]>([]); // Use the FaqItem type for the state
 //   const [loading, setLoading] = useState(true);
-//   const [error, setError] = useState(null);
+//   const [error, setError] = useState<Error | null>(null);
 //   const [selectedTab, setSelectedTab] = useState("Candidates");
 
 //   useEffect(() => {
-//     fetch("data/faqs.json")
+//     fetch("../data/faqs.json")
 //       .then((response) => {
 //         if (!response.ok) {
 //           console.error("Response status:", response.status);
@@ -21,7 +30,7 @@
 //         }
 //         return response.json();
 //       })
-//       .then((data) => {
+//       .then((data: FaqItem[]) => { // Explicitly type the data
 //         setItems(data);
 //         setLoading(false);
 //       })
@@ -103,14 +112,14 @@
 //   );
 // }
 
-
 "use client";
 
 import * as Accordion from "@radix-ui/react-accordion";
-import Plus from "../../public/assets/Plus.svg";
+import Plus from '../assets/Plus.svg';
 import Image from "next/image";
-import { useEffect, useState } from "react";
-import ToggleButton from "./Button/ToggleButton"; // Import the ToggleButton component
+import { useState } from "react";
+import ToggleButton from "./Button/ToggleButton";
+import faqData from "../data/faqs.json";  // Import JSON data directly
 
 // Define the structure of each FAQ item
 type FaqItem = {
@@ -120,33 +129,10 @@ type FaqItem = {
 };
 
 export default function Faq() {
-  const [items, setItems] = useState<FaqItem[]>([]); // Use the FaqItem type for the state
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<Error | null>(null);
   const [selectedTab, setSelectedTab] = useState("Candidates");
 
-  useEffect(() => {
-    fetch("data/faqs.json")
-      .then((response) => {
-        if (!response.ok) {
-          console.error("Response status:", response.status);
-          throw new Error("Network response was not ok");
-        }
-        return response.json();
-      })
-      .then((data: FaqItem[]) => { // Explicitly type the data
-        setItems(data);
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.error("Error fetching FAQ data:", error);
-        setError(error);
-        setLoading(false);
-      });
-  }, []);
-
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error loading FAQs: {error.message}</p>;
+  // Use the imported faqData directly
+  const items: FaqItem[] = faqData;
 
   return (
     <div className="flex flex-col items-center pt-4">

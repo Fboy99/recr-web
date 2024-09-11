@@ -9,8 +9,8 @@ interface SectionBannerProps {
 
 const SectionBanner: React.FC<SectionBannerProps> = ({ title }) => {
   return (
-    <div className="w-[1040px] h-[256px] px-[96px] py-[48px] bg-[#f8f9fa] flex items-center justify-center opacity-100">
-      <p className="font-['Roboto'] text-[36px] font-bold leading-[44px] text-center">
+    <div className="w-full h-[204px] px-[96px] py-[48px] bg-[#f8f9fa] flex items-center justify-center opacity-100">
+      <p className="font-['Roboto'] text-[36px] font-bold leading-[44px] text-center sm:text-[25px]">
         {title}
       </p>
     </div>

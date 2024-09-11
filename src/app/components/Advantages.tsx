@@ -1,17 +1,20 @@
 import Image from "next/image";
-import Check from "../../public/assets/check.svg";
+import Check from "../assets//check.svg";
 import Button from "./Button/Button";
 import SectionBanner from "./SectionBanner";
+import img1 from "../assets/image1.jpeg"
+import img8 from "../assets/image8.jpeg"
 
 export function Advantages() {
   return (
-    <div className="w-full max-w-[1440px] mx-auto py-[48px] lg:py-[60px] flex flex-col items-center gap-y-0">
+    <div className="w-full max-w-[1440px] mx-auto py-[48px] lg:py-[60px] flex flex-col items-center gap-y-6">
       <SectionBanner title="Advantages of the Opportunity Card" />
 
-      <div className="flex flex-col lg:flex-row w-full gap-y-6 gap-x-[64px] justify-center">
-        <div className="w-full max-w-[496px] rounded-[28px] shadow-md flex flex-col justify-between">
+      <div className="flex flex-col lg:flex-row w-full gap-y-6 lg:gap-y-0 lg:gap-x-[64px] items-center lg:items-start">
+        {/* Candidate Card */}
+        <div className="w-full max-w-[496px] rounded-[28px] shadow-md flex flex-col justify-between mx-auto">
           <Image
-            src="/assets/image1.jpeg"
+            src={img1}
             alt="feature 1 image"
             width={496}
             height={300}
@@ -50,9 +53,10 @@ export function Advantages() {
           />
         </div>
 
-        <div className="w-full max-w-[496px] rounded-[28px] shadow-md flex flex-col justify-between">
+        {/* Employer Card */}
+        <div className="w-full max-w-[496px] rounded-[28px] shadow-md flex flex-col justify-between mx-auto">
           <Image
-            src="/assets/image8.jpeg"
+            src={img8}
             alt="feature 2 image"
             width={496}
             height={300}

@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import ToggleButton from "./Button/ToggleButton";
+import img9 from "../assets/image9.jpeg"
 
 const JobSubscription = () => {
   const [selectedTab, setSelectedTab] = useState("Candidates");
@@ -56,13 +57,13 @@ const JobSubscription = () => {
           </form>
         </div>
 
-        <div className="lg:w-1/2 flex items-center">
+        <div className="lg:w-1/2 flex items-center ">
           <Image
-            src="/assets/image9.jpeg" 
+            src={img9}
             alt="Job preview image"
             width={500}
             height={300}
-            className="rounded-lg w-full h-full object-cover"
+            className="rounded-lg w-full h-full object-cover sm:hidden md:hidden"
           />
         </div>
       </div>

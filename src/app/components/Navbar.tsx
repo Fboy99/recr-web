@@ -3,10 +3,10 @@
 import { useState } from 'react';
 import Image from "next/image";
 import Link from 'next/link';
-import Logo from "../../public/assets/Logo.svg";
-import Menu from "../../public/assets/Menu.svg";
-import Icon from "../../public/assets/france.png"; 
-import Icon2 from "../../public/assets/germany.png"; 
+import Logo from "../assets//Logo.svg";
+import Menu from "../assets//Menu.svg";
+import Icon from "../assets//france.png"; 
+import Icon2 from "../assets//germany.png"; 
 
 const navLinks = [
   { name: "Candidates", path: "/Candidates" },
@@ -105,7 +105,7 @@ export function Navbar() {
             <Link
               href={item.path}
               key={index}
-              className={`block p-2 font-medium hover:bg-gray-200 hover:no-underline ${
+              className={`block p-2 text-center	text-gray-200  bg-[#181C20] font-medium hover:bg-gray-800 hover:no-underline ${
                 activeLink === item.name ? "text-blue-600" : "text-black"
               }`}
               onClick={() => handleLinkClick(item.name)}
