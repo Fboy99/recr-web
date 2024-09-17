@@ -117,10 +117,10 @@ const newsData: NewsItem[] = [
 const News: React.FC = () => {
   return (
     <div>
-      <Navbar />
+      {/* <Navbar /> */}
       <div className=" mx-auto px-6 lg:px-16 max-w-[1080px]">
-        <h1 className="text-4xl font-bold text-center mb-2 py-12">News</h1>
-        <p className="text-center text-black mb-12">Learn all the latest about the opportunity card</p>
+        <h1 className="mt-16 text-4xl font-bold text-center py-12">News</h1>
+        <p className="mb-8 text-center text-black ">Learn all the latest about the opportunity card</p>
         <div className="w-full mb-8 flex justify-center">
             <Image
               src={img11}
@@ -143,7 +143,7 @@ const News: React.FC = () => {
           ))}
         </div>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

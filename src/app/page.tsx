@@ -14,7 +14,6 @@ export default function Home() {
   return (
     <>
       <Hero />
-      {/* <div className="px-[20px] lg:container lg:px-20 mx-auto">  */}
         <Features />
         <Advantages /> 
         <PointsDistribution/>
@@ -27,9 +26,6 @@ export default function Home() {
 
         <JobSubscription />
 
-
-      {/* </div>    */}
-        {/* <Footer /> */}
       
     </>
   );

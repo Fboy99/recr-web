@@ -6,18 +6,17 @@ import heroImage from "../assets/hero.jpeg"
 export function Hero() {
   return (
     <div
-      className="z-40 sti top-0 min-h-screen bg-cover bg-center flex flex-col "
+      className="top-0 min-h-screen bg-cover bg-center flex flex-col "
       style={{ backgroundImage: `url(${heroImage.src})`, width: '100%', height: '828px' }}
     >
-      {/* Navbar  */}
-      <Navbar />
+      {/* <Navbar /> */}
       {/* Hero below */}
  
       <div className="flex flex-col items-center justify-center text-center w-full h-full px-4 lg:px-20">
-        <h1 className="text-[45px] leading-[52px] font-bold text-center ">
+        <h1 className="lg:text-[45px] lg:leading-[52px] font-bold text-center ">
           Working in <span className="bg-gradient-to-r from-[#000000] via-[#DD0000] to-[#FFCE00] bg-clip-text text-transparent">Germany</span> with the Opportunity Card
         </h1>
-        <p className="text-[#36485C] text-[22px] leading-[28px] font-normal text-center pt-6">
+        <p className="text-[#36485C] lg:text-[22px] lg:leading-[28px] font-normal text-center pt-6">
           Use your professional training to immigrate to Germany
         </p>
         <div className="flex w-full pt-8 justify-center gap-x-3">
@@ -38,3 +37,4 @@ export function Hero() {
     </div>
   );
 }
+

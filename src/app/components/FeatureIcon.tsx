@@ -22,7 +22,7 @@ const features = [
 
 const FeatureList = () => {
   return (
-    <div className="bg-white p-6 m-2 rounded-[20px] shadow-lg ">
+    <div className="bg-white p-6 m-2 sm:mx-4 rounded-[20px] shadow-lg ">
       {features.map((feature, index) => (
         <div key={index} className="flex items-center mb-4">
           {feature.icon}

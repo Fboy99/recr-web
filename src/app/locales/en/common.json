@@ -1,16 +1,18 @@
 {
-    "candidates": "Candidates",
-    "employers": "Employers",
-    "about_us": "About Us",
-    "news": "News",
-    "application_assistant": "Application Assistant",
-    "application_assistant_subtitle": "The best place to start your application for the German Chancenkarte.",
-    "question_1_text": "Do you have a qualification that required at least 2 years to complete?",
-    "option_1_a": "Yes, I hold a professional qualification (vocational training)",
-    "option_1_b": "Yes, I have a university degree",
-    "option_1_c": "Yes, I have an appropriate qualification from a German Chamber of Commerce abroad",
-    "option_1_d": "No, I do not have any formal professional qualifications",
-    "back": "Back",
-    "next": "Next"
-  }
+  "home": "Home",
+  "candidates": "Candidates",
+  "employers": "Employers",
+  "aboutUs": "About Us",
+  "news": "News",
+  "applicationAssistant": "Application Assistant",
+  "testPage": "Test Page",
+  
+  "heroTitle": "Working in ",
+  "heroHighlight": "Germany",
+  "heroDescription": "Use your professional training to immigrate to Germany",
+  "getStarted": "Get started"
+
+  
+}
+
   

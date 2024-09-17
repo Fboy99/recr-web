@@ -1,8 +1,15 @@
 {
-    "candidates": "Kandidaten",
-    "employers": "Arbeitgeber",
-    "about_us": "Über uns",
-    "news": "Nachrichten",
-    "application_assistant": "Bewerbungsassistent"
-  }
-  
+  "home": "Startseite",
+  "candidates": "Kandidaten",
+  "employers": "Arbeitgeber",
+  "aboutUs": "Über uns",
+  "news": "Nachrichten",
+  "applicationAssistant": "Anwendungsassistent",
+  "testPage": "Testseite",
+
+  "heroTitle": "Arbeiten in ",
+  "heroHighlight": "Deutschland",
+  "heroDescription": "Nutzen Sie Ihre berufliche Ausbildung, um nach Deutschland einzuwandern",
+  "getStarted": "Loslegen"
+}
+

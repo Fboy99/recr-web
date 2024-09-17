@@ -6,8 +6,8 @@ import img9 from "../assets/image9.jpeg"
 const AboutUs = () => {
   return (
     <>
-    <Navbar />
-    <div className="bg-white text-black pb-12">
+    {/* <Navbar /> */}
+    <div className="my-16 bg-white text-black pb-12">
 
 
       <div className=" mx-auto px-6 lg:px-16 py-12 max-w-[1080px]">
@@ -56,7 +56,7 @@ const AboutUs = () => {
           </div>
         </div>
       </div>
-      <Footer/>
+      {/* <Footer/> */}
     </div>
     </>
   );

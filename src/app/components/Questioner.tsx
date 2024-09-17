@@ -1,257 +1,3 @@
-// 'use client';
-
-// import { useState } from 'react';
-
-// interface Question {
-//   type: 'yes-no' | 'multiple-choice' | 'multiple-selection' | 'dropdown';
-//   question: string;
-//   options?: string[];
-//   answer?: string | string[];
-// }
-
-// const Questionnaire: React.FC = () => {
-//   const [progress, setProgress] = useState<number>(1);
-//   const [questions, setQuestions] = useState<Question[]>([
-//     {
-//       type: 'yes-no',
-//       question: 'Are you currently employed?',
-//       options: ['A. Yes', 'B. No'],
-//       answer: ''
-//     },
-//     {
-//       type: 'multiple-choice',
-//       question: 'Do you have a qualification that required at least 2 years to complete?',
-//       options: [
-//         'A. Yes, I hold a professional qualification (vocational training)',
-//         'B. Yes, I have a university degree',
-//         'C. Yes, I have an appropriate qualification from a German Chamber of Commerce abroad',
-//         'D. No, I do not have any formal professional qualifications',
-//       ],
-//       answer: ''
-//     },
-//     {
-//       type: 'multiple-selection',
-//       question: 'Which languages do you speak?',
-//       options: ['English', 'German', 'French', 'Spanish'],
-//       answer: []
-//     },
-//     {
-//       type: 'dropdown',
-//       question: 'What is your nationality?',
-//       options: ['American', 'Canadian', 'French', 'German'],
-//       answer: ''
-//     }
-//   ]);
-//   const [totalPoints, setTotalPoints] = useState<number>(0);
-//   const threshold = 5;
-//   const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
-
-//   const handleNext = () => {
-//     if (progress < questions.length) {
-//       setProgress((prevProgress) => prevProgress + 1);
-//     } else {
-//       calculatePoints();
-//       setIsSubmitted(true);
-//     }
-//   };
-
-//   const handleBack = () => {
-//     if (progress > 1) {
-//       setProgress((prevProgress) => prevProgress - 1);
-//     }
-//   };
-
-//   const handleAnswerChange = (answer: string, isMultipleSelection = false) => {
-//     const updatedQuestions = [...questions];
-    
-//     if (isMultipleSelection) {
-//       // Handle multiple-selection (button style)
-//       const currentAnswers = updatedQuestions[progress - 1].answer as string[];
-//       if (currentAnswers.includes(answer)) {
-//         updatedQuestions[progress - 1].answer = currentAnswers.filter((ans) => ans !== answer);
-//       } else {
-//         updatedQuestions[progress - 1].answer = [...currentAnswers, answer];
-//       }
-//     } else {
-//       // Handle other question types
-//       updatedQuestions[progress - 1].answer = answer;
-//     }
-    
-//     setQuestions(updatedQuestions);
-//   };
-
-//   const calculatePoints = () => {
-//     let points = 0;
-//     questions.forEach((question) => {
-//       if (question.type === 'yes-no' && question.answer === 'A. Yes') {
-//         points += 1;
-//       }
-//       if (question.type === 'multiple-choice') {
-//         if (question.answer === 'A. Yes, I hold a professional qualification (vocational training)') {
-//           points += 1;
-//         } else if (question.answer === 'B. Yes, I have a university degree') {
-//           points += 2;
-//         }
-//       }
-//       if (question.type === 'multiple-selection') {
-//         const selectedLanguages = question.answer as string[];
-//         points += selectedLanguages.length > 0 ? 1 : 0; // Adjust points logic for multiple-selection
-//       }
-//     });
-//     setTotalPoints(points);
-//   };
-
-//   const renderResults = () => {
-//     const eligibleMessage = totalPoints >= threshold ? (
-//       <div className="text-green-600">
-//         <h2>Congratulations!</h2>
-//         <p>Dear John, based on your responses, you may be eligible for the Chancenkarte.</p>
-//       </div>
-//     ) : (
-//       <div className="text-red-600">
-//         <h2>Unfortunately!</h2>
-//         {/* <p>Total points: {totalPoints}</p> */}
-//         <p>You do not meet the eligibility criteria for the German Opportunity Card.</p>
-//       </div>
-//     );
-
-//     return (
-//       <div className="flex flex-col">
-//         {eligibleMessage}
-//       </div>
-//     );
-//   };
-
-//   if (isSubmitted) {
-//     return (
-//       <div className="flex justify-center items-center min-h-screen bg-gray-100">
-//         <div className="bg-white w-[1040px] h-[720px] rounded-[28px] opacity-100 p-8 shadow-md overflow-y-auto">
-//           {renderResults()}
-//         </div>
-//       </div>
-//     );
-//   }
-
-//   const currentQuestion = questions[progress - 1];
-
-//   return (
-//     <div className="flex justify-center items-center min-h-screen bg-gray-100">
-//       <div className="bg-white rounded-lg w-full max-w-4xl p-8 shadow-md">
-//         <div className="mb-8">
-//           <div className="text-lg font-semibold mb-4">Question {progress} of {questions.length}</div>
-//           <div className="flex space-x-2">
-//             {[...Array(questions.length)].map((_, idx) => (
-//               <div
-//                 key={idx}
-//                 className={`h-2 rounded-full ${idx < progress ? 'bg-blue-600' : 'bg-gray-300'} w-full`}
-//               ></div>
-//             ))}
-//           </div>
-//         </div>
-
-//         {/* Set fixed height for question content */}
-//         <div className="mb-12" style={{ minHeight: '420px' }}>
-//           <label className="block text-xl mb-4">
-//             {currentQuestion.question}
-//           </label>
-
-//           {currentQuestion.type === 'yes-no' && (
-//             <div className="flex space-x-4"> {/* Flexbox to display items side by side */}
-//               {currentQuestion.options?.map((option, idx) => (
-//                 <label key={idx} className={`flex items-center p-4 bg-gray-100 border ${
-//                     idx === 0 ? 'rounded-l-full' : 'rounded-r-full'
-//                   } cursor-pointer hover:bg-gray-200`}>
-//                   <input
-//                     type="radio"
-//                     name={`question-${progress}`}
-//                     value={option}
-//                     checked={currentQuestion.answer === option}
-//                     onChange={() => handleAnswerChange(option)}
-//                     className="mr-4 rounded-full"
-//                   />
-//                   {option}
-//                 </label>
-//               )
-//               )}
-//             </div>
-//           )}
-
-//           {currentQuestion.type === 'multiple-choice' && (
-//             <div className="space-y-4">
-//               {currentQuestion.options?.map((option, idx) => (
-//                 <label key={idx} className="flex items-center p-4 bg-gray-100 border rounded-lg cursor-pointer hover:bg-gray-200">
-//                   <input
-//                     type="radio"
-//                     name={`question-${progress}`}
-//                     value={option}
-//                     checked={currentQuestion.answer === option}
-//                     onChange={() => handleAnswerChange(option)}
-//                     className="mr-4"
-//                   />
-//                   {option}
-//                 </label>
-//               ))}
-//             </div>
-//           )}
-
-//           {currentQuestion.type === 'multiple-selection' && (
-//             <div className="flex space-x-4"> {/* Flexbox to display items side by side */}
-//               {currentQuestion.options?.map((option, idx) => (
-//                 <button
-//                   key={idx}
-//                   onClick={() => handleAnswerChange(option, true)}
-//                   className={`block p-4 text-left rounded-lg cursor-pointer border ${
-//                     (currentQuestion.answer as string[]).includes(option)
-//                       ? 'bg-blue-600 text-white'
-//                       : 'bg-gray-100 text-black hover:bg-gray-200'
-//                   }`}
-//                 >
-//                   {option}
-//                 </button>
-//               ))}
-//             </div>
-//           )}
-
-//           {currentQuestion.type === 'dropdown' && (
-//             <select
-//               className="w-full p-4 border border-gray-300 rounded"
-//               value={currentQuestion.answer as string}
-//               onChange={(e) => handleAnswerChange(e.target.value)}
-//             >
-//               <option value="" disabled>Select...</option>
-//               {currentQuestion.options?.map((option, idx) => (
-//                 <option key={idx} value={option}>
-//                   {option}
-//                 </option>
-//               ))}
-//             </select>
-//           )}
-//         </div>
-
-//         <div className="flex justify-between">
-//           <button
-//             className="bg-gray-300 text-gray-700 px-6 py-3 rounded"
-//             onClick={handleBack}
-//             disabled={progress === 1}
-//           >
-//             Back
-//           </button>
-//           <button
-//             className="bg-blue-600 text-white px-6 py-3 rounded"
-//             onClick={handleNext}
-//             disabled={progress === questions.length && !currentQuestion.answer}
-//           >
-//             {progress === questions.length ? 'Submit' : 'Next'}
-//           </button>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Questionnaire;
-
-
 'use client';
 
 import { useState } from 'react';
@@ -295,11 +41,11 @@ const Questionnaire: React.FC = () => {
       options: ['American', 'Canadian', 'French', 'German'],
       answer: ''
     },
-    {
-      type: 'text-input',
-      question: ['What is your first name?','What is your last name?'],
-      answer: []
-    },
+    // {
+    //   type: 'text-input',
+    //   question: ['What is your first name?','What is your last name?'],
+    //   answer: ['','']
+    // },
     
   ]);
   
@@ -307,15 +53,36 @@ const Questionnaire: React.FC = () => {
   const threshold = 5;
   const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
 
+  const [showError, setShowError] = useState<boolean>(false);
+
   const handleNext = () => {
-    if (progress < questions.length) {
-      setProgress((prevProgress) => prevProgress + 1);
+    const currentQuestion = questions[progress - 1];
+    
+    // Validation logic
+    let isAnswerProvided = false;
+    
+    if (currentQuestion.type === 'yes-no' || currentQuestion.type === 'multiple-choice') {
+      isAnswerProvided = currentQuestion.answer ? true : false;
+    } else if (currentQuestion.type === 'multiple-selection') {
+      isAnswerProvided = (currentQuestion.answer as string[]).length > 0;
+    } else if (currentQuestion.type === 'dropdown') {
+      isAnswerProvided = currentQuestion.answer ? true : false;
+    } else if (currentQuestion.type === 'text-input') {
+      isAnswerProvided = (currentQuestion.answer as string[]).every((answer) => answer.trim() !== "");
+    }
+  
+    if (isAnswerProvided) {
+      setShowError(false); // Hide error message if an answer is provided
+      if (progress < questions.length) {
+        setProgress((prevProgress) => prevProgress + 1);
+      } else {
+        calculatePoints();
+        setIsSubmitted(true);
+      }
     } else {
-      calculatePoints();
-      setIsSubmitted(true);
+      setShowError(true); // Show error message if no answer is provided
     }
   };
-
   const handleBack = () => {
     if (progress > 1) {
       setProgress((prevProgress) => prevProgress - 1);
@@ -338,6 +105,7 @@ const Questionnaire: React.FC = () => {
 
     setQuestions(updatedQuestions);
   };
+  
 
   const calculatePoints = () => {
     let points = 0;
@@ -360,36 +128,39 @@ const Questionnaire: React.FC = () => {
     setTotalPoints(points);
   };
 
+
   const renderResults = () => {
     const eligibleMessage = totalPoints >= threshold ? (
-      <div className="">
-        <h1 className="text-xl mt-6 mb-12 text-green-600">Congratulations!</h1>
-        <p className='mb-6'>Dear John, based on your responses, you may be eligible for the Chancenkarte.</p>
-        <p className='mb-6'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptate quis maiores asperiores veniam nam, eos et amet laborum tempora tenetur dignissimos quibusdam placeat dicta. Cumque facilis repudiandae labore voluptates veritatis?</p>
-        <button className='w-[90px] h-[32px] rounded-full text-[#3B6100] bg-[#DCE7C8]'>
-                eligible
+      <div className="my-16 p-6 bg-white rounded-lg shadow-md">
+        <h1 className="text-xl font-semibold text-green-600 mt-6 mb-4">Congratulations!</h1>
+        <p className="mb-4">
+          Dear John, based on your responses, you may be eligible for the Chancenkarte.
+        </p>
+        <p className="mb-6 text-gray-600">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate quis maiores asperiores veniam nam, eos et amet laborum tempora tenetur dignissimos quibusdam placeat dicta. Cumque facilis repudiandae labore voluptates veritatis?
+        </p>
+        {/* <div className="grid grid-cols-2 md:grid-cols-1 sm:grid-cols-1 gap-4 border border-gray-300 p-4 rounded-lg"> */}
+        <div className='flex flex-row divide-x-2 divide-gray-300 border-2 rounded-lg'>
+          {/* Left column with total points and status */}
+          <div className="p-4 w-1/2  ">
+          <h2 className="text-lg font-bold mb-4">Total Points: {totalPoints}</h2>
+          {/* <p className="mb-4 text-red-600 font-semibold text-2xl">{totalPoints} Points</p> */}
+            <p className="mb-4">
+              You meet the eligibility criteria for the German Opportunity Card.
+            </p>
+            <button className="w-[90px] h-[32px] rounded-full text-[#4dba1a] bg-[#FFDAD6]">
+              Eligible
             </button>
-      </div>
-    ) : (
-      <div className="">
-        <h1 className="text-xl mt-6 mb-12 text-red-600 ">Unfortunately!</h1>
-        <p className='mb-6'>You do not meet the eligibility criteria for the German Opportunity Card.</p>
-        <p className='mb-6'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, reiciendis tempore minus magnam, quidem alias aliquid rerum nulla non magni voluptatum fuga odit facilis nihil laborum vel blanditiis enim molestias?</p>
-        
-        <div className='grid grid-row grid-cols-2 border-4 border-black-500 p-4 rounded-[22px]'>
-            <div className='grid grid-row border-4 border-black'>
-            <h2 className="mt-6 mb-8">Total points!</h2>
-            <p className='mb-6'>You do not meet the eligibility criteria for the German Opportunity Card.</p>
-            <button className='w-[90px] h-[32px] rounded-full text-[#BA1A1A] bg-[#FFDAD6]'>
-                inlegible
-            </button>
-            </div>
-
-            {/* Right column with reasons and points */}
-        <div className="border-4 border-black p-4">
-          <div className="grid grid-cols-2">
+          </div>
+          
+          {/* Vertical Divider Line */}
+        {/* <div className="border-l-2 border-gray-300"></div>  */}
+  
+          {/* Right column with reasons and points breakdown */}
+          <div className="p-4 w-1/2 ">
+          <div className="grid grid-cols-2 gap-2">
             <div>
-              <p className="font-bold mb-2">Reason</p>
+              {/* <p className="font-bold mb-2">Criteria</p> */}
               <ul className="list-none space-y-2">
                 <li>Age</li>
                 <li>Education</li>
@@ -398,10 +169,9 @@ const Questionnaire: React.FC = () => {
                 <li>Other Factors</li>
               </ul>
             </div>
-  
             <div>
-              <p className="font-bold mb-2">Points</p>
-              <ul className="list-none space-y-2">
+              {/* <p className="font-bold mb-2 text-right">Points</p> */}
+              <ul className="list-none space-y-2 text-right">
                 <li>1 point</li>
                 <li>2 points</li>
                 <li>2 points</li>
@@ -410,14 +180,68 @@ const Questionnaire: React.FC = () => {
               </ul>
             </div>
           </div>
-        </div>
 
+          </div>
 
         </div>
       </div>
+    ) : (
+      <div className="p-6 bg-white ">
+        <h1 className="text-xl font-semibold text-red-600 mt-6 mb-4">Unfortunately!</h1>
+        <p className="mb-4">
+          You do not meet the eligibility criteria for the German Opportunity Card.
+        </p>
+        <p className="mb-6 text-gray-600">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, reiciendis tempore minus magnam, quidem alias aliquid rerum nulla non magni voluptatum fuga odit facilis nihil laborum vel blanditiis enim molestias?
+        </p>
+  
+        {/* <div className="grid grid-cols-2 md:grid-cols-1 sm:grid-cols-1 gap-4 border border-gray-300 p-4 rounded-lg"> */}
+          <div className='flex flex-row divide-x-2 divide-gray-300 border-2 rounded-lg'>
+          {/* Left column with total points and status */}
+          <div className="p-4 w-1/2 ">
+            <h2 className="text-lg font-bold mb-4">Total Points: {totalPoints}</h2>
+            {/* <p className="mb-4 text-red-600 font-semibold text-2xl">{totalPoints} Points</p> */}
+            <p className="mb-4">
+              You do not meet the eligibility criteria for the German Opportunity Card.
+            </p>
+            <button className="w-[90px] h-[32px] rounded-full text-[#BA1A1A] bg-[#FFDAD6]">
+              Ineligible
+            </button>
+          </div>
+  
+          {/* Right column with reasons and points breakdown */}
+          <div className="p-4 w-1/2 ">
+          <div className="grid grid-cols-2 gap-2">
+            <div>
+              {/* <p className="font-bold mb-2">Criteria</p> */}
+              <ul className="list-none space-y-2">
+                <li>Age</li>
+                <li>Education</li>
+                <li>Work Experience</li>
+                <li>Language Proficiency</li>
+                <li>Other Factors</li>
+              </ul>
+            </div>
+            <div>
+              {/* <p className="font-bold mb-2 text-right">Points</p> */}
+              <ul className="list-none space-y-2 text-right">
+                <li>1 point</li>
+                <li>2 points</li>
+                <li>2 points</li>
+                <li>1 point</li>
+                <li>1 point</li>
+              </ul>
+            </div>
+          </div>
 
-      
+          </div>
+
+        </div>
+
+      </div>
     );
+  
+  
 
     return (
       <div className="flex flex-col">
@@ -439,15 +263,15 @@ const Questionnaire: React.FC = () => {
   const currentQuestion = questions[progress - 1];
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100">
-      <div className="bg-white rounded-lg w-full max-w-4xl p-8 shadow-md">
+    <div className="flex justify-center items-center min-h-screen bg-white">
+      <div className="bg-gray-100 rounded-lg w-full max-w-4xl p-8 shadow-md">
         <div className="mb-8">
           <div className="text-lg font-semibold mb-4">Question {progress} of {questions.length}</div>
           <div className="flex space-x-2">
             {[...Array(questions.length)].map((_, idx) => (
               <div
                 key={idx}
-                className={`h-2 rounded-full ${idx < progress ? 'bg-blue-600' : 'bg-gray-300'} w-full`}
+                className={`h-[4px] rounded-full ${idx < progress ? 'bg-[#465D91]' : 'bg-[#D9E2FF]'} w-full`}
               ></div>
             ))}
           </div>
@@ -470,7 +294,7 @@ const Questionnaire: React.FC = () => {
                     value={option}
                     checked={currentQuestion.answer === option}
                     onChange={() => handleAnswerChange(option)}
-                    className="mr-4 w-6 h-6 bg-blue-500 rounded-full border-8 border-black-500"
+                    className="mr-4 w-[20px ]h-[20px] bg-[#465D91] rounded-full border-8 border-black-500"
 
                   />
                   {option}
@@ -484,7 +308,7 @@ const Questionnaire: React.FC = () => {
     {currentQuestion.options?.map((option, idx) => (
       <label 
         key={idx} 
-        className={`flex items-center p-4 bg-gray-100 border cursor-pointer hover:bg-gray-200 
+        className={`flex items-center p-4 bg-gray-100 border cursor-pointer hover:bg-[#D4E4F6] 
           ${idx === 0 ? 'rounded-t-[15px]' : ''} 
           ${idx === currentQuestion.options.length - 1 ? 'rounded-b-[15px]' : ''}`}
       >
@@ -499,7 +323,7 @@ const Questionnaire: React.FC = () => {
           />
           <div className="w-6 h-6 border-2 border-gray-400 rounded-full flex items-center justify-center mr-4">
             {currentQuestion.answer === option && (
-              <div className="w-4 h-4 bg-blue-500 rounded-full" />
+              <div className="w-4 h-4 bg-[#465D91] rounded-full" />
             )}
           </div>
         </div>
@@ -510,14 +334,14 @@ const Questionnaire: React.FC = () => {
           )}
 
           {currentQuestion.type === 'multiple-selection' && (
-            <div className="flex space-x-4">
+            <div className="flex space-x-4 sm:flex-col">
               {currentQuestion.options?.map((option, idx) => (
                 <button
                   key={idx}
                   onClick={() => handleAnswerChange(option, true)}
                   className={`block p-4 text-left rounded-full cursor-pointer border ${
                     (currentQuestion.answer as string[]).includes(option)
-                      ? 'bg-blue-600 text-white'
+                      ? 'bg-[#D4E4F6] text-[#1A1B20]'
                       : 'bg-gray-100 text-black hover:bg-gray-200'
                   }`}
                 >
@@ -533,7 +357,7 @@ const Questionnaire: React.FC = () => {
               value={currentQuestion.answer as string}
               onChange={(e) => handleAnswerChange(e.target.value)}
             >
-              <option value="" disabled>Select...</option>
+              <option value="" disabled>Nationality...</option>
               {currentQuestion.options?.map((option, idx) => (
                 <option key={idx} value={option}>
                   {option}
@@ -542,12 +366,12 @@ const Questionnaire: React.FC = () => {
             </select>
           )}
 
-{currentQuestion.type === 'text-input' && (
+{/* {currentQuestion.type === 'text-input' && (
   <div className="space-y-4">
     {currentQuestion.question.map((q, idx) => (
       <div key={idx}>
         <label className="block text-xl mb-2">
-          {q} {/* Display the question */}
+          {q} 
         </label>
         <input
           type="text"
@@ -561,25 +385,31 @@ const Questionnaire: React.FC = () => {
               answer: updatedAnswers, // Update the answers in the question object
             });
           }}
-          placeholder={`Enter your ${q.split(' ')[2].toLowerCase()}`} // Only use the relevant part for the placeholder
+          placeholder={`Enter your ${(q.split(' ')[3]+q.split(' ')[4]).toLowerCase()}`} // Only use the relevant part for the placeholder
         />
       </div>
     ))}
   </div>
-)}
+)} */}
+
+
+
+        {showError && (
+          <div className="text-red-500 my-4">Please provide an answer to the current question.</div>
+        )}
 
         </div>
 
         <div className="flex justify-between">
           <button
-            className="bg-gray-300 text-gray-700 px-6 py-3 rounded"
+            className="bg-[#FFFFFF] text-[#465D91] px-6 py-3 rounded-full"
             onClick={handleBack}
             disabled={progress === 1}
           >
             Back
           </button>
           <button
-            className="bg-blue-600 text-white px-6 py-3 rounded"
+            className="bg-[#465D91] text-white px-6 py-3 rounded-full"
             onClick={handleNext}
             disabled={progress === questions.length && !currentQuestion.answer}
           >

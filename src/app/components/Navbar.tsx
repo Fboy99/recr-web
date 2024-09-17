@@ -7,6 +7,7 @@ import Logo from "../assets//Logo.svg";
 import Menu from "../assets//Menu.svg";
 import Icon from "../assets//france.png"; 
 import Icon2 from "../assets//germany.png"; 
+import Icon3 from "../assets//england.png"; 
 
 const navLinks = [
   { name: "Home", path: "/" },
@@ -16,18 +17,21 @@ const navLinks = [
   { name: "News", path: "/News" },
   { name: "Application Assistant", path: "/Application-Assistant" },
   { name: "Test Page", path: "/TestPage" },
-
 ];
 
 const languages = [
   { name: "French", flag: Icon },
   { name: "German", flag: Icon2 },
+  { name: "England", flag: Icon3 },
+
+
 ];
 
 export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [activeLink, setActiveLink] = useState(""); // Track the active link
+  const [selectedLanguage, setSelectedLanguage] = useState(languages[0]); // Set French as default language
 
   const handleLinkClick = (name: string) => {
     setActiveLink(name); // Update the active link when clicked
@@ -37,8 +41,13 @@ export function Navbar() {
     setIsDropdownOpen(!isDropdownOpen); // Toggle the dropdown menu
   };
 
+  const handleLanguageChange = (lang: { name: string; flag: StaticImageData }) => {
+    setSelectedLanguage(lang); // Update the selected language
+    toggleDropdown(); // Close the dropdown menu
+  };
+
   return (
-    <nav className="relative flex w-full px-5 py-4 items-center justify-between">
+    <nav className="absolute z-40 flex w-full px-5 py-4 items-center justify-between">
       {/* Left Block: Logo and Name (Clickable to go to Home Page) */}
       <div className="flex items-center">
         <Link href="/" className="flex items-center hover:no-underline" onClick={() => handleLinkClick("")}>
@@ -70,29 +79,24 @@ export function Navbar() {
         {/* Language Dropdown Icon */}
         <div className="relative">
           <button onClick={toggleDropdown} className="flex items-center focus:outline-none">
-            <Image src={Icon} alt="Icon" width={24} height={24} />
+            <Image src={selectedLanguage.flag} alt="Language Icon" width={24} height={24} />
           </button>
 
           {/* Dropdown Menu */}
-            {isDropdownOpen && (
-              <div className="absolute top-full right-2 mt-2 bg-white shadow-md rounded-md z-20">
-                {languages.map((lang, index) => (
-                  <div
-                    key={index}
-                    className="flex items-center py-2 pl-2 pr-8 hover:bg-gray-200 cursor-pointer"
-                    onClick={() => {
-                      toggleDropdown(); // Close dropdown on click
-                      // Add functionality to change language here
-                    }}
-                  >
-                    <Image src={lang.flag} alt={lang.name} width={20} height={20} />
-                    <span className="ml-2 text-sm text-black">{lang.name}</span>
-                  </div>
-                ))}
-              </div>
-            )}
-            
-
+          {isDropdownOpen && (
+            <div className="absolute top-full right-2 mt-2 bg-white shadow-md rounded-md z-20">
+              {languages.map((lang, index) => (
+                <div
+                  key={index}
+                  className="flex items-center py-2 pl-2 pr-8 hover:bg-gray-200 cursor-pointer"
+                  onClick={() => handleLanguageChange(lang)} // Change language on click
+                >
+                  <Image src={lang.flag} alt={lang.name} width={20} height={20} />
+                  <span className="ml-2 text-sm text-black">{lang.name}</span>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
 
         {/* Menu Button (Visible on small screens) */}

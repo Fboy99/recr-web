@@ -28,7 +28,7 @@ export default function Faq() {
         Frequently Asked Questions
       </h1>
 
-      <div className="flex my-4">
+      <div className="flex my-4 xs:flex xs:flex-col-reverse">
         <ToggleButton
           active={selectedTab === "Candidates"}
           onClick={() => setSelectedTab("Candidates")}

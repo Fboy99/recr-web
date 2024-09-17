@@ -1,15 +1,13 @@
-// components/Feature.tsx
-
 import React from "react";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 
 interface ImgFeatureProps {
   title: string;
-  imageSrc: string;
+  imageSrc: string | StaticImageData;
   imageAlt: string;
   text1: string;
   text2: string;
-  imageLeft?: boolean; // Determines if the image should be on the left
+  imageLeft?: boolean; 
 }
 
 const ImgFeature: React.FC<ImgFeatureProps> = ({
@@ -18,11 +16,15 @@ const ImgFeature: React.FC<ImgFeatureProps> = ({
   imageAlt,
   text1,
   text2,
-  imageLeft = false
+  imageLeft = false,
 }) => {
   return (
-    <div className={`flex ${imageLeft ? "flex-row" : "flex-row-reverse"} gap-x-6 gap-y-[48px] items-center justify-center`}>
-      <div className="flex-shrink-0 w-1/2">
+    <div
+      className={`flex flex-col lg:${
+        imageLeft ? "flex-row" : "flex-row-reverse"
+      } gap-x-6 gap-y-[48px] items-center justify-center `}
+    >
+      <div className="w-full lg:w-1/2 flex-shrink-0 flex justify-center">
         <Image
           src={imageSrc}
           alt={imageAlt}
@@ -31,14 +33,14 @@ const ImgFeature: React.FC<ImgFeatureProps> = ({
           className="rounded-[28px] opacity-100"
         />
       </div>
-      <div className="sm:w-1/2 lg:py-[56px] flex flex-col">
+      <div className="w-full lg:w-1/2 lg:py-[56px] flex flex-col items-center">
         <h1 className="pt-[12px] text-2xl font-medium text-[#172026] lg:text-[24px] lg:leading-[36px]">
           {title}
         </h1>
-        <p className="py-[24px] text-[#36485C] lg:text-[18px]">
+        <p className="py-[24px] text-[#36485C] lg:text-[18px] ">
           {text1}
         </p>
-        <p className="py-[24px] text-[#36485C] lg:text-[18px]">
+        <p className="py-[24px] text-[#36485C] lg:text-[18px] ">
           {text2}
         </p>
       </div>

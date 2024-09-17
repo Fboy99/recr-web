@@ -40,8 +40,8 @@ const Employers: React.FC = () => {
 
   return (
 
-    <div className="bg-white text-black pb-12">
-          <Navbar />
+    <div className="my-16 bg-white text-black pb-12">
+          {/* <Navbar /> */}
       <div className=" mx-auto px-6 lg:px-16 py-12 max-w-[1080px]">
         <div className="w-full max-w-screen-lg mx-auto">
           <h1 className="text-4xl font-bold text-center mb-2">Employers</h1>
@@ -81,7 +81,7 @@ const Employers: React.FC = () => {
       <div>
       <Faq/>
       <AssistForm/>
-      <Footer/>
+      {/* <Footer/> */}
       </div>
 
     </div>
