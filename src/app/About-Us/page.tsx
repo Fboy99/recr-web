@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import  Footer  from '../components/Footer';
 import { Navbar } from '../components/Navbar';
+import img9 from "../assets/image9.jpeg"
 
 const AboutUs = () => {
   return (
@@ -9,17 +10,17 @@ const AboutUs = () => {
     <div className="bg-white text-black pb-12">
 
 
-      <div className="container mx-auto px-6 lg:px-16 py-12">
+      <div className=" mx-auto px-6 lg:px-16 py-12 max-w-[1080px]">
         <h1 className="text-4xl font-bold text-center mb-2">About Us</h1>
         <p className="text-center text-black mb-12">Why we care about the opportunity card</p>
 
         <div className="flex flex-col items-center">
           <div className="w-full mb-8 flex justify-center">
             <Image
-              src="/assets/image9.jpeg"
+              src={img9}
               alt="About us"
-              width={800}
-              height={600}
+              width={1080}
+              height={800}
               className="rounded-[20px]"
             />
           </div>

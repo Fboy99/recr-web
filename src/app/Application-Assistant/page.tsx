@@ -1,6 +1,6 @@
 import React from 'react';
 import Recommendation from '../components/Recommendation';
-import recommendations from '../../public/data/recommendations.json';
+import recommendations from '../data/recommendations.json';
 import AssistForm from "../components/AssistForm";
 import  Footer  from '../components/Footer';
 import { Navbar } from '../components/Navbar';
@@ -10,7 +10,7 @@ const AssistantApp: React.FC = () => {
     <>
                          <Navbar />
       <AssistForm />
-      <div className="container mx-auto py-8 px-20">
+      <div className="mx-auto py-8 px-20">
         <div className="mx-auto max-w-[1024px]">
           <h2 className="text-3xl font-bold mb-6">Recommendations</h2>
           {/* <h3 className="text-2xl font-bold mb-6">lorem lorem</h3> */}

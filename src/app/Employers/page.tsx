@@ -6,6 +6,7 @@ import  Footer  from '../components/Footer';
 import Faq from '../components/Faq';
 import AssistForm from '../components/AssistForm';
 import { Navbar } from '../components/Navbar';
+import img5 from "../assets/image5.jpeg"
 
 const Employers: React.FC = () => {
   const infoBlocks = [
@@ -41,7 +42,7 @@ const Employers: React.FC = () => {
 
     <div className="bg-white text-black pb-12">
           <Navbar />
-      <div className="container mx-auto px-6 lg:px-16 py-12">
+      <div className=" mx-auto px-6 lg:px-16 py-12 max-w-[1080px]">
         <div className="w-full max-w-screen-lg mx-auto">
           <h1 className="text-4xl font-bold text-center mb-2">Employers</h1>
           <p className="text-center text-black mb-12">Why we care about the opportunity card</p>
@@ -49,9 +50,9 @@ const Employers: React.FC = () => {
           <div className="flex flex-col items-center">
             <div className="w-full mb-8 flex justify-center">
               <Image
-                src="/assets/image5.jpeg"
+                src={img5}
                 alt="About us"
-                width={1000}
+                width={1080}
                 height={800}
                 className="rounded-[20px]"
               />
@@ -89,4 +90,5 @@ const Employers: React.FC = () => {
 };
 
 export default Employers;
+
 

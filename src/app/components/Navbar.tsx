@@ -9,11 +9,14 @@ import Icon from "../assets//france.png";
 import Icon2 from "../assets//germany.png"; 
 
 const navLinks = [
+  { name: "Home", path: "/" },
   { name: "Candidates", path: "/Candidates" },
   { name: "Employers", path: "/Employers" },
   { name: "About Us", path: "/About-Us" },
   { name: "News", path: "/News" },
   { name: "Application Assistant", path: "/Application-Assistant" },
+  { name: "Test Page", path: "/TestPage" },
+
 ];
 
 const languages = [

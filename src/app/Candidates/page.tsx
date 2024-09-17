@@ -8,6 +8,7 @@ import Footer from '../components/Footer'
 import SectionBanner from '../components/SectionBanner';
 import FeatureList from '../components/FeatureIcon';
 import { Navbar } from '../components/Navbar';
+import img10 from "../assets/image10.jpeg"
 // import Footer from '../components/Footer';
 
 
@@ -39,24 +40,26 @@ const Candidates: React.FC = () => {
   return (
     <>
     <Navbar />
-    <div className="container mx-auto px-5 pb-10">
+    <div className="mx-auto  pb-10">
                         
-      <div className="max-w-[1000px] mx-auto py-12">
+      <div className="max-w-[1080px] mx-auto py-12">
         <h1 className="text-4xl font-bold text-center mb-8">Candidates</h1>
         <p className="text-center text-lg mb-16">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 
         <div className="w-full mb-8 flex justify-center ">
           <Image
-            src="/assets/image3.jpeg"
+            src={img10}
             alt="About us"
-            width={1000}
+            width={1080}
             height={800}
-            className="rounded-[20px]"
+            className="rounded-[20px] max-w-[1080px]"
           />
         </div>
 
         <div>
           <h2 className="text-2xl font-bold mb-6">Advantages for Candidates</h2>
+          <FeatureList />
+
         </div>
 
         {/* <SectionBanner
@@ -66,7 +69,6 @@ const Candidates: React.FC = () => {
 
       {/* Existing Content */}
       <div className="flex flex-col gap-x-6 sm:flex-row-reverse gap-y-[48px] items-center justify-center">
-        <FeatureList />
         <div className="sm:w-1/2 lg:py-[32px] lg:pr-[32px] flex flex-col">
           <h1 className="pt-[12px] text-2xl font-medium text-[#172026] lg:text-[24px] lg:leading-[36px]">
           Advantages for applicants from non-EU countries
@@ -79,7 +81,8 @@ const Candidates: React.FC = () => {
       </div>
         
         {/* <Features /> */}
-        <div className="space-y-12">
+      <div className="space-y-12">
+        <div className=''>
       <ImgFeature
         title="Working with the opportunity card in Germany"
         imageSrc="/assets/image3.jpeg"
@@ -88,6 +91,10 @@ const Candidates: React.FC = () => {
         text2="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officia quasi quae eligendi, quis a vitae rerum, amet atque illo ut repellat dicta voluptatem officiis enim qui laudantium aliquam sequi ad?"
         imageLeft={true} // Image on the left, text on the right
       />
+      </div>
+
+      <div className=''>
+
       <ImgFeature
         title="You must meet these basic requirements"
         imageSrc="/assets/image9.jpeg"
@@ -96,6 +103,9 @@ const Candidates: React.FC = () => {
         text2="Lorem adipisicing elit. Voluptatem repellat architecto, unde nemo asperiores laboriosam voluptates ducimus maiores vel dolor beatae repudiandae neque ut, corrupti magnam deleniti exercitationem, aut vitae!"
         imageLeft={false} // Image on the right, text on the left
       />
+
+              
+</div>
     </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 mt-16">
@@ -109,7 +119,7 @@ const Candidates: React.FC = () => {
           ))}
         </div>
 
-        <div>
+        <div className='grid grid-col-1 '>
         <h2 className="text-2xl font-semibold mt-16 mb-4 ">Conclusion</h2>
         <p className="pb-4">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem repellat architecto, unde nemo asperiores laboriosam voluptates ducimus maiores vel dolor beatae repudiandae neque ut, corrupti magnam deleniti exercitationem, aut vitae!
@@ -140,10 +150,11 @@ const Candidates: React.FC = () => {
 
         <div className='px-[20px] lg:container lg:px-20 mx-auto'>
         </div>
-        <Faq/>
-      </div>
 
+      </div>
     </div>
+    <Faq/>
+
     <Footer/>
     </>
   );

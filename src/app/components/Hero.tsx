@@ -2,16 +2,17 @@ import Image from "next/image";
 import { Navbar } from "./Navbar";
 import heroImage from "../assets/hero.jpeg"
 
+
 export function Hero() {
   return (
     <div
-      className="relative min-h-screen bg-cover bg-center flex flex-col"
+      className="z-40 sti top-0 min-h-screen bg-cover bg-center flex flex-col "
       style={{ backgroundImage: `url(${heroImage.src})`, width: '100%', height: '828px' }}
     >
       {/* Navbar  */}
       <Navbar />
       {/* Hero below */}
-
+ 
       <div className="flex flex-col items-center justify-center text-center w-full h-full px-4 lg:px-20">
         <h1 className="text-[45px] leading-[52px] font-bold text-center ">
           Working in <span className="bg-gradient-to-r from-[#000000] via-[#DD0000] to-[#FFCE00] bg-clip-text text-transparent">Germany</span> with the Opportunity Card
@@ -26,20 +27,10 @@ export function Hero() {
             Get started
 
             <span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                className="w-5 h-5"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M17 8l4 4m0 0l-4 4m4-4H3"
-                />
-              </svg>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M16.175 13H5C4.71667 13 4.47917 12.9042 4.2875 12.7125C4.09583 12.5208 4 12.2833 4 12C4 11.7167 4.09583 11.4792 4.2875 11.2875C4.47917 11.0958 4.71667 11 5 11H16.175L11.275 6.09999C11.075 5.89999 10.9792 5.66665 10.9875 5.39999C10.9958 5.13332 11.1 4.89999 11.3 4.69999C11.5 4.51665 11.7333 4.42082 12 4.41249C12.2667 4.40415 12.5 4.49999 12.7 4.69999L19.3 11.3C19.4 11.4 19.4708 11.5083 19.5125 11.625C19.5542 11.7417 19.575 11.8667 19.575 12C19.575 12.1333 19.5542 12.2583 19.5125 12.375C19.4708 12.4917 19.4 12.6 19.3 12.7L12.7 19.3C12.5167 19.4833 12.2875 19.575 12.0125 19.575C11.7375 19.575 11.5 19.4833 11.3 19.3C11.1 19.1 11 18.8625 11 18.5875C11 18.3125 11.1 18.075 11.3 17.875L16.175 13Z" fill="#42474E"/>
+            </svg>
+
             </span>
           </button>
         </div>
