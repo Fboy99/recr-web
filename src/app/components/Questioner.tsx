@@ -7,6 +7,9 @@ interface Question {
   question: string[];
   options?: string[];
   answer?: string | string[];
+  correctAnswer?:string|string[];
+  points: number, 
+  hasCorrectAnswer: boolean,
 }
 
 const Questionnaire: React.FC = () => {
@@ -14,40 +17,58 @@ const Questionnaire: React.FC = () => {
   const [questions, setQuestions] = useState<Question[]>([
     {
       type: 'yes-no',
-      question: ['Are you currently employed?',],
+      question: ['Are you currently employed?'],
       options: ['A. Yes', 'B. No'],
-      answer: ''
+      answer: '',
+      correctAnswer: 'A. Yes',
+      points: 1, // No points assigned
+      hasCorrectAnswer: true, // Has correct answer
     },
     {
       type: 'multiple-choice',
-      question: ['Do you have a qualification that required at least 2 years to complete?',],
+      question: ['Do you have a qualification that required at least 2 years to complete?'],
       options: [
         'A. Yes, I hold a professional qualification (vocational training)',
         'B. Yes, I have a university degree',
         'C. Yes, I have an appropriate qualification from a German Chamber of Commerce abroad',
         'D. No, I do not have any formal professional qualifications',
       ],
-      answer: ''
+      answer: '',
+      correctAnswer: 'B. Yes, I have a university degree',
+      points: 2, // Assign points for correct answer
+      hasCorrectAnswer: true, // Has correct answer
     },
     {
       type: 'multiple-selection',
-      question: ['Which languages do you speak?',],
+      question: ['Which languages do you speak?'],
       options: ['English', 'German', 'French', 'Spanish'],
-      answer: []
+      answer: [], // User selected languages
+      correctAnswer: [], // No specific correct answer
+      points: 1, // 1 point per language
+      hasCorrectAnswer: false, // No strict correct answer
     },
     {
       type: 'dropdown',
-      question: ['What is your nationality?',],
+      question: ['What is your nationality?'],
       options: ['American', 'Canadian', 'French', 'German'],
-      answer: ''
+      answer: '',
+      correctAnswer: '',
+      points: 0, // No points assigned
+      hasCorrectAnswer: false, // No correct answer
     },
-    // {
-    //   type: 'text-input',
-    //   question: ['What is your first name?','What is your last name?'],
-    //   answer: ['','']
-    // },
     
+    {
+      type: 'text-input',
+      question: ['What is your first name?', 'What is your last name?'],
+      answer: ['', ''], // where User will input their first and last names
+      points: 0, // No points assigned
+      hasCorrectAnswer: false,
+    }
   ]);
+  
+
+    
+
   
   const [totalPoints, setTotalPoints] = useState<number>(0);
   const threshold = 5;
@@ -57,6 +78,13 @@ const Questionnaire: React.FC = () => {
 
   const handleNext = () => {
     const currentQuestion = questions[progress - 1];
+
+  //   // Create an array to collect all answers
+  // const allAnswers = questions.map(q => q.answer);
+
+  // // Log the array of all answers
+  // console.log("All Answers:", allAnswers);
+
     
     // Validation logic
     let isAnswerProvided = false;
@@ -89,9 +117,26 @@ const Questionnaire: React.FC = () => {
     }
   };
 
+  // const handleAnswerChange = (answer: string, isMultipleSelection = false) => {
+  //   const updatedQuestions = [...questions];
+
+  //   if (isMultipleSelection) {
+  //     const currentAnswers = updatedQuestions[progress - 1].answer as string[];
+  //     if (currentAnswers.includes(answer)) {
+  //       updatedQuestions[progress - 1].answer = currentAnswers.filter((ans) => ans !== answer);
+  //     } else {
+  //       updatedQuestions[progress - 1].answer = [...currentAnswers, answer];
+  //     }
+  //   } else {
+  //     updatedQuestions[progress - 1].answer = answer;
+  //   }
+
+  //   setQuestions(updatedQuestions);
+  // };
+
   const handleAnswerChange = (answer: string, isMultipleSelection = false) => {
     const updatedQuestions = [...questions];
-
+  
     if (isMultipleSelection) {
       const currentAnswers = updatedQuestions[progress - 1].answer as string[];
       if (currentAnswers.includes(answer)) {
@@ -102,31 +147,36 @@ const Questionnaire: React.FC = () => {
     } else {
       updatedQuestions[progress - 1].answer = answer;
     }
-
+  
     setQuestions(updatedQuestions);
   };
   
 
   const calculatePoints = () => {
     let points = 0;
+  
     questions.forEach((question) => {
-      if (question.type === 'yes-no' && question.answer === 'A. Yes') {
-        points += 1;
-      }
-      if (question.type === 'multiple-choice') {
-        if (question.answer === 'A. Yes, I hold a professional qualification (vocational training)') {
-          points += 1;
-        } else if (question.answer === 'B. Yes, I have a university degree') {
-          points += 2;
+      if (question.hasCorrectAnswer) {
+        // Yes-No or Multiple-Choice: check if answer matches correct answer
+        if (question.type === 'yes-no' || question.type === 'multiple-choice') {
+          if (question.answer === question.correctAnswer) {
+            points += question.points; // Add points for correct answers
+          }
         }
-      }
+      } 
+      
+      // Handle multiple-selection questions (like languages)
       if (question.type === 'multiple-selection') {
         const selectedLanguages = question.answer as string[];
-        points += selectedLanguages.length > 0 ? 1 : 0; // Adjust points logic for multiple-selection
+        points += selectedLanguages.length * question.points; // 1 point per language selected
       }
+      
+      // Additional logic for other question types (e.g., dropdowns, text-input)
     });
+  
     setTotalPoints(points);
   };
+  
 
 
   const renderResults = () => {
@@ -308,10 +358,7 @@ const Questionnaire: React.FC = () => {
     {currentQuestion.options?.map((option, idx) => (
       <label 
         key={idx} 
-      //   className={`flex items-center p-4 bg-gray-100 border cursor-pointer hover:bg-[#D4E4F6] 
-      //     ${idx === 0 ? 'rounded-t-[15px]' : ''} 
-      //     ${idx === currentQuestion.options.length - 1 ? 'rounded-b-[15px]' : ''}`}
-      // 
+
       className={`flex items-center p-4 bg-gray-100 border cursor-pointer hover:bg-[#D4E4F6] 
         ${idx === 0 ? 'rounded-t-[15px]' : ''} 
         ${currentQuestion.options && idx === currentQuestion.options.length - 1 ? 'rounded-b-[15px]' : ''}`}      
@@ -370,32 +417,28 @@ const Questionnaire: React.FC = () => {
             </select>
           )}
 
-{/* {currentQuestion.type === 'text-input' && (
+{currentQuestion.type === 'text-input' && (
   <div className="space-y-4">
     {currentQuestion.question.map((q, idx) => (
       <div key={idx}>
         <label className="block text-xl mb-2">
-          {q} 
+          {q}
         </label>
         <input
           type="text"
           className="w-1/2 p-4 border border-gray-300 rounded"
-          value={currentQuestion.answer[idx] || ''} // Access the answer array
+          value={currentQuestion.answer[idx]} // Set the input value from the state
           onChange={(e) => {
             const updatedAnswers = [...currentQuestion.answer];
             updatedAnswers[idx] = e.target.value; // Update the specific answer
-            setCurrentQuestion({
-              ...currentQuestion,
-              answer: updatedAnswers, // Update the answers in the question object
-            });
+            handleAnswerChange(updatedAnswers as any); // Use handleAnswerChange to update answers
           }}
-          placeholder={`Enter your ${(q.split(' ')[3]+q.split(' ')[4]).toLowerCase()}`} // Only use the relevant part for the placeholder
+          placeholder={`Enter your ${idx === 0 ? 'first name' : 'last name'}`} // Placeholder for first and last name
         />
       </div>
     ))}
   </div>
-)} */}
-
+)}
 
 
         {showError && (
