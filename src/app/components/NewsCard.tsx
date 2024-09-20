@@ -1,17 +1,24 @@
 import React from 'react';
 import Button from "./Button/Button"
+import Image, { StaticImageData } from 'next/image';
 
 interface NewsCardProps {
   title: string;
   date: string;
   description: string;
-  imageUrl: string;
+  imageUrl: string|StaticImageData;
 }
 
 const NewsCard: React.FC<NewsCardProps> = ({ title, date, description, imageUrl }) => {
   return (
     <div className="bg-white shadow-md rounded-[20px] max-width-24">
-      <img src={imageUrl} alt={title} className="rounded-t-[20px] w-full h-80 object-cover" />
+      {typeof imageUrl === 'string' ? (
+        <Image src={imageUrl} alt={title} className="rounded-t-[20px] w-full h-80 object-cover" />
+      ) : (
+        <Image src={imageUrl} alt={title} className="rounded-t-[20px] w-full h-80 object-cover" />
+      )}
+
+      {/* <Image src={imageUrl} alt={title} className="rounded-t-[20px] w-full h-80 object-cover" /> */}
       <div className="p-4">
       <p className="text-gray-600 mb-2">{date}</p>
         <h3 className="text-lg font-semibold mb-2">{title}</h3>

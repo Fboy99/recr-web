@@ -236,7 +236,7 @@ import Image from "next/image";
 import FeatureIcon from "./FeatureIcon";
 import SectionBanner from "./SectionBanner";
 
-import img2 from '../assets/image2.jpeg';
+// import img2 from '../assets/image2.jpeg';
 import img6 from '../assets/image8.jpeg';
 import img4 from '../assets/image4.jpeg';
 

@@ -31,12 +31,14 @@
 // export default Recommendation;
 
 import React from 'react';
+// import Image from 'next/image';
 
+import  Image,{ StaticImageData } from 'next/image';
 interface RecommendationProps {
   title: string;
   description: string;
-  imageUrl: string;
-  buttonLabel?: string; // Optional prop for button label
+  imageUrl: string|StaticImageData ;
+  buttonLabel?: string; 
 }
 
 const Recommendation: React.FC<RecommendationProps> = ({ title, description, imageUrl, buttonLabel }) => {
@@ -44,7 +46,12 @@ const Recommendation: React.FC<RecommendationProps> = ({ title, description, ima
     <div className="flex justify-center">
       <div className="bg-white shadow-lg rounded-[20px] p-6 flex max-w-[1024px] sm:flex sm:flex-col xs:flex xs:flex-col">
         <div className="w-1/5 mr-6">
-          <img src={imageUrl} alt={title} className="rounded-[20px] h-48 object-cover sm:hidden xs:hidden" />
+        {typeof imageUrl === 'string' ? (
+        // <img src={imageUrl} alt={title} className="rounded-[20px] h-48 object-cover sm:hidden xs:hidden"  />
+      '') : (
+        <Image src={imageUrl} alt={title} className="rounded-[20px] h-48 object-cover sm:hidden xs:hidden"  />
+      )}
+          {/* <Image src={imageUrl} alt={title} className="rounded-[20px] h-48 object-cover sm:hidden xs:hidden" /> */}
         </div>
         <div className="flex-1">
           <h3 className="text-2xl md:text-xl sm:text-lg xs:text-base font-bold mb-2 pb-4">{title}</h3>

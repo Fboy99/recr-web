@@ -1,13 +1,13 @@
-'use client'
-import React, { useState } from 'react';
-import {
-  Card,
-  CardBody,
-  CardFooter,
-  Typography,
-  Radio,
-  Button,
-} from "@material-tailwind/react";
+// 'use client'
+// import React, { useState } from 'react';
+// import {
+//   Card,
+//   CardBody,
+//   CardFooter,
+//   Typography,
+//   Radio,
+//   Button,
+// } from "@material-tailwind/react";
 
 // const ApplicationAssistant = () => {
 //   const [selectedOption, setSelectedOption] = useState(null);

@@ -2,8 +2,8 @@ import React from 'react';
 import Recommendation from '../components/Recommendation';
 import recommendations from '../data/recommendations.json';
 import AssistForm from "../components/AssistForm";
-import  Footer  from '../components/Footer';
-import { Navbar } from '../components/Navbar';
+// import  Footer  from '../components/Footer';
+// import { Navbar } from '../components/Navbar';
 
 const AssistantApp: React.FC = () => {
   return (

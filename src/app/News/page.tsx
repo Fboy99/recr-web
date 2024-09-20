@@ -73,18 +73,18 @@
 
 
 import React from 'react';
+import Image, { StaticImageData } from 'next/image';
+import img11 from '../assets/image11.jpeg';
+import img4 from '../assets/image4.jpeg';
+import img7 from '../assets/image7.jpeg';
+import img9 from '../assets/image9.jpeg';
 import NewsCard from '../components/NewsCard';
-import Footer from '../components/Footer';
-import { Navbar } from '../components/Navbar';
-import Image from 'next/image';
-import img11 from "../assets/image11.jpeg"
-
 
 interface NewsItem {
   title: string;
   date: string;
   description: string;
-  imageUrl: string;
+  imageUrl: StaticImageData|string; // Updated type for static images
 }
 
 const newsData: NewsItem[] = [
@@ -92,27 +92,28 @@ const newsData: NewsItem[] = [
     title: 'Declaration of commitment for the Chancenkarte',
     date: '13 June, 2024',
     description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus modi perferendis quos aperiam quae sint ducimus veritatis! Qui nobis, iure excepturi quam ut alias sit, sint delectus aut, quisquam quod.,",
-    imageUrl: '../assets/image11.jpeg"'
+    imageUrl: img4, // Use imported image
   },
   {
     title: 'How to Write a Winning Motivational Letter for Your Chancenkarte Application',
     date: '21 May, 2024',
     description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus modi perferendis quos aperiam quae sint ducimus veritatis! Qui nobis, iure excepturi quam ut alias sit, sint delectus aut, quisquam quod.,",
-    imageUrl: '../assets/image4.jpeg'
+    imageUrl: img7, // Use imported image
   },
   {
     title: 'How to secure your German Blocked Account for your German visa',
     date: '17 April, 2024',
     description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus modi perferendis quos aperiam quae sint ducimus veritatis! Qui nobis, iure excepturi quam ut alias sit, sint delectus aut, quisquam quod.,",
-    imageUrl: '../assets/image7.jpeg'
+    imageUrl: img4, // Use imported image
   },
   {
     title: 'How to apply for an Opportunity Card Extension',
     date: '5 November, 2023',
     description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus modi perferendis quos aperiam quae sint ducimus veritatis! Qui nobis, iure excepturi quam ut alias sit, sint delectus aut, quisquam quod.,Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eum reiciendis repudiandae esse voluptatibus explicabo totam, vero excepturi ipsam optio rerum ipsa maiores voluptates? Nulla animi tenetur sint illum minus eius!",
-    imageUrl: '../assets/image9.jpeg'
+    imageUrl: img9, // Use imported image
   },
 ];
+
 
 const News: React.FC = () => {
   return (

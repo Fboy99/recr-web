@@ -168,9 +168,9 @@ import InfoBlockWithIcons from '../components/InfoBlockWithIcons';
 import { FaHome, FaMoneyBillWave, FaCheckCircle, FaBriefcase } from 'react-icons/fa';
 import ImgFeature from '../components/FeatureImg';
 import Faq from '../components/Faq';
-import Footer from '../components/Footer';
+// import Footer from '../components/Footer';
 import FeatureIcon from '../components/FeatureIcon';
-import { Navbar } from '../components/Navbar';
+// import { Navbar } from '../components/Navbar';
 import img10 from "../assets/image10.jpeg";
 import img3 from "../assets/image3.jpeg";
 import img5 from "../assets/image5.jpeg";
@@ -201,7 +201,7 @@ const Candidates: React.FC = () => {
 
   return (
     <>
-      <div className="my-16 mx-auto pb-10">
+      <div className="my-16 mx-auto pb-10 sm:px-2 xs:px-2">
         <div className="max-w-5xl mx-auto py-12">
           <h1 className="text-4xl font-bold text-center mb-8">Candidates</h1>
           <p className="text-center text-lg mb-16">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
@@ -218,9 +218,9 @@ const Candidates: React.FC = () => {
 
           
 
-          <div className=" mt-12">
+          <div className=" mt-12 ">
 
-          <h2 className="text-2xl font-bold mb-6">Advantages for Candidates</h2>
+          <h2 className="text-2xl font-bold mb-6 sm:text-left">Advantages for Candidates</h2>
           <div className="flex flex-col lg:flex-row-reverse gap-8 mt-12">
   <div className="w-full lg:w-1/2">
     {/* <h1 className="pt-2 text-2xl font-medium text-gray-800">
@@ -239,7 +239,7 @@ const Candidates: React.FC = () => {
 </div>
 
 
-          <div className="space-y-12 mt-12">
+          <div className="space-y-12 mt-12 ">
             <ImgFeature
               title="Working with the opportunity card in Germany"
               imageSrc={img3.src}
@@ -258,7 +258,7 @@ const Candidates: React.FC = () => {
             />
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 mt-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 mt-16 ">
             {infoBlocks.map((block, index) => (
               <InfoBlockWithIcons
                 key={index}
@@ -269,13 +269,12 @@ const Candidates: React.FC = () => {
             ))}
           </div>
 
-          <div className="mt-16">
+          <div className="mt-16 ">
             <h2 className="text-2xl font-semibold mb-4">Conclusion</h2>
             <p className="pb-4">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem repellat architecto.
-            </p>
+Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas minus beatae quisquam quae, exercitationem aliquid laudantium eos? Quisquam pariatur accusantium nam itaque nisi. Enim, facilis consequatur! Dolore cupiditate architecto aliquam.            </p>
             <p className="pb-4">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate commodi possimus blanditiis.
+              Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, maiores deleniti sapiente quaerat accusantium iure nemo recusandae voluptatum ullam earum facilis facere dicta. Sed quia beatae officia voluptatibus! Molestiae, doloremque? adipisicing elit. Voluptate commodi possimus blanditiis.
             </p>
             <p className="pb-4">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum nesciunt laudantium dolorem fuga alias.
@@ -284,7 +283,6 @@ const Candidates: React.FC = () => {
         </div>
       </div>
       <Faq />
-      {/* <Footer/> */}
     </>
   );
 };

@@ -308,9 +308,13 @@ const Questionnaire: React.FC = () => {
     {currentQuestion.options?.map((option, idx) => (
       <label 
         key={idx} 
-        className={`flex items-center p-4 bg-gray-100 border cursor-pointer hover:bg-[#D4E4F6] 
-          ${idx === 0 ? 'rounded-t-[15px]' : ''} 
-          ${idx === currentQuestion.options.length - 1 ? 'rounded-b-[15px]' : ''}`}
+      //   className={`flex items-center p-4 bg-gray-100 border cursor-pointer hover:bg-[#D4E4F6] 
+      //     ${idx === 0 ? 'rounded-t-[15px]' : ''} 
+      //     ${idx === currentQuestion.options.length - 1 ? 'rounded-b-[15px]' : ''}`}
+      // 
+      className={`flex items-center p-4 bg-gray-100 border cursor-pointer hover:bg-[#D4E4F6] 
+        ${idx === 0 ? 'rounded-t-[15px]' : ''} 
+        ${currentQuestion.options && idx === currentQuestion.options.length - 1 ? 'rounded-b-[15px]' : ''}`}      
       >
         <div className="relative">
           <input

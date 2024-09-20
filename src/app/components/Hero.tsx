@@ -1,5 +1,5 @@
-import Image from "next/image";
-import { Navbar } from "./Navbar";
+// import Image from "next/image";
+// import { Navbar } from "./Navbar";
 import heroImage from "../assets/hero.jpeg"
 
 
