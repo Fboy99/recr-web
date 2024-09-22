@@ -35,7 +35,7 @@ import Question from "./Questions"; // Corrected import
 
 const AssistForm: React.FC = () => {
   return (
-    <div className="bg-gray-50 w-full max-w-[1440px] h-auto sm:px-4 md:px-8 pt-[96px] pb-0 gap-10 opacity-100 mt-10 mb-10 mx-auto flex flex-col items-center">
+    <div className="bg-gray-50 w-full max-w-[1440px] h-auto sm:px-4 md:px-8 pt-[96px] pb-0 gap-10 opacity-100  mb-10 mx-auto flex flex-col items-center">
       <div className="w-full max-w-[1440px] h-auto py-0 px-4 sm:px-6 md:px-8 gap-[16px] flex flex-col items-center">
         <h1 className="text-4xl font-bold text-center mb-2">
           Application Assistant

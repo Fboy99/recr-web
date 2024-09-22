@@ -14,17 +14,16 @@ export default function Home() {
   return (
     <>
       <Hero />
-        <Features />
+      <div className="mx-[12px]">
+        <Features/>
         <Advantages /> 
         <PointsDistribution/>
         <Faq />
         <AssistApp /> 
-
-
         {/* <ApplicationAssistant/> */}
 
-
         <JobSubscription />
+        </div>
 
       
     </>

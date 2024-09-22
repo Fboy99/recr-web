@@ -242,13 +242,13 @@ import img4 from '../assets/image4.jpeg';
 
 export function Features() {
   return (
-    <div className="flex flex-col items-center justify-center w-full">
+    <div className="flex flex-col items-center justify-center w-full bg-blue-950">
       <SectionBanner title="Opportunity Card Germany" />
 
       {/* Feature Section 1 */}
       <div className="flex flex-col lg:flex-row items-center justify-center gap-4 lg:gap-6 lg:w-[1040px] lg:py-[32px]">
-        <div className="lg:w-1/2 flex flex-col sm:px-4 md:px-8">
-          <h1 className="pt-[12px] text-2xl sm:text-left sm:px-2 font-medium text-[#172026] lg:text-[24px] lg:leading-[36px]">
+        <div className="lg:w-1/2 flex flex-col sm:px-4 xs:px-3 md:px-8">
+          <h1 className="pt-[12px] text-2xl sm:text-left sm:px-2 xs:text-left xs:px-2 font-medium text-[#172026] lg:text-[24px] lg:leading-[36px]">
             What is opportunity card?
           </h1>
           <p className="py-[24px] text-[#36485C] lg:text-[18px] px-2">
@@ -259,7 +259,7 @@ export function Features() {
       </div>
 
       {/* Feature Section 2 */}
-      <div className="flex flex-col sm:flex-col-reverse md:flex-col-reverse lg:flex-row items-center justify-center gap-4 lg:gap-6 lg:w-[1040px] lg:py-[32px]">
+      <div className="flex flex-col sm:flex-col-reverse xs:flex-col-reverse md:flex-col-reverse lg:flex-row items-center justify-center gap-4 lg:gap-6 lg:w-[1040px] lg:py-[32px]">
         <Image
           src={img6}
           alt="Feature 10 image"
@@ -267,7 +267,7 @@ export function Features() {
           height={408}
           className="w-full max-w-[100%] h-auto md:max-w-[400px] lg:max-w-[496px] rounded-[28px] opacity-100"
         />
-        <div className="lg:w-1/2 flex flex-col sm:px-4 md:px-8">
+        <div className="lg:w-1/2 flex flex-col sm:px-4 xs:px-3 md:px-8">
           <h1 className="pt-[12px] text-2xl font-medium text-[#172026] lg:text-[24px] lg:leading-[36px]">
             Working with the opportunity card in Germany
           </h1>
@@ -278,7 +278,7 @@ export function Features() {
       </div>
 
       {/* Feature Section 3 */}
-      <div className="flex flex-col sm:flex-col-reverse md:flex-col-reverse lg:flex-row-reverse items-center justify-center gap-4 lg:gap-6 lg:w-[1040px] lg:py-[32px]">
+      <div className="flex flex-col sm:flex-col-reverse xs:flex-col-reverse md:flex-col-reverse lg:flex-row-reverse items-center justify-center gap-4 lg:gap-6 lg:w-[1040px] lg:py-[32px]">
         <Image
           src={img4}
           alt="Feature 4 image"
@@ -286,7 +286,7 @@ export function Features() {
           height={408}
           className="w-full max-w-[100%] h-auto md:max-w-[400px] lg:max-w-[496px] rounded-[28px] opacity-100"
         />
-        <div className="lg:w-1/2 flex flex-col sm:px-4 md:px-8">
+        <div className="lg:w-1/2 flex flex-col sm:px-4 xs:px-3 md:px-8">
           <h1 className="pt-[12px] text-2xl font-medium text-[#172026] lg:text-[24px] lg:leading-[36px]">
             Prerequisites for the Opportunity Card
           </h1>

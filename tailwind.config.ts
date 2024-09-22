@@ -223,8 +223,8 @@ const config: Config = {
         },
       },
       screens: {
-        'xs': {'min': '0px', 'max': '269px'},
-        'sm': {'min': '270px', 'max': '767px'},
+        'xs': {'min': '0px', 'max': '539px'},
+        'sm': {'min': '540px', 'max': '767px'},
         'md': {'min': '768px', 'max': '1024px'},
         'lg': {'min': '1025px'},
       },

@@ -6,11 +6,10 @@ interface SectionBannerProps {
   className?: string; // Add className as an optional prop
 }
 
-
-const SectionBanner: React.FC<SectionBannerProps> = ({ title }) => {
+const SectionBanner: React.FC<SectionBannerProps> = ({ title, className }) => {
   return (
-    <div className="w-full h-[204px] px-[96px] py-[48px] bg-[#f8f9fa] flex items-center justify-center opacity-100">
-      <p className="font-['Roboto'] text-[36px] font-bold leading-[44px] text-center sm:text-[25px]">
+    <div className={`w-full h-[204px] md:h-[164px] sm:h-[124px] xs:h-[96px] px-[96px] xs:px-[24px] sm:px-[24px] md:px-[28px] py-[48px] sm:py-[40px] bg-[#f8f9fa] flex items-center justify-center opacity-100 ${className}`}>
+      <p className="font-['Roboto'] text-[28px] xs:text-[24px] sm:text-[25px] md:text-[30px] lg:text-[36px] font-bold leading-[44px] text-center">
         {title}
       </p>
     </div>
@@ -18,19 +17,3 @@ const SectionBanner: React.FC<SectionBannerProps> = ({ title }) => {
 };
 
 export default SectionBanner;
-
-
-// import React from 'react';
-
-// const SectionBanner: React.FC<SectionBannerProps> = ({ title, className }) => {
-//   return (
-//     <div className={`w-[1040px] h-[256px] px-[96px] py-[48px] bg-[#f8f9fa] flex items-center justify-center opacity-100 ${className}`}>
-//       <p className="font-['Roboto'] text-[36px] font-bold leading-[44px] text-center">
-//         {title}
-//       </p>
-//     </div>
-//   );
-// };
-
-// export default SectionBanner;
-

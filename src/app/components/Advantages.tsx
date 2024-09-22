@@ -7,17 +7,17 @@ import img8 from "../assets/image8.jpeg"
 
 export function Advantages() {
   return (
-    <div className="w-full max-w-[1440px] mx-auto py-[48px] lg:py-[60px] flex flex-col items-center gap-y-6">
+    <div className="w-full max-w-[1440px] mx-auto flex flex-col items-center gap-y-6">
       <SectionBanner title="Advantages of the Opportunity Card" />
 
-      <div className="flex flex-col lg:flex-row w-full gap-y-6 lg:gap-y-0 lg:gap-x-[64px] items-center lg:items-start">
+      <div className="flex flex-col lg:flex-row w-full gap-y-6 lg:gap-y-0 lg:gap-x-[12px] items-center lg:items-start">
         {/* Candidate Card */}
-        <div className="w-full max-w-[496px] rounded-[28px] shadow-md flex flex-col justify-between mx-auto">
+        <div className="w-full max-w-[496px] h-auto  rounded-[28px] shadow-md flex flex-col justify-between mx-auto">
           <Image
             src={img1}
             alt="feature 1 image"
             width={496}
-            height={300}
+            height={360}
             className="rounded-t-[28px] object-cover lg:h-[300px]"
           />
           <div className="p-8">
@@ -49,12 +49,12 @@ export function Advantages() {
           </div>
           <Button
             text="Learn More"
-            className="text-black bg-[#F5F4FF]  hover:bg-blue-700 hover:text-white focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 m-8"
+            className="text-[#141B2C] bg-[#DBE2F9]  hover:bg-blue-500 hover:text-white focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 m-8 sm:mx-[24px] sm:my-[10px]"
           />
         </div>
 
         {/* Employer Card */}
-        <div className="w-full max-w-[496px] rounded-[28px] shadow-md flex flex-col justify-between mx-auto">
+        <div className="w-full max-w-[496px] h-auto rounded-[28px] shadow-md flex flex-col justify-between mx-auto">
           <Image
             src={img8}
             alt="feature 2 image"
@@ -91,10 +91,11 @@ export function Advantages() {
           </div>
           <Button
             text="Learn More"
-            className="text-black bg-[#F5F4FF] p-8 hover:bg-[#8A66FF] focus:outline-none focus:ring-4 focus:ring-[#8A66FF] font-medium rounded-full text-sm px-5 py-2.5 m-8 transition-colors"
+            className="text-[#141B2C] bg-[#DBE2F9] p-8 hover:bg-blue-500 focus:outline-none focus:ring-4 focus:ring-[#8A66FF] font-medium rounded-full text-sm px-5 py-2.5 m-8 transition-colors"
           />
         </div>
       </div>
     </div>
   );
 }
+

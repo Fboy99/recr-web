@@ -200,11 +200,11 @@ const Candidates: React.FC = () => {
   ];
 
   return (
-    <>
-      <div className="my-16 mx-auto pb-10 sm:px-2 xs:px-2">
+      <div className="my-16 mx-auto pb-10 sm:px-2 xs:px-2 md:mx-8">
         <div className="max-w-5xl mx-auto py-12">
-          <h1 className="text-4xl font-bold text-center mb-8">Candidates</h1>
-          <p className="text-center text-lg mb-16">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+         <h1 className="text-4xl font-bold text-center my-8">Candidates</h1> 
+          <p className="text-center text-lg mb-16">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> 
+
 
           <div className="flex justify-center mb-8">
             <Image
@@ -258,7 +258,11 @@ const Candidates: React.FC = () => {
             />
           </div>
 
+          <div className="mx-auto ">
+          <h1 className="text-[36px] sm:text-[25px] xs:text-[23px] md:text-[28px] font-semibold text-center text-[#181C20] mb-6 mt-8">Key advantages of the Opportunity Card</h1>
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 mt-16 ">
+
             {infoBlocks.map((block, index) => (
               <InfoBlockWithIcons
                 key={index}
@@ -267,6 +271,7 @@ const Candidates: React.FC = () => {
                 description={block.description}
               />
             ))}
+          </div>
           </div>
 
           <div className="mt-16 ">
@@ -281,9 +286,10 @@ Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas minus beatae quis
             </p>
           </div>
         </div>
+        <Faq />
       </div>
-      <Faq />
-    </>
+
+
   );
 };
 

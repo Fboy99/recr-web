@@ -117,23 +117,6 @@ const Questionnaire: React.FC = () => {
     }
   };
 
-  // const handleAnswerChange = (answer: string, isMultipleSelection = false) => {
-  //   const updatedQuestions = [...questions];
-
-  //   if (isMultipleSelection) {
-  //     const currentAnswers = updatedQuestions[progress - 1].answer as string[];
-  //     if (currentAnswers.includes(answer)) {
-  //       updatedQuestions[progress - 1].answer = currentAnswers.filter((ans) => ans !== answer);
-  //     } else {
-  //       updatedQuestions[progress - 1].answer = [...currentAnswers, answer];
-  //     }
-  //   } else {
-  //     updatedQuestions[progress - 1].answer = answer;
-  //   }
-
-  //   setQuestions(updatedQuestions);
-  // };
-
   const handleAnswerChange = (answer: string, isMultipleSelection = false) => {
     const updatedQuestions = [...questions];
   
@@ -179,64 +162,163 @@ const Questionnaire: React.FC = () => {
   
 
 
-  const renderResults = () => {
-    const eligibleMessage = totalPoints >= threshold ? (
-      <div className="my-16 p-6 bg-white rounded-lg shadow-md">
-        <h1 className="text-xl font-semibold text-green-600 mt-6 mb-4">Congratulations!</h1>
-        <p className="mb-4">
-          Dear John, based on your responses, you may be eligible for the Chancenkarte.
-        </p>
-        <p className="mb-6 text-gray-600">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate quis maiores asperiores veniam nam, eos et amet laborum tempora tenetur dignissimos quibusdam placeat dicta. Cumque facilis repudiandae labore voluptates veritatis?
-        </p>
-        {/* <div className="grid grid-cols-2 md:grid-cols-1 sm:grid-cols-1 gap-4 border border-gray-300 p-4 rounded-lg"> */}
-        <div className='flex flex-row divide-x-2 divide-gray-300 border-2 rounded-lg'>
-          {/* Left column with total points and status */}
-          <div className="p-4 w-1/2  ">
-          <h2 className="text-lg font-bold mb-4">Total Points: {totalPoints}</h2>
-          {/* <p className="mb-4 text-red-600 font-semibold text-2xl">{totalPoints} Points</p> */}
-            <p className="mb-4">
-              You meet the eligibility criteria for the German Opportunity Card.
-            </p>
-            <button className="w-[90px] h-[32px] rounded-full text-[#4dba1a] bg-[#FFDAD6]">
-              Eligible
-            </button>
-          </div>
+//   const renderResults = () => {
+//     const eligibleMessage = totalPoints >= threshold ? (
+//       <div className="my-16 p-6 bg-white rounded-lg shadow-md">
+//         <h1 className="text-xl font-semibold text-green-600 mt-6 mb-4">Congratulations!</h1>
+//         <p className="mb-4">
+//           Dear John, based on your responses, you may be eligible for the Chancenkarte.
+//         </p>
+//         <p className="mb-6 text-gray-600">
+//           Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate quis maiores asperiores veniam nam, eos et amet laborum tempora tenetur dignissimos quibusdam placeat dicta. Cumque facilis repudiandae labore voluptates veritatis?
+//         </p>
+//         {/* <div className="grid grid-cols-2 md:grid-cols-1 sm:grid-cols-1 gap-4 border border-gray-300 p-4 rounded-lg"> */}
+//         <div className='flex flex-row divide-x-2 divide-gray-300 border-2 rounded-lg'>
+//           {/* Left column with total points and status */}
+//           <div className="p-4 w-1/2  ">
+//           <h2 className="text-lg font-bold mb-4">Total Points: {totalPoints}</h2>
+//           {/* <p className="mb-4 text-red-600 font-semibold text-2xl">{totalPoints} Points</p> */}
+//             <p className="mb-4">
+//               You meet the eligibility criteria for the German Opportunity Card.
+//             </p>
+//             <button className="w-[90px] h-[32px] rounded-full text-[#4dba1a] bg-[#FFDAD6]">
+//               Eligible
+//             </button>
+//           </div>
           
-          {/* Vertical Divider Line */}
-        {/* <div className="border-l-2 border-gray-300"></div>  */}
+//           {/* Vertical Divider Line */}
+//         {/* <div className="border-l-2 border-gray-300"></div>  */}
   
-          {/* Right column with reasons and points breakdown */}
-          <div className="p-4 w-1/2 ">
-          <div className="grid grid-cols-2 gap-2">
-            <div>
-              {/* <p className="font-bold mb-2">Criteria</p> */}
-              <ul className="list-none space-y-2">
-                <li>Age</li>
-                <li>Education</li>
-                <li>Work Experience</li>
-                <li>Language Proficiency</li>
-                <li>Other Factors</li>
-              </ul>
-            </div>
-            <div>
-              {/* <p className="font-bold mb-2 text-right">Points</p> */}
-              <ul className="list-none space-y-2 text-right">
-                <li>1 point</li>
-                <li>2 points</li>
-                <li>2 points</li>
-                <li>1 point</li>
-                <li>1 point</li>
-              </ul>
-            </div>
-          </div>
+//           {/* Right column with reasons and points breakdown */}
+//           <div className="p-4 w-1/2 ">
+//           <div className="grid grid-cols-2 gap-2">
+//             <div>
+//               {/* <p className="font-bold mb-2">Criteria</p> */}
+//               <ul className="list-none space-y-2">
+//                 <li>Age</li>
+//                 <li>Education</li>
+//                 <li>Work Experience</li>
+//                 <li>Language Proficiency</li>
+//                 <li>Other Factors</li>
+//               </ul>
+//             </div>
+//             <div>
+//               {/* <p className="font-bold mb-2 text-right">Points</p> */}
+//               <ul className="list-none space-y-2 text-right">
+//                 <li>1 point</li>
+//                 <li>2 points</li>
+//                 <li>2 points</li>
+//                 <li>1 point</li>
+//                 <li>1 point</li>
+//               </ul>
+//             </div>
+//           </div>
 
-          </div>
+//           </div>
 
+//         </div>
+//       </div>
+//     ) : (
+//       <div className="flex flex-col p-6 bg-white h-auto">
+//       <h1 className="text-xl font-semibold text-red-600 mt-6 mb-4">Unfortunately!</h1>
+//       <p className="mb-4">
+//         You do not meet the eligibility criteria for the German Opportunity Card.
+//       </p>
+//       <p className="mb-6 text-gray-600">
+//         Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, reiciendis tempore minus magnam, quidem alias aliquid rerum nulla non magni voluptatum fuga odit facilis nihil laborum vel blanditiis enim molestias?
+//       </p>
+    
+//       <div className="flex flex-row divide-x-2 divide-gray-300 border-2 rounded-lg xs:flex-col xs:divide-y-2 xs:divide-x-0 sm:flex-col sm:divide-y-2 sm:divide-x-0">
+//   <div className="p-4 w-1/2 sm:w-full xs:w-full">
+//     <h2 className="text-lg font-bold mb-4">Total Points: 1</h2>
+//     <p className="mb-4">You do not meet the eligibility criteria for the German Opportunity Card.</p>
+//     <button className="w-[90px] h-[32px] rounded-full text-[#BA1A1A] bg-[#FFDAD6]">Ineligible</button>
+//   </div>
+
+//   <div className="p-4 w-1/2 sm:w-full xs:w-full">
+//     <ul className="list-none space-y-4">
+//       <li className="flex justify-between xs:flex-row sm:flex-row">
+//         <span>Age</span>
+//         <span className='font-bold'>1 point</span>
+//       </li>
+//       <li className="flex justify-between xs:flex-row sm:flex-row">
+//         <span>Education</span>
+//         <span className='font-bold'>3 points</span>
+//       </li>
+//       <li className="flex justify-between xs:flex-row sm:flex-row">
+//         <span>Work Experience</span>
+//         <span className='font-bold'>4 points</span>
+//       </li>
+//       <li className="flex justify-between xs:flex-row sm:flex-row">
+//         <span>Language Proficiency</span>
+//         <span className='font-bold'>2 points</span>
+//       </li>
+//       <li className="flex justify-between xs:flex-row sm:flex-row">
+//         <span>Other Factors</span>
+//         <span className='font-bold'>1 point</span>
+//       </li>
+//     </ul>
+//   </div>
+// </div>
+    
+//       <div className="mt-16 bottom-8 mb-8 sm:mt-8 xs:mt-4"> 
+//         <button className="w-auto h-auto px-6 py-2 rounded-full text-[#000000] bg-[#D4E4F6]"
+//         onClick={() => {
+//           window.location.href = '../TestPage/';
+//         }}
+//         >
+//           Retake test
+//         </button>
+//       </div>
+//     </div>
+//     );
+  
+const renderResults = () => {
+  const eligibleMessage = totalPoints >= threshold ? (
+    <div className="flex flex-col p-6 bg-white h-auto">
+      <h1 className="text-xl font-semibold text-green-600 mt-6 mb-4">Congratulations!</h1>
+      <p className="mb-4">
+        Dear John, based on your responses, you may be eligible for the Chancenkarte.
+      </p>
+      <p className="mb-6 text-gray-600">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate quis maiores asperiores veniam nam, eos et amet laborum tempora tenetur dignissimos quibusdam placeat dicta. Cumque facilis repudiandae labore voluptates veritatis?
+      </p>
+
+      <div className="flex flex-row divide-x-2 divide-gray-300 border-2 rounded-lg xs:flex-col xs:divide-y-2 xs:divide-x-0 sm:flex-col sm:divide-y-2 sm:divide-x-0">
+        <div className="p-4 w-1/2 sm:w-full xs:w-full">
+          <h2 className="text-lg font-bold mb-4">Total Points: {totalPoints}</h2>
+          <p className="mb-4">You meet the eligibility criteria for the German Opportunity Card.</p>
+          <button className="w-[90px] h-[32px] rounded-full text-[#4dba1a] bg-[#FFDAD6]">Eligible</button>
+        </div>
+
+        <div className="p-4 w-1/2 sm:w-full xs:w-full">
+          <ul className="list-none space-y-4">
+            <li className="flex justify-between xs:flex-row sm:flex-row">
+              <span>Age</span>
+              <span className='font-bold'>1 point</span>
+            </li>
+            <li className="flex justify-between xs:flex-row sm:flex-row">
+              <span>Education</span>
+              <span className='font-bold'>2 points</span>
+            </li>
+            <li className="flex justify-between xs:flex-row sm:flex-row">
+              <span>Work Experience</span>
+              <span className='font-bold'>2 points</span>
+            </li>
+            <li className="flex justify-between xs:flex-row sm:flex-row">
+              <span>Language Proficiency</span>
+              <span className='font-bold'>1 point</span>
+            </li>
+            <li className="flex justify-between xs:flex-row sm:flex-row">
+              <span>Other Factors</span>
+              <span className='font-bold'>1 point</span>
+            </li>
+          </ul>
         </div>
       </div>
-    ) : (
-      <div className="flex flex-col p-6 bg-white h-auto">
+    </div>
+  ) : (
+    <div className="flex flex-col p-6 bg-white h-auto">
       <h1 className="text-xl font-semibold text-red-600 mt-6 mb-4">Unfortunately!</h1>
       <p className="mb-4">
         You do not meet the eligibility criteria for the German Opportunity Card.
@@ -245,53 +327,51 @@ const Questionnaire: React.FC = () => {
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, reiciendis tempore minus magnam, quidem alias aliquid rerum nulla non magni voluptatum fuga odit facilis nihil laborum vel blanditiis enim molestias?
       </p>
     
-      <div className="flex flex-row divide-x-2 divide-gray-300 border-2 rounded-lg sm:flex-col sm:divide-y-2 sm:divide-x-0">
-  <div className="p-4 w-1/2 sm:w-full">
-    <h2 className="text-lg font-bold mb-4">Total Points: 1</h2>
-    <p className="mb-4">You do not meet the eligibility criteria for the German Opportunity Card.</p>
-    <button className="w-[90px] h-[32px] rounded-full text-[#BA1A1A] bg-[#FFDAD6]">Ineligible</button>
-  </div>
+      <div className="flex flex-row divide-x-2 divide-gray-300 border-2 rounded-lg xs:flex-col xs:divide-y-2 xs:divide-x-0 sm:flex-col sm:divide-y-2 sm:divide-x-0">
+        <div className="p-4 w-1/2 sm:w-full xs:w-full">
+          <h2 className="text-lg font-bold mb-4">Total Points: {totalPoints}</h2>
+          <p className="mb-4">You do not meet the eligibility criteria for the German Opportunity Card.</p>
+          <button className="w-[90px] h-[32px] rounded-full text-[#BA1A1A] bg-[#FFDAD6]">Ineligible</button>
+        </div>
 
-  <div className="p-4 w-1/2 sm:w-full">
-    <ul className="list-none space-y-4">
-      <li className="flex justify-between xs:flex-col sm:flex-col">
-        <span>Age</span>
-        <span>1 point</span>
-      </li>
-      <li className="flex justify-between xs:flex-col sm:flex-col">
-        <span>Education</span>
-        <span>3 points</span>
-      </li>
-      <li className="flex justify-between xs:flex-col sm:flex-col">
-        <span>Work Experience</span>
-        <span>4 points</span>
-      </li>
-      <li className="flex justify-between xs:flex-col sm:flex-col">
-        <span>Language Proficiency</span>
-        <span>2 points</span>
-      </li>
-      <li className="flex justify-between xs:flex-col sm:flex-col">
-        <span>Other Factors</span>
-        <span>1 point</span>
-      </li>
-    </ul>
-  </div>
-</div>
+        <div className="p-4 w-1/2 sm:w-full xs:w-full">
+          <ul className="list-none space-y-4">
+            <li className="flex justify-between xs:flex-row sm:flex-row">
+              <span>Age</span>
+              <span className='font-bold'>1 point</span>
+            </li>
+            <li className="flex justify-between xs:flex-row sm:flex-row">
+              <span>Education</span>
+              <span className='font-bold'>3 points</span>
+            </li>
+            <li className="flex justify-between xs:flex-row sm:flex-row">
+              <span>Work Experience</span>
+              <span className='font-bold'>4 points</span>
+            </li>
+            <li className="flex justify-between xs:flex-row sm:flex-row">
+              <span>Language Proficiency</span>
+              <span className='font-bold'>2 points</span>
+            </li>
+            <li className="flex justify-between xs:flex-row sm:flex-row">
+              <span>Other Factors</span>
+              <span className='font-bold'>1 point</span>
+            </li>
+          </ul>
+        </div>
+      </div>
     
-      <div className="mt-16 bottom-8 mb-8 sm:mt-8 xs:mt-4"> 
-        <button className="w-auto h-auto px-6 py-2 rounded-full text-[#000000] bg-[#D4E4F6]"
-        onClick={() => {
-          window.location.href = '../TestPage/';
-        }}
+      <div className="mt-16 bottom-8 mb-8 sm:mt-8 xs:mt-4 "> 
+        <button className="w-auto h-auto px-6 py-2 sm:w-full xs:w-full rounded-full text-[#000000] bg-[#D4E4F6]"
+          onClick={() => {
+            window.location.href = '../TestPage/';
+          }}
         >
           Retake test
         </button>
       </div>
     </div>
-    );
+  );
   
-  
-
     return (
       <div className="flex flex-col">
         {eligibleMessage}

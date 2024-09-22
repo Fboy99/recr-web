@@ -24,15 +24,7 @@ const ImgFeature: React.FC<ImgFeatureProps> = ({
         imageLeft ? "flex-row" : "flex-row-reverse"
       } gap-x-6 gap-y-[48px] items-center justify-center `}
     >
-      <div className="w-full lg:w-1/2 flex-shrink-0 flex justify-center">
-        <Image
-          src={imageSrc}
-          alt={imageAlt}
-          width={496}
-          height={408}
-          className="rounded-[28px] opacity-100"
-        />
-      </div>
+  
       <div className="w-full lg:w-1/2 lg:py-[56px] flex flex-col items-center">
         <h1 className="pt-[12px] text-2xl font-medium text-[#172026] lg:text-[24px] lg:leading-[36px]">
           {title}
@@ -44,6 +36,17 @@ const ImgFeature: React.FC<ImgFeatureProps> = ({
           {text2}
         </p>
       </div>
+
+      <div className="w-full lg:w-1/2 flex-shrink-0 flex justify-center">
+        <Image
+          src={imageSrc}
+          alt={imageAlt}
+          width={496}
+          height={408}
+          className="rounded-[28px] opacity-100 sm:block"
+        />
+      </div>
+      
     </div>
   );
 };

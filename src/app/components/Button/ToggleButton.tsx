@@ -42,8 +42,8 @@ const ToggleButton: React.FC<ToggleButtonProps> = ({
   return (
     <button
       onClick={onClick}
-      className={`px-4 py-2 border ${
-        active ? "bg-[#E3F1FF] text-black" : "bg-transparent text-gray-700"
+      className={`px-4 py-2 border xs:w-1/2 sm:w-1/2 md:w-1/2 text-[13px]  ${
+        active ? "bg-[#DBE2F9] text-black" : "bg-transparent text-gray-700"
       } ${
         isLeft ? "rounded-l-full" : "rounded-r-full"
       }`}
