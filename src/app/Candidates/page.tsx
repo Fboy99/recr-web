@@ -178,29 +178,29 @@ import img5 from "../assets/image5.jpeg";
 const Candidates: React.FC = () => {
   const infoBlocks = [
     {
-      icon: <FaHome size={24} />,
+      icon: <FaHome size={48} />,
       title: 'Lorem ipsum dolor sit amet',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+      description: 'Are you looking urgently for a qualified skilled worker but can’t find one? With the Opportunity Card, this can change quickly as the applicant pool is significantly expanded through the new residence permit for persons from non-EU countries. Lengthy approval procedures are greatly simplified so that applicants can look for meaningful employment from day one.'
     },
     {
-      icon: <FaMoneyBillWave size={24} />,
+      icon: <FaMoneyBillWave size={48} />,
       title: 'Consectetur adipiscing elit',
       description: 'Sed pretium, ligula in aliquam tincidunt, nisl nisl aliquam massa.'
     },
     {
-      icon: <FaCheckCircle size={24} />,
+      icon: <FaCheckCircle size={48} />,
       title: 'Sed pretium, ligula in aliquam',
       description: 'Tincidunt, nisl nisl aliquam massa, eu sollicitudin felis.'
     },
     {
-      icon: <FaBriefcase size={24} />,
+      icon: <FaBriefcase size={48} />,
       title: 'Donec euismod, nisl eget ultricies',
       description: 'Sed pretium, ligula in aliquam tincidunt, nisl nisl aliquam massa.'
     }
   ];
 
   return (
-      <div className="my-16 mx-auto pb-10 sm:px-2 xs:px-2 md:mx-8">
+      <div className="my-16 mx-auto pb-10 sm:px-4 xs:px-8 md:mx-8">
         <div className="max-w-5xl mx-auto py-12">
          <h1 className="text-4xl font-bold text-center my-8">Candidates</h1> 
           <p className="text-center text-lg mb-16">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> 
@@ -261,7 +261,7 @@ const Candidates: React.FC = () => {
           <div className="mx-auto ">
           <h1 className="text-[36px] sm:text-[25px] xs:text-[23px] md:text-[28px] font-semibold text-center text-[#181C20] mb-6 mt-8">Key advantages of the Opportunity Card</h1>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 mt-16 ">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 lg:gap-10 sm:gap-4 xs:gap-2 md:gap-8 mt-16 ">
 
             {infoBlocks.map((block, index) => (
               <InfoBlockWithIcons

@@ -22,10 +22,10 @@ const ImgFeature: React.FC<ImgFeatureProps> = ({
     <div
       className={`flex flex-col lg:${
         imageLeft ? "flex-row" : "flex-row-reverse"
-      } gap-x-6 gap-y-[48px] items-center justify-center `}
+      } gap-x-6  items-center justify-center `}
     >
   
-      <div className="w-full lg:w-1/2 lg:py-[56px] flex flex-col items-center">
+      <div className="w-full lg:w-1/2  flex flex-col items-center">
         <h1 className="pt-[12px] text-2xl font-medium text-[#172026] lg:text-[24px] lg:leading-[36px]">
           {title}
         </h1>

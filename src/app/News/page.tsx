@@ -122,7 +122,7 @@ const News: React.FC = () => {
       <div className=" mx-auto px-6 lg:px-16 max-w-[1080px]">
         <h1 className="mt-16 text-4xl font-bold text-center py-12">News</h1>
         <p className="mb-8 text-center text-black ">Learn all the latest about the opportunity card</p>
-        <div className="w-full mb-8 flex justify-center">
+        {/* <div className="w-full mb-8 flex justify-center">
             <Image
               src={img11}
               alt="About us"
@@ -130,9 +130,9 @@ const News: React.FC = () => {
               height={800}
               className="rounded-[20px]"
             />
-          </div>
+          </div> */}
         
-        <div className="grid sm:grid-cols-1 gap-6 lg:grid-cols-2">
+        <div className="grid sm:grid-cols-1 gap-8 lg:grid-cols-2">
           {newsData.map((newsItem, index) => (
             <NewsCard
               key={index}

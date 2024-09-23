@@ -7,6 +7,7 @@ import Faq from '../components/Faq';
 import AssistForm from '../components/AssistForm';
 // import { Navbar } from '../components/Navbar';
 import img5 from "../assets/image5.jpeg"
+import Questionnaire from '../components/Questioner';
 
 const Employers: React.FC = () => {
   const infoBlocks = [
@@ -63,6 +64,8 @@ const Employers: React.FC = () => {
       
               {/* <Features /> */}
             </div>
+            <div className="mx-auto ">
+          <h1 className="text-[36px] sm:text-[25px] xs:text-[23px] md:text-[28px] font-semibold text-center text-[#181C20] mb-6 mt-8">Key advantages of the Opportunity Card</h1>
 
             <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 mt-20">
               {infoBlocks.map((block, index) => (
@@ -74,6 +77,8 @@ const Employers: React.FC = () => {
                 />
               ))}
             </div>
+            </div>
+
           </div>
         </div>
       </div>
@@ -81,6 +86,8 @@ const Employers: React.FC = () => {
       <div>
       <Faq/>
       <AssistForm/>
+      {/* <Questionnaire/> */}
+
       {/* <Footer/> */}
       </div>
 

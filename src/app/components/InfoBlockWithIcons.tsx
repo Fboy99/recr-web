@@ -1,28 +1,3 @@
-// // components/InfoBlock.tsx
-
-// import React from 'react';
-
-// interface InfoBlockWithIconsProps {
-//   icon: React.ReactNode;
-//   title: string;
-//   description: string;
-// }
-
-// const InfoBlockWithIcons: React.FC<InfoBlockWithIconsProps> = ({ icon, title, description }) => {
-//   return (
-//     <div className="bg-white p-6 rounded-lg shadow-md">
-//       <div className="flex items-center mb-4">
-//         <div className="mr-2">{icon}</div>
-//         <h3 className="text-lg font-semibold">{title}</h3>
-//       </div>
-//       <p className="text-gray-700">{description}</p>
-//     </div>
-//   );
-// };
-
-// export default InfoBlockWithIcons;
-
-// components/InfoBlockWithIcons.tsx
 import React from 'react';
 
 interface InfoBlockWithIconsProps {
@@ -45,3 +20,4 @@ const InfoBlockWithIcons: React.FC<InfoBlockWithIconsProps> = ({ icon, title, de
 };
 
 export default InfoBlockWithIcons;
+
