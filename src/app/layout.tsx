@@ -1,4 +1,3 @@
-// src/app/layout.tsx
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
@@ -20,7 +19,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* Ensure the viewport meta tag is present */}
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
       <body className={`${inter.className} bg-gray-100 h-full`}>
@@ -34,12 +32,14 @@ export default function RootLayout({
             bg-white            
             // border border-gray-200  
           "
+
         >
 
           <Navbar />
           {children}
           
         </div>
+
         {/* <div className='bg-red-300 min-h-40 w-full'>Footer</div> */}
         <Footer/>
 

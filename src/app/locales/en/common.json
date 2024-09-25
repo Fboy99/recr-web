@@ -6,13 +6,95 @@
   "news": "News",
   "applicationAssistant": "Application Assistant",
   "testPage": "Test Page",
-  
-  "heroTitle": "Working in ",
-  "heroHighlight": "Germany",
-  "heroDescription": "Use your professional training to immigrate to Germany",
-  "getStarted": "Get started"
 
+  "workingIn": "Working in",
+  "germany": "Germany",
+  "withOpportunityCard": "with the Opportunity Card",
+  "useYourProfessionalTraining": "Use your professional training to immigrate to Germany",
+  "getStarted": "Get started",
+  "opportunityCardTitle": "Opportunity Card Germany",
+  "whatIsOpportunityCard": "What is the opportunity card?",
+  "opportunityCardDescription": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque numquam eos similique debitis mollitia quaerat rem nihil quas? Laboriosam est cumque repellendus eaque illum itaque eos velit reprehenderit consequuntur at.",
+  "workingWithOpportunityCard": "Working with the opportunity card in Germany",
+  "workingDescription": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam incidunt in inventore eaque delectus perspiciatis tempore recusandae, nemo iure ipsum quaerat dicta. Maxime libero temporibus minus cupiditate modi voluptas sapiente!",
+  "prerequisitesTitle": "Prerequisites for the Opportunity Card",
+  "prerequisitesDescription": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Optio asperiores omnis expedita, est natus facilis! Eum, accusamus aspernatur cum dolorum adipisci praesentium, asperiores sint mollitia totam deleniti, quis odio pariatur!",
+
+  "features": {
+    "easyFastLegalEntry": "Easy, fast and legal entry to Germany",
+    "permanentResidence": "Possibility of permanent residence in Germany",
+    "securingLivelihood": "Securing your livelihood with a good income",
+    "immediateWorkPermit": "Immediate work permit after successful application"
+  },
   
+  "advantages": {
+    "title": "Advantages of the Opportunity Card",
+    "candidateAlt": "feature 1 image",
+    "candidateTitle": "The Opportunity Card for candidates",
+    "candidateDescription": "You come from a non-EU country and would like to work in Germany? Take advantage of the Opportunity Card Germany...",
+    "candidateSubtitle": "The advantages of The Opportunity Card at a glance",
+    "candidateList": [
+      "New and easier way to enter Germany",
+      "12-month stay in Germany possible, prospect of permanent residence permit",
+      "More than 1000 euros income per month possible",
+      "Work permit for employment up to 20 hours per week",
+      "Chance to find a qualified part-time/full-time job"
+    ],
+    "employerAlt": "feature 2 image",
+    "employerTitle": "The Opportunity Card for employers",
+    "employerDescription": "Have you been looking for qualified support for a long time and would like to take on a foreign skilled worker in your company?...",
+    "employerSubtitle": "The advantages of The Opportunity Card at a glance",
+    "employerList": [
+      "New, larger applicant pool through qualified foreign professionals",
+      "New legal framework to simplify entry into Germany",
+      "No approval procedure necessary by the Federal Employment Agency",
+      "Simplified approval procedures for fast-track entry to employment",
+      "Conclusion of contracts for simple jobs"
+    ],
+    "learnMore": "Learn More"
+  },
+
+
+
+    "pointsDistributionTitle": "Points distribution for the Opportunity Card at a glance",
+    "pointsDescriptions": [
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Very few applicants meet these criteria.",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Alternatively, you receive three points for good German language skills at level B2.",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. German language skills at level B1 are also awarded two points.",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Previous stays as a tourist do not count.",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. If you apply for the Opportunity Card together with your spouse."
+    ]
+
+    ,"Frequently Asked Questions": "Frequently Asked Questions",
+    "Candidates": "Candidates",
+    "Employers": "Employers",
+    "View More": "View More",
+    "Show Less": "Show Less",
+    "What is the Opportunity Card?": "What is the Opportunity Card?",
+    "Working with the Opportunity Card in Germany": "Working with the Opportunity Card in Germany",
+    "Prerequisites for the Opportunity Card": "Prerequisites for the Opportunity Card"
+  ,"jobSubscription": {
+    "title": "Opportunity Card Jobs",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse magnam laborum optio adipisci sint consequatur pariatur, odio beatae et minus voluptates dolores quia. Aliquid vel optio quas fugiat ab quos.",
+    "firstNamePlaceholder": "First name",
+    "lastNamePlaceholder": "Last name",
+    "emailPlaceholder": "Email address",
+    "subscribeButton": "Subscribe now",
+    "candidates": "Candidates",
+    "employers": "Employers"
+  },
+  
+    "assistForm": {
+      "title": "Application Assistant",
+      "description": "The best place to start your application at the German Chancenkarte"
+    }
+  ,  "footer": {
+    "copyright": "©2024 Lorem ipsum. All rights reserved.",
+    "privacyPolicy": "Privacy Policy",
+    "siteNotice": "Site Notice"
+  }
+  
+    
 }
 
   

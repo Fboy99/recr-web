@@ -3,6 +3,94 @@
     "employers": "Employeurs",
     "about_us": "À propos de nous",
     "news": "Actualités",
-    "application_assistant": "Assistant de candidature"
+    "applicationAssistant": "Assistant de candidature",
+    
+    "workingIn": "Travailler en",
+    "germany": "Allemagne",
+    "withOpportunityCard": "avec la carte d'opportunité",
+    "useYourProfessionalTraining": "Utilisez votre formation professionnelle pour immigrer en Allemagne",
+    "getStarted": "Commencer",
+
+    
+      "opportunityCardTitle": "Carte des Opportunités en Allemagne",
+      "whatIsOpportunityCard": "Qu'est-ce que la Carte des Opportunités ?",
+      "opportunityCardDescription": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque numquam eos similique debitis mollitia quaerat rem nihil quas ? Laboriosam est cumque repellendus eaque illum itaque eos velit reprehenderit consequuntur at.",
+      "workingWithOpportunityCard": "Travailler avec la Carte des Opportunités en Allemagne",
+      "workingDescription": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam incidunt in inventore eaque delectus perspiciatis tempore recusandae, nemo iure ipsum quaerat dicta. Maxime libero temporibus minus cupiditate modi voluptas sapiente !",
+      "prerequisitesTitle": "Conditions préalables à la Carte des Opportunités",
+      "prerequisitesDescription": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Optio asperiores omnis expedita, est natus facilis ! Eum, accusamus aspernatur cum dolorum adipisci praesentium, asperiores sint mollitia totam deleniti, quis odio pariatur !"
+  
+      ,"features": {
+        "easyFastLegalEntry": "Entrée facile, rapide et légale en Allemagne",
+        "permanentResidence": "Possibilité de résidence permanente en Allemagne",
+        "securingLivelihood": "Assurer votre subsistance avec un bon revenu",
+        "immediateWorkPermit": "Permis de travail immédiat après une demande réussie"
+      }
+,    
+          "advantages": {
+          "title": "Avantages de la Carte d'Opportunité",
+          "candidateAlt": "Image de la fonctionnalité 1",
+          "candidateTitle": "La Carte d'Opportunité pour les candidats",
+          "candidateDescription": "Vous venez d'un pays hors UE et souhaitez travailler en Allemagne ? Profitez de la Carte d'Opportunité Allemagne...",
+          "candidateSubtitle": "Les avantages de la Carte d'Opportunité en un coup d'œil",
+          "candidateList": [
+            "Nouvelle et plus facile manière d'entrer en Allemagne",
+            "Séjour de 12 mois en Allemagne possible, avec la perspective d'un permis de séjour permanent",
+            "Plus de 1000 euros de revenus par mois possible",
+            "Permis de travail pour un emploi jusqu'à 20 heures par semaine",
+            "Possibilité de trouver un emploi à temps partiel/plein qualifié"
+          ],
+          "employerAlt": "Image de la fonctionnalité 2",
+          "employerTitle": "La Carte d'Opportunité pour les employeurs",
+          "employerDescription": "Vous cherchez depuis longtemps un soutien qualifié et souhaitez embaucher un travailleur étranger qualifié dans votre entreprise ?...",
+          "employerSubtitle": "Les avantages de la Carte d'Opportunité en un coup d'œil",
+          "employerList": [
+            "Nouveau vivier de candidats grâce aux professionnels étrangers qualifiés",
+            "Nouveau cadre juridique pour simplifier l'entrée en Allemagne",
+            "Aucune procédure d'approbation nécessaire par l'Agence fédérale pour l'emploi",
+            "Procédures d'approbation simplifiées pour une entrée rapide dans l'emploi",
+            "Conclusion de contrats pour des emplois simples"
+          ],
+          "learnMore": "En savoir plus"
+        },
+        "pointsDistributionTitle": "Distribution des points pour la carte de l'opportunité en un coup d'œil",
+  "pointsDescriptions": [
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Très peu de candidats répondent à ces critères.",
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Alternativement, vous recevez trois points pour de bonnes compétences en allemand au niveau B2.",
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Les compétences en allemand au niveau B1 sont également récompensées par deux points.",
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Les séjours précédents en tant que touriste ne comptent pas.",
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Si vous postulez pour la carte de l'opportunité avec votre conjoint."
+  ]
+    
+      
+    ,
+      "Frequently Asked Questions": "Questions Fréquemment Posées",
+      "Candidates": "Candidats",
+      "Employers": "Employeurs",
+      "View More": "Voir Plus",
+      "Show Less": "Montrer Moins",
+      "What is the Opportunity Card?": "Qu'est-ce que la Carte des Opportunités ?",
+      "Working with the Opportunity Card in Germany": "Travailler avec la Carte des Opportunités en Allemagne",
+      "Prerequisites for the Opportunity Card": "Conditions préalables à la Carte des Opportunités"
+    ,"jobSubscription": {
+    "title": "Carte des Opportunités Emplois",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse magnam laborum optio adipisci sint consequatur pariatur, odio beatae et minus voluptates dolores quia. Aliquid vel optio quas fugiat ab quos.",
+    "firstNamePlaceholder": "Prénom",
+    "lastNamePlaceholder": "Nom",
+    "emailPlaceholder": "Adresse e-mail",
+    "subscribeButton": "Abonnez-vous maintenant",
+    "candidates": "Candidats",
+    "employers": "Employeurs"
+  },
+  "assistForm": {
+    "title": "Assistant de Candidature",
+    "description": "Le meilleur endroit pour commencer votre candidature à la Chancenkarte allemande"
+  },
+  "footer": {
+    "copyright": "©2024 Lorem ipsum. Tous droits réservés.",
+    "privacyPolicy": "Politique de Confidentialité",
+    "siteNotice": "Avis de Site"
+  }
+    
   }
   

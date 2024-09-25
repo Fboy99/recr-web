@@ -1,0 +1,18 @@
+[
+    {
+      "icon": "CheckCircleIcon",
+      "titleKey": "features.easyFastLegalEntry"
+    },
+    {
+      "icon": "HomeIcon",
+      "titleKey": "features.permanentResidence"
+    },
+    {
+      "icon": "CurrencyDollarIcon",
+      "titleKey": "features.securingLivelihood"
+    },
+    {
+      "icon": "BriefcaseIcon",
+      "titleKey": "features.immediateWorkPermit"
+    }
+  ]

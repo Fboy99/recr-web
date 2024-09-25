@@ -1,4 +1,5 @@
 import React from 'react';
+import SectionBanner from '../components/SectionBanner';
 
 const PrivacyPolicy: React.FC = () => {
   // Get the current date
@@ -10,9 +11,15 @@ const PrivacyPolicy: React.FC = () => {
   })}`;
 
   return (
-    <div className="container mx-auto py-8 px-20 max-w-[1024px]">
-      <h1 className="text-3xl font-bold mb-4">Privacy Policy</h1>
-      <p className="text-gray-600 mb-8">Last updated on {formattedDate}</p>
+    
+    // <div className="container mx-auto py-8 px-20 max-w-[1024px]">
+    //   <h1 className="text-3xl font-bold mb-4">Privacy Policy</h1>
+    //   <p className="text-gray-600 mb-8">Last updated on {formattedDate}</p>
+    <div className="my-16 mx-auto pb-10 sm:px-4 xs:px-8 md:mx-8">
+        <div className="max-w-5xl mx-auto py-12">
+         <h1 className="text-4xl font-bold text-center my-8">Privacy Policy</h1> 
+          <p className="text-center text-lg mb-16">Last updated on {formattedDate}</p> 
+
       
       <h2 className="text-2xl font-bold mb-4">1. An overview of data protection</h2>
       <h3 className="text-xl font-bold mb-2">General information</h3>
@@ -53,6 +60,7 @@ const PrivacyPolicy: React.FC = () => {
         Suspendisse nec diam turpis. Cras vel massa lectus. Aenean interdum, arcu non vulputate consectetur, nisl ante euismod neque, ac
         vehicula sapien est a libero.
       </p>
+    </div>
     </div>
   );
 };

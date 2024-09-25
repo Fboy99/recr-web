@@ -231,7 +231,7 @@ const Candidates: React.FC = () => {
     </p>
     </div>
     <div className="w-full lg:w-1/2">
-    <FeatureIcon />
+    {/* <FeatureIcon /> */}
     </div>
   
 </div>

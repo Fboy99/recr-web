@@ -1,24 +1,26 @@
 [
   {
-    "headerTitle":"Blocked account header",
+    "headerTitle": "Blocked account header",
     "title": "Blocked account title",
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor, magna vel tincidunt lacinia, nisl nisl aliquam nisl, eget aliquam nisl nisl sit amet nisl.",
-    "imageUrl": "../assets/image9.jpeg",
-    "buttonLabel":"view more"
+    "imageUrl": "img11",
+    "buttonLabel": "view more",
+    "eligible": false
   },
   {
-    "headerTitle":"Chancenkarte Jobs header",
+    "headerTitle": "Chancenkarte Jobs header",
     "title": "Chancenkarte Jobs title",
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor, magna vel tincidunt lacinia, nisl nisl aliquam nisl, eget aliquam nisl nisl sit amet nisl.",
-    "imageUrl": "../assets/image11.jpeg",
-    "buttonLabel":"explore more"
-
+    "imageUrl": "img10",
+    "buttonLabel": "explore more",
+    "eligible": true
   },
   {
-    "headerTitle":"Get mandatory health insurance header",
+    "headerTitle": "Get mandatory health insurance header",
     "title": "Get mandatory health insurance title",
-    "description": "zz Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor, magna vel tincidunt lacinia, nisl nisl aliquam nisl, eget aliquam nisl nisl sit amet nisl.",
-    "imageUrl": "../assets/image8.jpeg",
-    "buttonLabel":"view"
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor, magna vel tincidunt lacinia, nisl nisl aliquam nisl, eget aliquam nisl nisl sit amet nisl.",
+    "imageUrl": "img12",
+    "buttonLabel": "view",
+    "eligible": true
   }
 ]

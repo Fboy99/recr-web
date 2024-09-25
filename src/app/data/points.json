@@ -1,0 +1,23 @@
+[
+    {
+      "points": 4,
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Very few applicants meet these criteria."
+    },
+    {
+      "points": 3,
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Alternatively, you receive three points for good German language skills at level B2."
+    },
+    {
+      "points": 2,
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. German language skills at level B1 are also awarded two points."
+    },
+    {
+      "points": 1,
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Previous stays as a tourist do not count."
+    },
+    {
+      "points": 1,
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. If you apply for the Opportunity Card together with your spouse."
+    }
+  ]
+  

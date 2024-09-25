@@ -1,3 +1,4 @@
+"use client"
 // import { AppAssistant } from "./components/AppAssistant";
 import  Faq  from "./components/Faq";
 import { Features } from "./components/Features";
@@ -8,9 +9,12 @@ import AssistApp from "./components/AssistForm";
 // import ApplicationAssistant from "./components/ApplicationAssistant";
 import { PointsDistribution } from './components/PointsDistribution';
 import JobSubscription from "./components/JobSubscription";
+import { appWithTranslation, useTranslation } from 'next-i18next';
 
 
-export default function Home() {
+
+function Home() {
+  // const { t } = useTranslation('common'); 
   return (
     <>
       <Hero />
@@ -29,3 +33,5 @@ export default function Home() {
     </>
   );
 }
+export default appWithTranslation(Home);
+

@@ -1,15 +1,102 @@
 {
   "home": "Startseite",
-  "candidates": "Kandidaten",
+  "candidates": "Bewerber",
   "employers": "Arbeitgeber",
   "aboutUs": "Über uns",
   "news": "Nachrichten",
   "applicationAssistant": "Anwendungsassistent",
   "testPage": "Testseite",
+  "logo": "Logoipsum",
 
-  "heroTitle": "Arbeiten in ",
-  "heroHighlight": "Deutschland",
-  "heroDescription": "Nutzen Sie Ihre berufliche Ausbildung, um nach Deutschland einzuwandern",
-  "getStarted": "Loslegen"
+  "workingIn": "Arbeiten in",
+  "germany": "Deutschland",
+  "withOpportunityCard": "mit der Chancenkarte",
+  "useYourProfessionalTraining": "Nutzen Sie Ihre berufliche Ausbildung, um nach Deutschland zu immigrieren",
+  "getStarted": "Loslegen",
+
+  "opportunityCardTitle": "Chancenkarte Deutschland",
+  "whatIsOpportunityCard": "Was ist die Chancenkarte?",
+  "opportunityCardDescription": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque numquam eos similique debitis mollitia quaerat rem nihil quas? Laboriosam est cumque repellendus eaque illum itaque eos velit reprehenderit consequuntur at.",
+  "workingWithOpportunityCard": "Arbeiten mit der Chancenkarte in Deutschland",
+  "workingDescription": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam incidunt in inventore eaque delectus perspiciatis tempore recusandae, nemo iure ipsum quaerat dicta. Maxime libero temporibus minus cupiditate modi voluptas sapiente!",
+  "prerequisitesTitle": "Voraussetzungen für die Chancenkarte",
+  "prerequisitesDescription": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Optio asperiores omnis expedita, est natus facilis! Eum, accusamus aspernatur cum dolorum adipisci praesentium, asperiores sint mollitia totam deleniti, quis odio pariatur!",
+
+
+  
+    "features": {
+      "easyFastLegalEntry": "Einfache, schnelle und legale Einreise nach Deutschland",
+      "permanentResidence": "Möglichkeit auf eine dauerhafte Aufenthaltsgenehmigung in Deutschland",
+      "securingLivelihood": "Sicherung des Lebensunterhalts mit einem guten Einkommen",
+      "immediateWorkPermit": "Sofortige Arbeitserlaubnis nach erfolgreicher Bewerbung"
+    }
+,  
+      "advantages": {
+        "title": "Vorteile der Chancenkarte",
+        "candidateAlt": "Bild Feature 1",
+        "candidateTitle": "Die Chancenkarte für Kandidaten",
+        "candidateDescription": "Sie kommen aus einem Nicht-EU-Land und möchten in Deutschland arbeiten? Nutzen Sie die Chancenkarte Deutschland...",
+        "candidateSubtitle": "Die Vorteile der Chancenkarte auf einen Blick",
+        "candidateList": [
+          "Neuer und einfacher Weg, nach Deutschland zu kommen",
+          "12-monatiger Aufenthalt in Deutschland möglich, Aussicht auf dauerhafte Aufenthaltserlaubnis",
+          "Mehr als 1000 Euro Einkommen pro Monat möglich",
+          "Arbeitserlaubnis für bis zu 20 Stunden pro Woche",
+          "Chance, eine qualifizierte Teilzeit-/Vollzeitstelle zu finden"
+        ],
+        "employerAlt": "Bild Feature 2",
+        "employerTitle": "Die Chancenkarte für Arbeitgeber",
+        "employerDescription": "Suchen Sie schon lange nach qualifizierter Unterstützung und möchten einen ausländischen Facharbeiter in Ihr Unternehmen aufnehmen?...",
+        "employerSubtitle": "Die Vorteile der Chancenkarte auf einen Blick",
+        "employerList": [
+          "Neuer, größerer Bewerberpool durch qualifizierte ausländische Fachkräfte",
+          "Neuer rechtlicher Rahmen zur Vereinfachung des Eintritts nach Deutschland",
+          "Keine Genehmigungsverfahren der Bundesagentur für Arbeit erforderlich",
+          "Vereinfachte Genehmigungsverfahren für den schnellen Eintritt in die Beschäftigung",
+          "Abschluss von Verträgen für einfache Jobs"
+        ],
+        "learnMore": "Mehr erfahren"
+      
+    },
+
+
+      "pointsDistributionTitle": "Punktenverteilung für die Chancenkarte auf einen Blick",
+      "pointsDescriptions": [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Very few applicants meet these criteria.",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Alternatively, you receive three points for good German language skills at level B2.",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. German language skills at level B1 are also awarded two points.",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Previous stays as a tourist do not count.",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. If you apply for the Opportunity Card together with your spouse."
+      ]
+
+    
+    ,
+      "Frequently Asked Questions": "Häufig gestellte Fragen",
+      "Candidates": "Bewerber",
+      "Employers": "Arbeitgeber",
+      "View More": "Mehr anzeigen",
+      "Show Less": "Weniger anzeigen",
+      "What is the Opportunity Card?": "Was ist die Chancenkarte?",
+      "Working with the Opportunity Card in Germany": "Arbeiten mit der Chancenkarte in Deutschland",
+      "Prerequisites for the Opportunity Card": "Voraussetzungen für die Chancenkarte"
+    
+      ,"jobSubscription": {
+    "title": "Chancenkarte Jobs",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse magnam laborum optio adipisci sint consequatur pariatur, odio beatae et minus voluptates dolores quia. Aliquid vel optio quas fugiat ab quos.",
+    "firstNamePlaceholder": "Vorname",
+    "lastNamePlaceholder": "Nachname",
+    "emailPlaceholder": "E-Mail-Adresse",
+    "subscribeButton": "Jetzt abonnieren",
+    "candidates": "Kandidaten",
+    "employers": "Arbeitgeber"
+  },
+  "assistForm": {
+    "title": "Bewerbungsassistent",
+    "description": "Der beste Ort, um Ihre Bewerbung bei der deutschen Chancenkarte zu starten"
+  },
+  "footer": {
+    "copyright": "©2024 Lorem ipsum. Alle Rechte vorbehalten.",
+    "privacyPolicy": "Datenschutzbestimmungen",
+    "siteNotice": "Seitenhinweis"
+  }
 }
-
