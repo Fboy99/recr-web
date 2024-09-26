@@ -7,10 +7,10 @@ const AboutUs = () => {
   return (
     <>
     {/* <Navbar /> */}
-    <div className="my-16 bg-white text-black pb-12 sm:px xs:px-2">
+    <div className="my-16 bg-white text-black pb-12 sm:px-4 xs:px-4 md:mx-8 lg:px-16">
 
 
-      <div className=" mx-auto px-6 lg:px-16 py-12 max-w-[1080px] ">
+      <div className=" mx-auto  py-12 max-w-[1080px] ">
         <h1 className="text-4xl font-bold text-center mb-2">About Us</h1>
         <p className="text-center text-black mb-12">Why we care about the opportunity card</p>
 

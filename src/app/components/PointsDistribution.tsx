@@ -56,7 +56,7 @@ export function PointsDistribution() {
 
   return (
     <div className="flex items-center justify-center">
-      <div className="mx-auto px-6">
+      <div className="mx-auto ">
         <h2 className="text-[36px] sm:text-[25px] xs:text-[23px] md:text-[28px] font-semibold text-center text-[#181C20] mb-6 mt-8">
           {t("pointsDistributionTitle")}
         </h2>

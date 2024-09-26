@@ -38,9 +38,9 @@
 
 import Image from 'next/image';
 import React from 'react';
-import img11 from '../assets/image6.jpeg';
-import img12 from '../assets/image6.jpeg';
-import img10 from '../assets/image6.jpeg';
+import img11 from '../assets/Expatrio.svg';
+import img10 from '../assets/Flag_map_of_Germany.svg';
+import img12 from '../assets/Expatrio.svg';
 
 interface RecommendationProps {
   title: string;
@@ -67,7 +67,7 @@ const Recommendation: React.FC<RecommendationProps> = ({ title, description, ima
             alt={title} 
             width={192} // Set appropriate width
             height={192} // Set appropriate height
-            className="rounded-[20px] h-48 object-cover bg-red-900" 
+            className="rounded-[20px] h-48 bg-gray-100 sm:w-full xs:w-full" 
           />
         </div>
         <div className="flex-1">

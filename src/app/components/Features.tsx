@@ -88,7 +88,9 @@ export function Features() {
       {/* Feature Section 1 */}
       <div className="flex flex-col lg:flex-row items-center justify-center gap-4 lg:gap-6 lg:w-[1040px] lg:py-[32px]">
         <div className="lg:w-1/2 flex flex-col sm:px-4 xs:px-3 md:px-8">
-          <h1 className="pt-[12px] text-2xl sm:text-left sm:px-2 xs:text-left xs:px-2 font-medium text-[#172026] lg:text-[24px] lg:leading-[36px]">
+          {/* <h1 className="pt-[12px] text-2xl sm:text-left sm:px-2 xs:text-left xs:px-2 font-medium text-[#172026] lg:text-[24px] lg:leading-[36px]"> */}
+          <h1 className="pt-[12px] text-2xl sm:text-left sm:px xs:text-left xs:px font-medium text-[#172026] lg:text-[24px] lg:leading-[36px]">
+
             {t('whatIsOpportunityCard')}
           </h1>
           <p className="py-[24px] text-[#36485C] lg:text-[18px] px-2">

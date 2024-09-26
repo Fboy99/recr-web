@@ -30,7 +30,6 @@ export default function RootLayout({
             md:gap-6      
             lg:gap-12    
             bg-white            
-            // border border-gray-200  
           "
 
         >
@@ -40,7 +39,6 @@ export default function RootLayout({
           
         </div>
 
-        {/* <div className='bg-red-300 min-h-40 w-full'>Footer</div> */}
         <Footer/>
 
       </body>

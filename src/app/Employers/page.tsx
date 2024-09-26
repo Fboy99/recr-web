@@ -41,9 +41,8 @@ const Employers: React.FC = () => {
 
   return (
 
-    <div className="my-16 bg-white text-black pb-12">
-          {/* <Navbar /> */}
-      <div className=" mx-auto px-6 lg:px-16 py-12 max-w-[1080px]">
+    <div className="my-16 bg-white  text-black pb-12 sm:px-4 xs:px-4 md:mx-8 lg:px-16">
+      <div className=" mx-auto  py-12 max-w-[1080px]">
         <div className="w-full max-w-screen-lg mx-auto">
           <h1 className="text-4xl font-bold text-center mb-2">Employers</h1>
           <p className="text-center text-black mb-12">Why we care about the opportunity card</p>
@@ -84,8 +83,12 @@ const Employers: React.FC = () => {
       </div>
 
       <div>
-      <Faq/>
-      <AssistForm/>
+        <div className='sm:mx-2 xs:mx-2 md:mx-8 '>
+        <Faq/>
+        <AssistForm/>
+        </div>
+      {/* <Faq/>
+      <AssistForm/> */}
       {/* <Questionnaire/> */}
 
       {/* <Footer/> */}

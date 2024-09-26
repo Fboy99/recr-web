@@ -162,6 +162,7 @@
 
 // export default Candidates;
 
+'use client';
 import React from 'react';
 import Image from 'next/image';
 import InfoBlockWithIcons from '../components/InfoBlockWithIcons';
@@ -176,31 +177,38 @@ import img3 from "../assets/image3.jpeg";
 import img5 from "../assets/image5.jpeg";
 
 const Candidates: React.FC = () => {
+  const style = {
+    //  color: "#2D628B",
+    //  border:'#2D628B',
+    //  backgroundColor: "white",
+      // fontSize: "1.5em"
+     };
+
   const infoBlocks = [
     {
-      icon: <FaHome size={48} />,
+      icon: <FaHome size={48} style={style}/>,
       title: 'Lorem ipsum dolor sit amet',
       description: 'Are you looking urgently for a qualified skilled worker but can’t find one? With the Opportunity Card, this can change quickly as the applicant pool is significantly expanded through the new residence permit for persons from non-EU countries. Lengthy approval procedures are greatly simplified so that applicants can look for meaningful employment from day one.'
     },
     {
-      icon: <FaMoneyBillWave size={48} />,
+      icon: <FaMoneyBillWave size={48} style={style}/>,
       title: 'Consectetur adipiscing elit',
       description: 'Sed pretium, ligula in aliquam tincidunt, nisl nisl aliquam massa.'
     },
     {
-      icon: <FaCheckCircle size={48} />,
+      icon: <FaCheckCircle size={48} style={style}/>,
       title: 'Sed pretium, ligula in aliquam',
       description: 'Tincidunt, nisl nisl aliquam massa, eu sollicitudin felis.'
     },
     {
-      icon: <FaBriefcase size={48} />,
+      icon: <FaBriefcase size={48} style={style}/>,
       title: 'Donec euismod, nisl eget ultricies',
       description: 'Sed pretium, ligula in aliquam tincidunt, nisl nisl aliquam massa.'
     }
   ];
 
   return (
-      <div className="my-16 mx-auto pb-10 sm:px-4 xs:px-8 md:mx-8">
+      <div className="my-16 mx-auto pb-10 sm:px-4 xs:px-4 md:mx-8">
         <div className="max-w-5xl mx-auto py-12">
          <h1 className="text-4xl font-bold text-center my-8">Candidates</h1> 
           <p className="text-center text-lg mb-16">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> 
@@ -231,7 +239,7 @@ const Candidates: React.FC = () => {
     </p>
     </div>
     <div className="w-full lg:w-1/2">
-    {/* <FeatureIcon /> */}
+    <FeatureIcon />
     </div>
   
 </div>
