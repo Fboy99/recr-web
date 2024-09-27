@@ -73,8 +73,10 @@
 
 
 import React from 'react';
-import Image, { StaticImageData } from 'next/image';
-import img11 from '../assets/image11.jpeg';
+import { StaticImageData } from 'next/image';
+// import Image from 'next/image';
+
+// import img11 from '../assets/image11.jpeg';
 import img4 from '../assets/image4.jpeg';
 import img7 from '../assets/image7.jpeg';
 import img9 from '../assets/image9.jpeg';

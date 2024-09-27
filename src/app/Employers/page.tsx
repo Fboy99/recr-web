@@ -1,13 +1,11 @@
 import Image from 'next/image';
-// import { Features } from '../components/Features';
 import InfoBlockWithIcons from '../components/InfoBlockWithIcons';
 import { FaHome, FaMoneyBillWave, FaCheckCircle, FaBriefcase } from 'react-icons/fa';
-// import  Footer  from '../components/Footer';
+
 import Faq from '../components/Faq';
 import AssistForm from '../components/AssistForm';
-// import { Navbar } from '../components/Navbar';
+
 import img5 from "../assets/image5.jpeg"
-import Questionnaire from '../components/Questioner';
 
 const Employers: React.FC = () => {
   const infoBlocks = [

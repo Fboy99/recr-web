@@ -5,7 +5,7 @@ import Recommendation from '../components/Recommendation';
 import recommendations from '../data/recommendations.json';
 
 export default function TestPage(){
-  const { t,i18n } = useTranslation('common'); 
+  const { t } = useTranslation('common'); 
 
     return (
    <div className="bg-white w-full max-w-[1440px] h-auto  pt-[96px] pb-0 gap-10 opacity-100  mb-10 mx-auto items-center sm:px-4 xs:px-4 md:mx-8 lg:px-16">

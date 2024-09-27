@@ -117,15 +117,32 @@ const Questionnaire: React.FC = () => {
     }
   };
 
-  const handleAnswerChange = (answer: string, isMultipleSelection = false) => {
+  // const handleAnswerChange = (answer: string, isMultipleSelection = false) => {
+  //   const updatedQuestions = [...questions];
+  
+  //   if (isMultipleSelection) {
+  //     const currentAnswers = updatedQuestions[progress - 1].answer as string[];
+  //     if (currentAnswers.includes(answer)) {
+  //       updatedQuestions[progress - 1].answer = currentAnswers.filter((ans) => ans !== answer);
+  //     } else {
+  //       updatedQuestions[progress - 1].answer = [...currentAnswers, answer];
+  //     }
+  //   } else {
+  //     updatedQuestions[progress - 1].answer = answer;
+  //   }
+  
+  //   setQuestions(updatedQuestions);
+  // };
+  
+  const handleAnswerChange = (answer: string | string[], isMultipleSelection = false) => {
     const updatedQuestions = [...questions];
   
     if (isMultipleSelection) {
       const currentAnswers = updatedQuestions[progress - 1].answer as string[];
-      if (currentAnswers.includes(answer)) {
+      if (currentAnswers.includes(answer as string)) {
         updatedQuestions[progress - 1].answer = currentAnswers.filter((ans) => ans !== answer);
       } else {
-        updatedQuestions[progress - 1].answer = [...currentAnswers, answer];
+        updatedQuestions[progress - 1].answer = [...currentAnswers, answer as string];
       }
     } else {
       updatedQuestions[progress - 1].answer = answer;
@@ -133,7 +150,6 @@ const Questionnaire: React.FC = () => {
   
     setQuestions(updatedQuestions);
   };
-  
 
   const calculatePoints = () => {
     let points = 0;
@@ -398,7 +414,7 @@ const renderResults = () => {
           onChange={(e) => {
             const updatedAnswers = Array.isArray(currentQuestion.answer) ? [...currentQuestion.answer] : []; // Ensure it's an array
             updatedAnswers[idx] = e.target.value; // Update the specific answer
-            handleAnswerChange(updatedAnswers as any); // Use handleAnswerChange to update answers
+            handleAnswerChange(updatedAnswers as string[]); // Use handleAnswerChange to update answers
           }}
           placeholder={`Enter your ${idx === 0 ? 'first name' : 'last name'}`} // Placeholder for first and last name
         />

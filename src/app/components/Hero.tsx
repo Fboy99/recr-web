@@ -29,7 +29,7 @@
 //   );
 // }
 
-import Image from "next/image";
+// import Image from "next/image";
 import { useTranslation } from 'react-i18next';
 import heroImage from "../assets/hero.jpeg";
 import '../../i18n/i18n';

@@ -9,7 +9,7 @@ import AssistApp from "./components/AssistForm";
 // import ApplicationAssistant from "./components/ApplicationAssistant";
 import { PointsDistribution } from './components/PointsDistribution';
 import JobSubscription from "./components/JobSubscription";
-import { appWithTranslation, useTranslation } from 'next-i18next';
+// import { appWithTranslation } from 'next-i18next';
 
 
 
@@ -33,5 +33,6 @@ function Home() {
     </>
   );
 }
-export default appWithTranslation(Home);
+// export default appWithTranslation(Home);
 
+export default Home;

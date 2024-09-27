@@ -1,5 +1,5 @@
 // i18n/next-i18next.config.js
-const path = require('path');
+import path from 'path';
 
 module.exports = {
   i18n: {

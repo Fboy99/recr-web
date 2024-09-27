@@ -1,22 +1,20 @@
 // "use client";
 
-// import { useState,useEffect } from 'react';
-// import Image, { StaticImageData } from "next/image";
+// import { useState, useEffect } from 'react';
+// import Image from "next/image";
 // import Link from 'next/link';
 // import { useTranslation } from 'react-i18next';
 // import Logo from "../assets/Logo.svg";
-// import Menu from "../assets/Menu.svg";
+// import Menu from "../assets/Menu.svg"; 
 // import Icon from "../assets/france.png"; 
 // import Icon2 from "../assets/germany.png"; 
 // import Icon3 from "../assets/england.png"; 
 // import '../../i18n/i18n';
 
-
 // const languages = [
 //   { name: "English", flag: Icon3, code: 'en' },
 //   { name: "French", flag: Icon, code: 'fr' },
 //   { name: "German", flag: Icon2, code: 'de' },
-  
 // ];
 
 // export function Navbar() {
@@ -26,7 +24,17 @@
 //   const [activeLink, setActiveLink] = useState("");
 //   const [selectedLanguage, setSelectedLanguage] = useState(languages[0]);
 
-//   const handleLinkClick = (name: string) => {
+//   // Load saved language from localStorage on component mount
+//   useEffect(() => {
+//     const savedLanguage = localStorage.getItem('language');
+//     if (savedLanguage) {
+//       i18n.changeLanguage(savedLanguage);
+//       const selectedLang = languages.find(lang => lang.code === savedLanguage);
+//       if (selectedLang) setSelectedLanguage(selectedLang);
+//     }
+//   }, [i18n]);
+
+//   const handleLinkClick = (name:string) => {
 //     setActiveLink(name);
 //     setIsMenuOpen(false);
 //   };
@@ -35,12 +43,12 @@
 //     setIsDropdownOpen(!isDropdownOpen);
 //   };
 
-//   const handleLanguageChange = (lang: any) => {
+//   const handleLanguageChange = (lang) => {
 //     setSelectedLanguage(lang);
 //     i18n.changeLanguage(lang.code);  // This changes the language
+//     localStorage.setItem('language', lang.code); // Save selected language
 //     toggleDropdown();
 //     console.log("Current language:", i18n.language);
-
 //   };
 
 //   const navLinks = [
@@ -63,21 +71,27 @@
 //       </div>
 
 //       <div className="hidden lg:flex absolute left-1/2 transform -translate-x-1/2">
-//         <div className="flex gap-x-12">
-//           {navLinks.map((item, index) => (
-//             <Link
-//               href={item.path}
-//               key={index}
-//               className={`text-base font-medium hover:no-underline ${
-//                 activeLink === item.name ? "text-blue-600" : "text-black"
-//               }`}
-//               onClick={() => handleLinkClick(item.name)}
-//             >
-//               {item.name}
-//             </Link>
-//           ))}
+//   <div className="flex gap-x-12 whitespace-nowrap overflow-hidden relative">
+//     {navLinks.map((item, index) => (
+//       <div key={index} className="relative group">
+//         <Link
+//           href={item.path}
+//           className={`text-base font-medium hover:no-underline ${
+//             activeLink === item.name ? "text-blue-600" : "text-black"
+//           }`}
+//           style={{ maxWidth: '150px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}
+//           onClick={() => handleLinkClick(item.name)}
+//         >
+//           {item.name}
+//         </Link>
+//         <div className="absolute left-1/2 transform -translate-x-1/2 w-max bg-gray-700 text-white text-sm rounded p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200" style={{ bottom: '100%', marginBottom: '4px' }}>
+//           {item.name}
 //         </div>
 //       </div>
+//     ))}
+//   </div>
+// </div>
+
 
 //       <div className="flex items-center gap-x-5 ml-auto relative">
 //         <div className="relative">
@@ -126,11 +140,10 @@
 //   );
 // }
 
-
 "use client";
 
 import { useState, useEffect } from 'react';
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
 import Logo from "../assets/Logo.svg";
@@ -140,7 +153,14 @@ import Icon2 from "../assets/germany.png";
 import Icon3 from "../assets/england.png"; 
 import '../../i18n/i18n';
 
-const languages = [
+// Define a type for the language object
+type Language = {
+  name: string;
+  flag: StaticImageData;
+  code: string;
+};
+
+const languages: Language[] = [
   { name: "English", flag: Icon3, code: 'en' },
   { name: "French", flag: Icon, code: 'fr' },
   { name: "German", flag: Icon2, code: 'de' },
@@ -163,7 +183,7 @@ export function Navbar() {
     }
   }, [i18n]);
 
-  const handleLinkClick = (name) => {
+  const handleLinkClick = (name: string) => {
     setActiveLink(name);
     setIsMenuOpen(false);
   };
@@ -172,7 +192,8 @@ export function Navbar() {
     setIsDropdownOpen(!isDropdownOpen);
   };
 
-  const handleLanguageChange = (lang) => {
+  // Explicitly define the parameter type as Language
+  const handleLanguageChange = (lang: Language) => {
     setSelectedLanguage(lang);
     i18n.changeLanguage(lang.code);  // This changes the language
     localStorage.setItem('language', lang.code); // Save selected language
@@ -200,27 +221,26 @@ export function Navbar() {
       </div>
 
       <div className="hidden lg:flex absolute left-1/2 transform -translate-x-1/2">
-  <div className="flex gap-x-12 whitespace-nowrap overflow-hidden relative">
-    {navLinks.map((item, index) => (
-      <div key={index} className="relative group">
-        <Link
-          href={item.path}
-          className={`text-base font-medium hover:no-underline ${
-            activeLink === item.name ? "text-blue-600" : "text-black"
-          }`}
-          style={{ maxWidth: '150px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}
-          onClick={() => handleLinkClick(item.name)}
-        >
-          {item.name}
-        </Link>
-        <div className="absolute left-1/2 transform -translate-x-1/2 w-max bg-gray-700 text-white text-sm rounded p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200" style={{ bottom: '100%', marginBottom: '4px' }}>
-          {item.name}
+        <div className="flex gap-x-12 whitespace-nowrap overflow-hidden relative">
+          {navLinks.map((item, index) => (
+            <div key={index} className="relative group">
+              <Link
+                href={item.path}
+                className={`text-base font-medium hover:no-underline ${
+                  activeLink === item.name ? "text-blue-600" : "text-black"
+                }`}
+                style={{ maxWidth: '150px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}
+                onClick={() => handleLinkClick(item.name)}
+              >
+                {item.name}
+              </Link>
+              <div className="absolute left-1/2 transform -translate-x-1/2 w-max bg-gray-700 text-white text-sm rounded p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200" style={{ bottom: '100%', marginBottom: '4px' }}>
+                {item.name}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
-    ))}
-  </div>
-</div>
-
 
       <div className="flex items-center gap-x-5 ml-auto relative">
         <div className="relative">

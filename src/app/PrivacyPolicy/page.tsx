@@ -1,5 +1,5 @@
 import React from 'react';
-import SectionBanner from '../components/SectionBanner';
+// import SectionBanner from '../components/SectionBanner';
 
 const PrivacyPolicy: React.FC = () => {
   // Get the current date

@@ -114,9 +114,9 @@ export function Advantages() {
   const { t } = useTranslation('common');
 
   // Retrieve candidate and employer lists
-  const candidateList = t("advantages.candidateList", { returnObjects: true }) || [];
-  const employerList = t("advantages.employerList", { returnObjects: true }) || [];
-
+  const candidateList = t("advantages.candidateList", { returnObjects: true }) as string[] || [];
+  const employerList = t("advantages.employerList", { returnObjects: true }) as string[] || [];
+  
   // Debugging logs
   console.log("Candidate List:", candidateList);
   console.log("Employer List:", employerList);
