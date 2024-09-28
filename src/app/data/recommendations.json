@@ -3,7 +3,7 @@
     "headerTitle": "Blocked account header",
     "title": "Blocked account title",
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor, magna vel tincidunt lacinia, nisl nisl aliquam nisl, eget aliquam nisl nisl sit amet nisl.",
-    "imageUrl": "/images/Expatrio.svg",
+    "imageKey": "expatrio1",
     "buttonLabel": "view more",
     "eligible": false
   },
@@ -11,7 +11,7 @@
     "headerTitle": "Chancenkarte Jobs header",
     "title": "Chancenkarte Jobs title",
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor, magna vel tincidunt lacinia, nisl nisl aliquam nisl, eget aliquam nisl nisl sit amet nisl.",
-    "imageUrl": "/images/Flag_map_of_Germany.svg",
+    "imageKey": "gerFlag",
     "buttonLabel": "explore more",
     "eligible": true
   },
@@ -19,7 +19,7 @@
     "headerTitle": "Get mandatory health insurance header",
     "title": "Get mandatory health insurance title",
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor, magna vel tincidunt lacinia, nisl nisl aliquam nisl, eget aliquam nisl nisl sit amet nisl.",
-    "imageUrl": "/images/Expatrio.svg",
+    "imageKey": "expatrio2",
     "buttonLabel": "view",
     "eligible": true
   }

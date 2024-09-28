@@ -23,7 +23,7 @@ const AssistantApp: React.FC = () => {
               <Recommendation
                 title={recommendation.title}
                 description={recommendation.description}
-                imageUrl={recommendation.imageUrl}
+                imageUrl={recommendation.imageKey}
                 buttonLabel={recommendation.buttonLabel} headerTitle={recommendation.headerTitle}              />
             </div>
           ))}

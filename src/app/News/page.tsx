@@ -190,26 +190,80 @@
 
 
 
+// 'use client';
+// import React from 'react';
+// import NewsCard from '../components/NewsCard';
+// import newsData from '../data/newsData.json'; // Adjust the import path as needed
+// import { useTranslation } from 'react-i18next';
+
+// const News: React.FC = () => {
+//   const {t}=useTranslation('common');
+//   return (
+//     <div className="mx-auto max-w-[1080px] sm:px-4 xs:px-4 md:mx-8 lg:px-16">
+//       <h1 className="mt-16 text-4xl font-bold text-center py-12">{t('news.title')}</h1>
+//       <p className="mb-8 text-center text-black">{t('news.latest_opportunity')}</p>
+
+//       <div className="grid sm:grid-cols-1 gap-8 lg:grid-cols-2">
+//         {newsData.map((newsItem, index) => (
+//           <NewsCard
+//             key={index}
+//             itemKey={`newsCard.item${index + 1}`}
+//             date={newsItem.date}
+//             imageUrl={newsItem.imageUrl}
+//           />
+//         ))}
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default News;
+
 'use client';
 import React from 'react';
 import NewsCard from '../components/NewsCard';
-import newsData from '../data/newsData.json'; // Adjust the import path as needed
+import newsDataRaw from '../data/newsData.json'; // Adjust the import path as needed
 import { useTranslation } from 'react-i18next';
 
+import img4 from "../../images/image4.jpeg";
+import img7 from "../../images/image7.jpeg";
+import img9 from "../../images/image9.jpeg";
+import img10 from "../../images/image10.jpeg";
+
+const imageMap = {
+  image4: img4,
+  image7: img7,
+  image9: img9,
+  image10: img10,
+
+};
+// Define the types
+type NewsItem = {
+  title: string;
+  date: string;
+  description: string;
+  imageKey: keyof typeof imageMap; // Use the keys of imageMap
+};
+
+type NewsData = NewsItem[];
+
+const newsData: NewsData = newsDataRaw as NewsData; // Type assertion
+
 const News: React.FC = () => {
-  const {t}=useTranslation('common');
+  const { t } = useTranslation('common');
+
   return (
     <div className="mx-auto max-w-[1080px] sm:px-4 xs:px-4 md:mx-8 lg:px-16">
       <h1 className="mt-16 text-4xl font-bold text-center py-12">{t('news.title')}</h1>
       <p className="mb-8 text-center text-black">{t('news.latest_opportunity')}</p>
 
       <div className="grid sm:grid-cols-1 gap-8 lg:grid-cols-2">
-        {newsData.map((newsItem, index) => (
+        {newsData.map((newsItem: NewsItem, index: number) => (
           <NewsCard
             key={index}
             itemKey={`newsCard.item${index + 1}`}
             date={newsItem.date}
-            imageUrl={newsItem.imageUrl}
+            imageUrl={imageMap[newsItem.imageKey]} // Use the key to get the image
           />
         ))}
       </div>
