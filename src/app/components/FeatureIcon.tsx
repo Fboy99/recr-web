@@ -47,7 +47,7 @@ const FeatureIcon = () => {
   const { t } = useTranslation('common');
 
   return (
-    <div className="bg-white p-6 m-2 sm:mx-4 rounded-[20px] shadow-lg">
+    <div className="bg-white p-6 my-2 rounded-[20px] lg:max-w-[520px] shadow-lg">
       {featuresData.map((feature, index) => {
         // Ensure that feature.icon is of type IconName
         const IconComponent = iconMapping[feature.icon as IconName];

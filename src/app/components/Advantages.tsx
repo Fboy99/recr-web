@@ -1,9 +1,9 @@
 // import Image from "next/image";
-// import Check from "../assets//check.svg";
+// import Check from "../../images//check.svg";
 // import Button from "./Button/Button";
 // import SectionBanner from "./SectionBanner";
-// import img1 from "../assets/image1.jpeg"
-// import img8 from "../assets/image8.jpeg"
+// import img1 from "../../images/image1.jpeg"
+// import img8 from "../../images/image8.jpeg"
 
 // export function Advantages() {
 //   return (
@@ -103,11 +103,11 @@
 // }
 
 import Image from "next/image";
-import Check from "../assets/check.svg";
+import Check from "../../images/check.svg";
 import Button from "./Button/Button";
 import SectionBanner from "./SectionBanner";
-import img1 from "../assets/image1.jpeg";
-import img8 from "../assets/image8.jpeg";
+import img1 from "../../images/image1.jpeg";
+import img8 from "../../images/image8.jpeg";
 import { useTranslation } from 'next-i18next';
 
 export function Advantages() {

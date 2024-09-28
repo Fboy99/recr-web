@@ -4,11 +4,11 @@
 // import Image from "next/image";
 // import Link from 'next/link';
 // import { useTranslation } from 'react-i18next';
-// import Logo from "../assets/Logo.svg";
-// import Menu from "../assets/Menu.svg"; 
-// import Icon from "../assets/france.png"; 
-// import Icon2 from "../assets/germany.png"; 
-// import Icon3 from "../assets/england.png"; 
+// import Logo from "../../images/Logo.svg";
+// import Menu from "../../images/Menu.svg"; 
+// import Icon from "../../images/france.png"; 
+// import Icon2 from "../../images/germany.png"; 
+// import Icon3 from "../../images/england.png"; 
 // import '../../i18n/i18n';
 
 // const languages = [
@@ -146,11 +146,11 @@ import { useState, useEffect } from 'react';
 import Image, { StaticImageData } from "next/image";
 import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
-import Logo from "../assets/Logo.svg";
-import Menu from "../assets/Menu.svg"; 
-import Icon from "../assets/france.png"; 
-import Icon2 from "../assets/germany.png"; 
-import Icon3 from "../assets/england.png"; 
+import Logo from "../../images/Logo.svg";
+import Menu from "../../images/Menu.svg"; 
+import Icon from "../../images/france.png"; 
+import Icon2 from "../../images/germany.png"; 
+import Icon3 from "../../images/england.png"; 
 import '../../i18n/i18n';
 
 // Define a type for the language object
@@ -203,11 +203,11 @@ export function Navbar() {
 
   const navLinks = [
     { name: t('home'), path: "/" },
-    { name: t('candidates'), path: "/Candidates" },
-    { name: t('employers'), path: "/Employers" },
-    { name: t('aboutUs'), path: "/About-Us" },
-    { name: t('news'), path: "/News" },
-    { name: t('applicationAssistant'), path: "/Application-Assistant" },
+    { name: t('candidates.title'), path: "/Candidates" },
+    { name: t('employers.title'), path: "/Employers" },
+    { name: t('about_us.title'), path: "/About-Us" },
+    { name: t('news.title'), path: "/News" },
+    { name: t('applicationAssistant.title'), path: "/Application-Assistant" },
     { name: t('testPage'), path: "/TestPage" },
   ];
 

@@ -3,7 +3,7 @@
 // import React, { useState } from "react";
 // import Image from "next/image";
 // import ToggleButton from "./Button/ToggleButton";
-// import img9 from "../assets/image9.jpeg";
+// import img9 from "../../images/image9.jpeg";
 
 // const JobSubscription = () => {
 //   const [selectedTab, setSelectedTab] = useState("Candidates");
@@ -78,7 +78,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import ToggleButton from "./Button/ToggleButton";
-import img9 from "../assets/image9.jpeg";
+import img9 from "../../images/image9.jpeg";
 import { useTranslation } from "react-i18next";
 
 const JobSubscription = () => {

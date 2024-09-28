@@ -1,10 +1,4 @@
-{
-    "candidates": "Candidats",
-    "employers": "Employeurs",
-    "about_us": "À propos de nous",
-    "news": "Actualités",
-    "applicationAssistant": "Assistant de candidature",
-    
+{    
     "workingIn": "Travailler en",
     "germany": "Allemagne",
     "withOpportunityCard": "avec la carte d'opportunité",
@@ -90,7 +84,56 @@
     "copyright": "©2024 Lorem ipsum. Tous droits réservés.",
     "privacyPolicy": "Politique de Confidentialité",
     "siteNotice": "Avis de Site"
+  },
+
+  "homeTitle": "Accueil",
+  "homeDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
+  "financeTitle": "Finance",
+  "financeDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
+  "checkTitle": "Vérifier",
+  "checkDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
+  "jobTitle": "Emploi",
+  "jobDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
+
+
+  "employers": {
+      "title": "Employeurs",
+    "opportunity_card": "Pourquoi nous tenons à la carte d'opportunité",
+    "key_advantages": "Avantages clés de la carte d'opportunité"},
+
+      "about_us": {
+      "title": "À propos de nous",
+      "description": "Pourquoi nous tenons à la carte d'opportunité",
+      "mission": "Notre mission",
+      "skilled_workers": "Pénurie de travailleurs qualifiés en Allemagne"
+    },
+    "news": {
+      "title": "Nouvelles",
+      "latest_opportunity": "Découvrez toutes les dernières informations sur la carte d'opportunité"
+    },
+
+    "newsCard": {
+    "learnMore": "En savoir plus",
+    "item1": {
+      "title": "Déclaration d'engagement pour la Chancenkarte",
+      "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus modi perferendis quos aperiam quae sint ducimus veritatis! Qui nobis, iure excepturi quam ut alias sit, sint delectus aut, quisquam quod."
+    },
+    "item2": {
+      "title": "Comment rédiger une lettre de motivation gagnante pour votre demande de Chancenkarte",
+      "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus modi perferendis quos aperiam quae sint ducimus veritatis! Qui nobis, iure excepturi quam ut alias sit, sint delectus aut, quisquam quod."
+    },
+    "item3": {
+      "title": "Comment sécuriser votre compte bloqué allemand pour votre visa allemand",
+      "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus modi perferendis quos aperiam quae sint ducimus veritatis! Qui nobis, iure excepturi quam ut alias sit, sint delectus aut, quisquam quod."
+    },
+    "item4": {
+      "title": "Comment demander une extension de carte d'opportunité",
+      "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus modi perferendis quos aperiam quae sint ducimus veritatis! Qui nobis, iure excepturi quam ut alias sit, sint delectus aut, quisquam quod. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eum reiciendis repudiandae esse voluptatibus explicabo totam, vero excepturi ipsam optio rerum ipsa maiores voluptates? Nulla animi tenetur sint illum minus eius!"
+    }
+  },
+  "applicationAssistant":{
+    "title":"Assistant de Candidature",
+    "subtitle":"Le meilleur endroit pour commencer votre candidature pour la carte de chance allemande"
   }
-    
   }
   

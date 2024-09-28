@@ -1,0 +1,29 @@
+{
+    "infoBlocks": [
+      {
+        "icon": "FaHome",
+        "title": "Lorem ipsum dolor sit amet",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pretium, ligula in aliquam tincidunt, nisl nisl aliquam massa, eu sollicitudin felis nisl eget velit. Donec euismod, nisl eget ultricies tincidunt, nisl nisl aliquam massa, nisl nisl aliquam massa."
+      },
+      {
+        "icon": "FaMoneyBillWave",
+        "title": "Consectetur adipiscing elit",
+        "description": "Sed pretium, ligula in aliquam tincidunt, nisl nisl aliquam massa, eu sollicitudin felis nisl eget velit. Donec euismod, nisl eget ultricies tincidunt, nisl nisl aliquam massa, nisl nisl aliquam massa."
+      },
+      {
+        "icon": "FaCheckCircle",
+        "title": "Sed pretium, ligula in aliquam",
+        "description": "Tincidunt, nisl nisl aliquam massa, eu sollicitudin felis nisl eget velit. Donec euismod, nisl eget ultricies tincidunt, nisl nisl aliquam massa, nisl nisl aliquam massa."
+      },
+      {
+        "icon": "FaBriefcase",
+        "title": "Donec euismod, nisl eget ultricies",
+        "description": "Tincidunt, nisl nisl aliquam massa, nisl nisl aliquam massa. Sed pretium, ligula in aliquam tincidunt, nisl nisl aliquam massa, eu sollicitudin felis nisl eget velit."
+      },
+      {
+        "icon": "FaBriefcase",
+        "title": "Donec euismod, nisl eget ultricies",
+        "description": "Tincidunt, nisl nisl aliquam massa, nisl nisl aliquam massa. Sed pretium, ligula in aliquam tincidunt, nisl nisl aliquam massa, eu sollicitudin felis nisl eget velit."
+      }
+    ]
+  }

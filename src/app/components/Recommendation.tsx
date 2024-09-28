@@ -1,8 +1,8 @@
 // import Image from 'next/image';
 // import React from 'react';
-// import img11 from '../assets/Expatrio.svg';
-// import img10 from '../assets/Flag_map_of_Germany.svg';
-// import img12 from '../assets/Expatrio.svg';
+// import img11 from '../../images/Expatrio.svg';
+// import img10 from '../../images/Flag_map_of_Germany.svg';
+// import img12 from '../../images/Expatrio.svg';
 
 // interface RecommendationProps {
 //   title: string;
@@ -51,9 +51,9 @@
 
 import Image from 'next/image';
 import React from 'react';
-// import img11 from '../assets/Expatrio.svg';
-// import img10 from '../assets/Flag_map_of_Germany.svg';
-// import img12 from '../assets/Expatrio.svg';
+// import img11 from '../../images/Expatrio.svg';
+// import img10 from '../../images/Flag_map_of_Germany.svg';
+// import img12 from '../../images/Expatrio.svg';
 import { StaticImageData } from 'next/image';
 
 

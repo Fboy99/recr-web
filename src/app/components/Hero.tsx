@@ -1,5 +1,5 @@
 // import Image from "next/image";
-// import heroImage from "../assets/hero.jpeg";
+// import heroImage from "../../images/hero.jpeg";
 
 // export function Hero() {
 //   return (
@@ -30,8 +30,9 @@
 // }
 
 // import Image from "next/image";
+
 import { useTranslation } from 'react-i18next';
-import heroImage from "../assets/hero.jpeg";
+import heroImage from "../../images/hero.jpeg";
 import '../../i18n/i18n';
 
 export function Hero() {
@@ -39,17 +40,17 @@ export function Hero() {
 
   return (
     <div
-      className="top-0 bg-cover bg-center flex flex-col"
+      className="top-0 bg-cover bg-center flex flex-col relative"
       style={{ backgroundImage: `url(${heroImage.src})`, width: '100%' }}
     >
-      <div className="flex flex-col items-center justify-center text-center w-full h-[538px] sm:h-[500px] sm:px-12 md:h-[600px] md:px-16 lg:h-[900px] px-4 lg:px-20">
-        <h1 className="lg:text-[45px] lg:leading-[52px] font-bold text-center">
+      <div className="flex flex-col items-center justify-center text-center w-full h-[538px] sm:h-[500px] sm:px-12 md:h-[600px] md:px-16 lg:h-[900px] px-4 lg:px-20 relative">
+        <h1 className="lg:text-[45px] lg:leading-[52px] font-bold text-center absolute top-[20%]">
           {t('workingIn')} <span className="bg-gradient-to-r from-[#000000] via-[#DD0000] to-[#FFCE00] bg-clip-text text-transparent gap-[4px]">{t('germany')}</span> {t('withOpportunityCard')}
         </h1>
-        <p className="text-[#000000] lg:text-[22px] lg:leading-[28px] font-normal text-center pt-6">
+        <p className="text-[#000000] lg:text-[22px] lg:leading-[28px] font-normal text-center absolute top-[30%]">
           {t('useYourProfessionalTraining')}
         </p>
-        <div className="flex w-full pt-8 justify-center gap-x-3">
+        <div className="flex w-full pt-8 justify-center gap-x-3 absolute top-[40%]">
           <button className="bg-gradient-to-b from-[#000000] via-[#DD0000] to-[#FFCE00] text-white px-8 py-2 rounded-full flex items-center justify-center gap-x-2 text-[14px] font-medium leading-[20px] tracking-[0.1px] shadow-md">
             {t('getStarted')}
             <span>

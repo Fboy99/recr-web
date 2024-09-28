@@ -1,10 +1,6 @@
 {
   "home": "Home",
-  "candidates": "Candidates",
-  "employers": "Employers",
   "aboutUs": "About Us",
-  "news": "News",
-  "applicationAssistant": "Application Assistant",
   "testPage": "Test Page",
 
   "workingIn": "Working in",
@@ -92,6 +88,78 @@
     "copyright": "©2024 Lorem ipsum. All rights reserved.",
     "privacyPolicy": "Privacy Policy",
     "siteNotice": "Site Notice"
+  },
+
+  "homeTitle": "Home",
+  "homeDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
+  "financeTitle": "Finance",
+  "financeDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
+  "checkTitle": "Check",
+  "checkDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
+  "jobTitle": "Job",
+  "jobDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
+
+  "candidates": {
+    "title": "Candidates",
+    "subtitle": "Explore opportunities and grow your career with us",
+    "aboutUsAlt": "About us",
+    "advantagesTitle": "Advantages for Candidates",
+    "advantagesDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
+    "workingTitle": "Working with the opportunity card in Germany",
+    "feature3Alt": "Feature 3 image",
+    "workingText1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
+    "workingText2": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
+    "requirementsTitle": "You must meet these basic requirements",
+    "feature4Alt": "Feature 4 image",
+    "requirementsText1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
+    "requirementsText2": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
+    "keyAdvantagesTitle": "Key advantages of the Opportunity Card",
+    "conclusionTitle": "Conclusion",
+    "conclusionText1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
+    "conclusionText2": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
+    "conclusionText3": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam"
+  },
+
+
+   "employers": {
+    "title": "Employers",
+  "opportunity_card": "Why we care about the opportunity card",
+  "key_advantages": "Key advantages of the Opportunity Card"},
+
+  "about_us": {
+    "title": "About Us",
+    "description": "Why we care about the opportunity card",
+    "mission": "Our mission",
+    "skilled_workers": "Shortage of skilled workers in Germany"
+  },
+
+  "news": {
+    "title": "News",
+    "latest_opportunity": "Learn all the latest about the opportunity card"
+  },
+
+ "newsCard": {
+    "learnMore": "Learn More",
+    "item1": {
+      "title": "Declaration of commitment for the Chancenkarte",
+      "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus modi perferendis quos aperiam quae sint ducimus veritatis! Qui nobis, iure excepturi quam ut alias sit, sint delectus aut, quisquam quod."
+    },
+    "item2": {
+      "title": "How to Write a Winning Motivational Letter for Your Chancenkarte Application",
+      "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus modi perferendis quos aperiam quae sint ducimus veritatis! Qui nobis, iure excepturi quam ut alias sit, sint delectus aut, quisquam quod."
+    },
+    "item3": {
+      "title": "How to secure your German Blocked Account for your German visa",
+      "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus modi perferendis quos aperiam quae sint ducimus veritatis! Qui nobis, iure excepturi quam ut alias sit, sint delectus aut, quisquam quod."
+    },
+    "item4": {
+      "title": "How to apply for an Opportunity Card Extension",
+      "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus modi perferendis quos aperiam quae sint ducimus veritatis! Qui nobis, iure excepturi quam ut alias sit, sint delectus aut, quisquam quod. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eum reiciendis repudiandae esse voluptatibus explicabo totam, vero excepturi ipsam optio rerum ipsa maiores voluptates? Nulla animi tenetur sint illum minus eius!"
+    }
+  },
+  "applicationAssistant":{
+    "title":"Application Assistant",
+    "subtitle":"The best place to start your application at the German Chancenkarte"
   }
   
     

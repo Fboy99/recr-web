@@ -1,10 +1,6 @@
 {
   "home": "Startseite",
-  "candidates": "Bewerber",
-  "employers": "Arbeitgeber",
   "aboutUs": "Über uns",
-  "news": "Nachrichten",
-  "applicationAssistant": "Anwendungsassistent",
   "testPage": "Testseite",
   "logo": "Logoipsum",
 
@@ -98,5 +94,80 @@
     "copyright": "©2024 Lorem ipsum. Alle Rechte vorbehalten.",
     "privacyPolicy": "Datenschutzbestimmungen",
     "siteNotice": "Seitenhinweis"
+  },
+
+  "homeTitle": "Startseite",
+  "homeDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
+  "financeTitle": "Finanzen",
+  "financeDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
+  "checkTitle": "Überprüfen",
+  "checkDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
+  "jobTitle": "Job",
+  "jobDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
+
+
+  "candidates": {
+    "title": "Kandidaten",
+    "subtitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+    "aboutUsAlt": "Über uns",
+    "advantagesTitle": "Vorteile für Kandidaten",
+    "advantagesDescription": "Lorem ipsum dolor sit amet consectetur adipisicing elit...",
+    "workingTitle": "Arbeiten mit der Gelegenheitkarte in Deutschland",
+    "feature3Alt": "Bild der Funktion 3",
+    "workingText1": "Lorem ipsum dolor sit amet...",
+    "workingText2": "Lorem ipsum dolor sit amet...",
+    "requirementsTitle": "Sie müssen diese grundlegenden Anforderungen erfüllen",
+    "feature4Alt": "Bild der Funktion 4",
+    "requirementsText1": "Lorem ipsum dolor sit amet...",
+    "requirementsText2": "Lorem ipsum dolor sit amet...",
+    "keyAdvantagesTitle": "Hauptvorteile der Gelegenheitkarte",
+    "conclusionTitle": "Fazit",
+    "conclusionText1": "Lorem ipsum dolor sit amet...",
+    "conclusionText2": "Lorem ipsum dolor sit amet...",
+    "conclusionText3": "Lorem ipsum dolor sit amet..."
+  },
+
+    "employers": {
+        "title": "Arbeitgeber",
+      "opportunity_card": "Warum uns die Gelegenheitkarte wichtig ist",
+      "key_advantages": "Schlüsselvorteile der Gelegenheitkarte"
+    },
+    "about_us": {
+    "title": "Über uns",
+    "description": "Warum uns die Gelegenheitkarte wichtig ist",
+    "mission": "Unsere Mission",
+    "skilled_workers": "Fachkräftemangel in Deutschland"
+  },
+  "news": {
+    "title": "Nachrichten",
+    "latest_opportunity": "Erfahren Sie alles über die neuesten Informationen zur Chancenkarte"
+  },
+
+  "newsCard": {
+    "learnMore": "Mehr erfahren",
+    "item1": {
+      "title": "Verpflichtungserklärung für die Chancenkarte",
+      "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus modi perferendis quos aperiam quae sint ducimus veritatis! Qui nobis, iure excepturi quam ut alias sit, sint delectus aut, quisquam quod."
+    },
+    "item2": {
+      "title": "So schreiben Sie ein überzeugendes Motivationsschreiben für Ihre Chancenkarte-Antrag",
+      "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus modi perferendis quos aperiam quae sint ducimus veritatis! Qui nobis, iure excepturi quam ut alias sit, sint delectus aut, quisquam quod."
+    },
+    "item3": {
+      "title": "So sichern Sie Ihr deutsches Blockiertes Konto für Ihr deutsches Visum",
+      "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus modi perferendis quos aperiam quae sint ducimus veritatis! Qui nobis, iure excepturi quam ut alias sit, sint delectus aut, quisquam quod."
+    },
+    "item4": {
+      "title": "So beantragen Sie eine Verlängerung der Chancenkarte",
+      "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus modi perferendis quos aperiam quae sint ducimus veritatis! Qui nobis, iure excepturi quam ut alias sit, sint delectus aut, quisquam quod. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eum reiciendis repudiandae esse voluptatibus explicabo totam, vero excepturi ipsam optio rerum ipsa maiores voluptates? Nulla animi tenetur sint illum minus eius!"
+    }
+  },
+
+  "applicationAssistant":{
+    "title":"Bewerbungsassistent",
+    "subtitle":"Der beste Ort, um Ihre Bewerbung für die deutsche Chancenkarte zu beginnen"
   }
+  
+
+    
 }

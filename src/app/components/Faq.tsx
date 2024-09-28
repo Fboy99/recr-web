@@ -1,7 +1,7 @@
 // "use client";
 
 // import * as Accordion from "@radix-ui/react-accordion";
-// import Plus from '../assets/Plus.svg';
+// import Plus from '../../images/Plus.svg';
 // import Image from "next/image";
 // import { useState } from "react";
 // import ToggleButton from "./Button/ToggleButton";
@@ -133,7 +133,7 @@
 "use client";
 
 import * as Accordion from "@radix-ui/react-accordion";
-import Plus from '../assets/Plus.svg';
+import Plus from '../../images/Plus.svg';
 import Image from "next/image";
 import { useState } from "react";
 import ToggleButton from "./Button/ToggleButton";

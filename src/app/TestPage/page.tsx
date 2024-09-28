@@ -11,10 +11,10 @@ export default function TestPage(){
    <div className="bg-white w-full max-w-[1440px] h-auto  pt-[96px] pb-0 gap-10 opacity-100  mb-10 mx-auto items-center sm:px-4 xs:px-4 md:mx-8 lg:px-16">
     <div className=" w-full max-w-[1440px] h-auto py-0 px-4 sm:px-6 md:px-8 gap-[16px] items-center">
       <h1 className="text-4xl  font-bold text-center mb-2">
-      {t('applicationAssistant')}
+      {t('applicationAssistant.title')}
       </h1>
       <p className="text-center text-gray-700 ">
-        The best place to start your application at the German Chancenkarte
+        {t('applicationAssistant.subtitle')}
       </p>
     </div>
     <Questionnaire/>

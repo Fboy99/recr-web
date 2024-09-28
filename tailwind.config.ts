@@ -229,7 +229,7 @@ const config: Config = {
         'lg': {'min': '1025px'},
       },
       backgroundImage: {
-        'hero-bg-image': "url('/assets/hero.jpeg')",
+        'hero-bg-image': "url('/images/hero.jpeg')",
       },
     },
   },
