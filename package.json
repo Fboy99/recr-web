@@ -9,8 +9,10 @@
         "lint": "next lint"
     },
     "dependencies": {
+        "@apollo/client": "^3.11.8",
         "@heroicons/react": "^1.0.6",
         "@radix-ui/react-accordion": "^1.2.0",
+        "graphql": "^16.9.0",
         "i18next": "^23.15.1",
         "i18next-browser-languagedetector": "^8.0.0",
         "i18next-http-backend": "^2.5.2",

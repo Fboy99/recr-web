@@ -219,38 +219,216 @@
 
 // export default News;
 
+
+// ????????????????????????????????????????????????????????????????????????????
+
+// 'use client';
+// import React from 'react';
+// import NewsCard from '../components/NewsCard';
+// import { useTranslation } from 'react-i18next';
+// import { gql, useQuery } from "@apollo/client";
+
+// import img4 from "../../images/image4.jpeg";
+// import img7 from "../../images/image7.jpeg";
+// import img9 from "../../images/image9.jpeg";
+// import img10 from "../../images/image10.jpeg";
+
+// // Image mapping
+// const imageMap = {
+//   image4: img4,
+//   image7: img7,
+//   image9: img9,
+//   image10: img10,
+// };
+
+// // Define GraphQL query for fetching articles
+// const GET_ARTICLES = gql`
+//   query GetArticles($limit: Int, $offset: Int) {
+//     articles(limit: $limit, offset: $offset) {
+//       id
+//       title
+//       description
+//       imageUrls
+//       createdAt
+//       updatedAt
+//     }
+//   }
+// `;
+
+// // Define the types
+// type NewsItem = {
+//   id: string;
+//   title: string;
+//   createdAt: string;
+//   description: string;
+//   imageUrls: string; // Assuming this is a single URL; adjust if necessary
+// };
+
+// type NewsData = {
+//   articles: NewsItem[];
+// };
+
+// const News: React.FC = () => {
+//   const { t } = useTranslation('common');
+//   // Use Apollo Client's useQuery to fetch articles
+//   const { loading, error, data } = useQuery<NewsData>(GET_ARTICLES, {
+//     variables: { limit: 10, offset: 0 }, // Adjust limit and offset as needed
+//   });
+
+//   console.log(data);
+
+//   if (loading) return <p>Loading...</p>;
+//   if (error) return <p>Error: {error.message}</p>;
+
+//   return (
+//     <div className="mx-auto max-w-[1080px] sm:px-4 xs:px-4 md:mx-8 lg:px-16">
+//       <h1 className="mt-16 text-4xl font-bold text-center py-12">{t('news.title')}</h1>
+//       <p className="mb-8 text-center text-black">{t('news.latest_opportunity')}</p>
+
+//       <div className="grid sm:grid-cols-1 gap-8 lg:grid-cols-2">
+//         {data.articles.map((newsItem: NewsItem) => (
+//           <NewsCard
+//             key={newsItem.id} // Use article ID as the key
+//             itemKey={`newsCard.item${newsItem.id}`} // You can adjust this for localization if needed
+//             date={new Date(newsItem.createdAt).toLocaleDateString()} // Format the date as needed
+
+//             imageUrl={imageMap[newsItem.imageUrls] || newsItem.imageUrls} 
+
+//             description={newsItem.description} // Pass description if needed
+//           />
+
+//           // xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+//           //Add button ALso
+//           // xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+//         ))}
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default News;
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+// 'use client';
+// import React from 'react';
+// import NewsCard from '../components/NewsCard';
+// import newsDataRaw from '../data/newsData.json'; // Adjust the import path as needed
+// import { useTranslation } from 'react-i18next';
+
+// import img4 from "../../images/image4.jpeg";
+// import img7 from "../../images/image7.jpeg";
+// import img9 from "../../images/image9.jpeg";
+// import img10 from "../../images/image10.jpeg";
+
+
+
+
+// const imageMap = {
+//   image4: img4,
+//   image7: img7,
+//   image9: img9,
+//   image10: img10,
+
+// };
+// // Define the types
+// type NewsItem = {
+//   title: string;
+//   date: string;
+//   description: string;
+//   imageKey: keyof typeof imageMap; // Use the keys of imageMap
+// };
+
+// type NewsData = NewsItem[];
+
+// const newsData: NewsData = newsDataRaw as NewsData; // Type assertion
+
+// const News: React.FC = () => {
+//   const { t } = useTranslation('common');
+
+//   return (
+//     <div className="mx-auto max-w-[1080px] sm:px-4 xs:px-4 md:mx-8 lg:px-16">
+//       <h1 className="mt-16 text-4xl font-bold text-center py-12">{t('news.title')}</h1>
+//       <p className="mb-8 text-center text-black">{t('news.latest_opportunity')}</p>
+
+//       <div className="grid sm:grid-cols-1 gap-8 lg:grid-cols-2">
+//         {newsData.map((newsItem: NewsItem, index: number) => (
+//           <NewsCard
+//             key={index}
+//             itemKey={`newsCard.item${index + 1}`}
+//             date={newsItem.date}
+//             imageUrl={imageMap[newsItem.imageKey]} // Use the key to get the image
+//           />
+//         ))}
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default News;
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
 'use client';
 import React from 'react';
+import { useQuery, gql } from '@apollo/client';
 import NewsCard from '../components/NewsCard';
-import newsDataRaw from '../data/newsData.json'; // Adjust the import path as needed
 import { useTranslation } from 'react-i18next';
 
 import img4 from "../../images/image4.jpeg";
 import img7 from "../../images/image7.jpeg";
 import img9 from "../../images/image9.jpeg";
 import img10 from "../../images/image10.jpeg";
+import { StaticImageData } from 'next/image';
 
-const imageMap = {
-  image4: img4,
-  image7: img7,
-  image9: img9,
-  image10: img10,
+// const imageMap = {
+//   image4: img4,
+//   image7: img7,
+//   image9: img9,
+//   image10: img10,
+// };
 
-};
+// Define a type for image keys
+// type ImageKey = keyof typeof imageMap;
+
+// Define the GraphQL query to fetch articles
+const GET_ARTICLES = gql`
+  query GetArticles($limit: Int, $offset: Int) {
+    articles(limit: $limit, offset: $offset) {
+      id
+      title
+      description
+      imageUrls
+    }
+  }
+`;
+
 // Define the types
-type NewsItem = {
+type Article = {
+  id: string;
   title: string;
-  date: string;
   description: string;
-  imageKey: keyof typeof imageMap; // Use the keys of imageMap
+  imageUrls:string,
+  createAt: string;
 };
-
-type NewsData = NewsItem[];
-
-const newsData: NewsData = newsDataRaw as NewsData; // Type assertion
 
 const News: React.FC = () => {
   const { t } = useTranslation('common');
+
+  // Fetch articles using Apollo Client
+  const { loading, error, data } = useQuery(GET_ARTICLES, {
+    variables: { limit: 4, offset: 2}, // Adjust limit and offset as needed
+  });
+
+  if (loading) return <p className='text-center'>Loading...</p>;
+  if (error) return <p className='text-center'>Error fetching articles: {error.message}</p>;
+  console.log(data)
 
   return (
     <div className="mx-auto max-w-[1080px] sm:px-4 xs:px-4 md:mx-8 lg:px-16">
@@ -258,13 +436,17 @@ const News: React.FC = () => {
       <p className="mb-8 text-center text-black">{t('news.latest_opportunity')}</p>
 
       <div className="grid sm:grid-cols-1 gap-8 lg:grid-cols-2">
-        {newsData.map((newsItem: NewsItem, index: number) => (
+        {data.articles.map((article: Article) => (
           <NewsCard
-            key={index}
-            itemKey={`newsCard.item${index + 1}`}
-            date={newsItem.date}
-            imageUrl={imageMap[newsItem.imageKey]} // Use the key to get the image
-          />
+          key={article.id}
+          itemKey={`newsCard.item${article.id}`}
+          date={new Date(article.createAt).toLocaleDateString()}
+          imageUrl={article.imageUrls}  
+          title={article.title}
+          description={article.description}
+        />
+        
+
         ))}
       </div>
     </div>

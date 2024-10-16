@@ -3,6 +3,8 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import { Navbar } from './components/Navbar';
 import Footer from './components/Footer';
+import ApolloProvider from "@/apollo/ApolloProvider";
+
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -21,8 +23,11 @@ export default function RootLayout({
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
+
+
       <body className={`${inter.className} bg-gray-100 h-full`}>
-        
+      <ApolloProvider>
+     
         <div
           className="
             min-h-screen flex flex-col gap-0     
@@ -33,13 +38,12 @@ export default function RootLayout({
           "
 
         >
-
           <Navbar />
           {children}
-          
         </div>
 
         <Footer/>
+        </ApolloProvider>
 
       </body>
     </html>

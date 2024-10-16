@@ -94,7 +94,7 @@ export default function QuestionComponent() {
 
   const progressPercentage = ((currentQuestion + 1) / questions.length) * 100;
 
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading) return <div className='text-center'>Loading...</div>;
 
   const currentQ = questions[currentQuestion];
 
@@ -330,7 +330,7 @@ export default function QuestionComponent() {
     {renderQuestion()}
   </>
 ) : (
-  <div>Loading...</div>
+  <div className='text-center'>Loading...</div>
 )}
 
 

@@ -102,6 +102,7 @@
 //   );
 // }
 
+"use client";
 import Image from "next/image";
 import Check from "../../images/check.svg";
 import Button from "./Button/Button";
@@ -118,8 +119,9 @@ export function Advantages() {
   const employerList = t("advantages.employerList", { returnObjects: true }) as string[] || [];
   
   // Debugging logs
-  console.log("Candidate List:", candidateList);
-  console.log("Employer List:", employerList);
+
+  // console.log("Candidate List:", candidateList);
+  // console.log("Employer List:", employerList);
 
   return (
     <div className="w-full max-w-[1440px] mx-auto flex flex-col items-center gap-y-6">
