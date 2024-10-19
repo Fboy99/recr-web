@@ -874,23 +874,26 @@ const Questionnaire: React.FC<QuestionnaireProps> = ({ onEligibility }) => {
             </div>
           )}
 
-          {currentQuestion.type === 'multiple-selection' && (
-            <div className="space-y-4">
-              {currentQuestion.answers.map((option, idx) => (
-                <label key={idx} className="flex items-center p-4 bg-gray-100 border cursor-pointer hover:bg-gray-200">
-                  <input
-                    type="checkbox"
-                    name={`question-${progress}`}
-                    value={option.answer}
-                    checked={(currentQuestion.userAnswer as string[]).includes(option.answer)}
-                    onChange={() => handleAnswerChange(option.answer, true)}
-                    className="w-6 h-6 mr-4"
-                  />
-                  {option.answer}
-                </label>
-              ))}
-            </div>
-          )}
+{currentQuestion.type === 'multiple-selection' && (
+  <div className="flex flex-wrap space-x-2">
+    {currentQuestion.answers.map((option, idx) => {
+      const isSelected = (currentQuestion.userAnswer as string[]).includes(option.answer);
+      return (
+        <label
+          key={idx}
+          className={`flex items-center justify-center px-5 py-4 border rounded-full cursor-pointer transition duration-200
+            ${isSelected ? 'bg-blue-500 text-white' : 'bg-gray-100 text-black hover:bg-gray-200'}
+          `}
+          onClick={() => handleAnswerChange(option.answer, !isSelected)} // Toggle selection on click
+        >
+          <span className="text-sm">{option.answer}</span> {/* Smaller font size */}
+        </label>
+      );
+    })}
+  </div>
+)}
+
+
 
           {currentQuestion.type === 'dropdown' && (
             <select

@@ -108,13 +108,14 @@
 import React from 'react';
 import Button from './Button/Button';
 import { useTranslation } from 'react-i18next';
+import { StaticImageData } from 'next/image';
 
 interface NewsCardProps {
   itemKey: string;
   date: string;
   imageUrl: string;
-  title: string;      // Use title directly from props
-  description: string;  // Use description directly from props
+  title: string;      
+  description: string;
 }
 
 const NewsCard: React.FC<NewsCardProps> = ({ itemKey, date, imageUrl, title, description }) => {
@@ -125,8 +126,8 @@ const NewsCard: React.FC<NewsCardProps> = ({ itemKey, date, imageUrl, title, des
       <img src={imageUrl} alt={title} className="rounded-t-[20px] w-full h-80 object-cover" />
       <div className="p-4">
         <p className="text-gray-600 mb-2">{date}</p>
-        <h3 className="text-lg font-semibold mb-2">{title}</h3>  {/* Use title from props */}
-        <p className="text-gray-800 mb-4">{description}</p>  {/* Use description from props */}
+        <h3 className="text-lg font-semibold mb-2">{title}</h3> 
+        <p className="text-gray-800 mb-4">{description}</p> 
         <Button text={t('newsCard.learnMore')} className="bg-[#E3F1FF] xs:w-full text-black py-2 px-6 rounded-full" />
       </div>
     </div>

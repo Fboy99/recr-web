@@ -152,7 +152,7 @@ export default function TestPage() {
               ))}
             </div>
           ) : (
-            <p className="text-center text-red-600 mt-6">Unfortunately, you are not eligible for recommendations.</p>
+            <p className="text-center text-red-600 mt-6">No recommendations.</p>
           )}
         </div>
       )}

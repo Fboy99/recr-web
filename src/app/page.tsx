@@ -22,8 +22,6 @@ function Home() {
         <PointsDistribution/>
         <Faq />
         <AssistApp /> 
-        {/* <ApplicationAssistant/> */}
-
         <JobSubscription />
         </div>
 

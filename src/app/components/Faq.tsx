@@ -191,15 +191,6 @@ export default function Faq() {
     },
   });
 
-  console.log("Loading:", loading);
-  console.log("Error:", error);
-  console.log("Data:", data);
-  
-  // if (loading) return <p>{t("Loading...")}</p>;
-  // if (error) {
-  //   console.error("Error fetching FAQs:", error); // Log the complete error object
-  //   return <p>{t("Error loading data")}: {error.message}</p>;
-  // }
 
   const items: FaqItem[] = data?.faqByLanguageAndTarget || [];
 

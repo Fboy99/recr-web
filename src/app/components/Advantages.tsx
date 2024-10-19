@@ -124,12 +124,12 @@ export function Advantages() {
   // console.log("Employer List:", employerList);
 
   return (
-    <div className="w-full max-w-[1440px] mx-auto flex flex-col items-center gap-y-6">
+     <div className="w-full max-w-[1440px] mx-auto flex flex-col items-center gap-y-6">
       <SectionBanner title={t("advantages.title")} />
-      <div className="flex flex-col lg:flex-row w-full gap-y-6 lg:gap-y-0 items-center lg:items-start">
+      <div className="flex flex-col lg:flex-row gap-x-24  gap-y-6 lg:gap-y-0 items-center lg:items-start">
         
         {/* Candidate Card */}
-        <div className="w-full max-w-[496px] h-auto rounded-[28px] shadow-md flex flex-col justify-between mx-auto">
+        <div className="max-w-[496px] h-auto rounded-[28px] shadow-md flex flex-col justify-between mx-auto">
           <Image
             src={img1}
             alt={t("advantages.candidateAlt")}
