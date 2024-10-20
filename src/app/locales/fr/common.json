@@ -76,7 +76,7 @@
     "candidates": "Candidats",
     "employers": "Employeurs"
   },
-  "assistForm": {
+  "SimulatorForm": {
     "title": "Assistant de Candidature",
     "description": "Le meilleur endroit pour commencer votre candidature à la Chancenkarte allemande"
   },
@@ -133,7 +133,17 @@
   },
   "applicationAssistant":{
     "title":"Assistant de Candidature",
-    "subtitle":"Le meilleur endroit pour commencer votre candidature pour la carte de chance allemande"
-  }
+    "subtitle":"Le meilleur endroit pour commencer votre candidature pour la carte de chance allemande",
+    "question":"Question de"
+
+  },
+  "recommendations":{
+    "headerTitle": "En-tête du compte bloqué",
+    "title": "Titre du compte bloqué",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor, magna vel tincidunt lacinia.",
+    "imageKey": "expatrio1",
+    "buttonLabel": "Voir Plus"
+  },
+    "noRecommendations": "Pas de recommandations disponibles pour le moment."
   }
   

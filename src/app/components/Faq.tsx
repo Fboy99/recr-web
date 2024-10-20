@@ -138,6 +138,7 @@
 //   );
 // }
 
+
 "use client";
 
 import * as Accordion from "@radix-ui/react-accordion";
@@ -147,6 +148,7 @@ import { useState } from "react";
 import ToggleButton from "./Button/ToggleButton";
 import { useTranslation } from "react-i18next";
 import { gql, useQuery } from "@apollo/client";
+import SectionBanner from "./SectionBanner";
 
 // GraphQL Query to fetch FAQs based on language and target
 const GET_ALL_FAQS = gql`
@@ -162,19 +164,19 @@ query GetAllFAQs($language: Language!, $target: UserTarget!) {
 
 // Define the types for the FAQ items
 interface FaqItem {
-  // id: string;
-  // createAt: string;
-  // updateAt: string;
   question: string;
   answer: string;
   language: string;
   target: string;
 }
+interface FaqProps {
+  isHome?: boolean; // Add this prop to indicate if it's the home page
+}
 
 // Define the types for the categories
 type Category = "JOBSEEKER" | "EMPLOYER";
 
-export default function Faq() {
+export default function Faq({ isHome = false }: FaqProps) {
   const { t } = useTranslation("common");
 
   const [selectedTab, setSelectedTab] = useState<Category>("JOBSEEKER");
@@ -210,10 +212,15 @@ export default function Faq() {
 
   return (
     <div className="flex flex-col items-center pt-4 sm:px-4 md:px-8">
-      <h1 className="text-[#181C20] text-[36px] sm:text-[25px] xs:text-[23px] md:text-[28px] font-medium text-center">
+      {/* <h1 className="text-[#181C20] text-[36px] sm:text-[25px] xs:text-[23px] md:text-[28px] font-medium text-center">
         {t("Frequently Asked Questions")}
-      </h1>
-      <div className="flex my-4">
+      </h1> */}
+      <SectionBanner title={t("Frequently Asked Questions")}
+      />
+
+
+      {isHome && ( // Conditionally render toggle buttons if on home page
+      <div className="flex my-4 lg:mb-16">
         <ToggleButton
           active={selectedTab === "JOBSEEKER"}
           onClick={() => {
@@ -232,7 +239,7 @@ export default function Faq() {
           label={t("Employer")}
           isLeft={false}
         />
-      </div>
+      </div>)}
 
       <div className="w-full max-w-[1040px]">
         <Accordion.Root

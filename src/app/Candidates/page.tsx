@@ -106,8 +106,8 @@ const Candidates: React.FC = () => {
           <p className="pb-4">{t('candidates.conclusionText3')}</p>
         </div>
       </div>
-      <Faq />
-    </div>
+      <Faq isHome={false}/>
+      </div>
   );
 };
 

@@ -86,7 +86,7 @@
     "candidates": "Kandidaten",
     "employers": "Arbeitgeber"
   },
-  "assistForm": {
+  "SimulatorForm": {
     "title": "Bewerbungsassistent",
     "description": "Der beste Ort, um Ihre Bewerbung bei der deutschen Chancenkarte zu starten"
   },
@@ -165,7 +165,17 @@
 
   "applicationAssistant":{
     "title":"Bewerbungsassistent",
-    "subtitle":"Der beste Ort, um Ihre Bewerbung für die deutsche Chancenkarte zu beginnen"
+    "subtitle":"Der beste Ort, um Ihre Bewerbung für die deutsche Chancenkarte zu beginnen",
+    "question":"Qstionnen de"
+
+  },
+  "recommendations":{
+   "headerTitle": "Chancenkarte Jobs header",
+    "title": "Chancenkarte Jobs title",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor, magna vel tincidunt lacinia.",
+    "imageKey": "gerFlag",
+    "buttonLabel": "Exploreren",
+    "eligible": true
   }
   
 

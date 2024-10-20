@@ -1,38 +1,82 @@
-import React from 'react';
-import Recommendation from '../components/Recommendation';
-import recommendations from '../data/recommendations.json';
-import AssistForm from "../components/AssistForm";
-// import  Footer  from '../components/Footer';
-// import { Navbar } from '../components/Navbar';
+"use client";
+import { useState } from "react";
+import { useTranslation } from "next-i18next";
+import Questionnaire from "../components/Questioner";
+import Recommendation from "../components/Recommendation";
+import recommendations from "../data/recommendations.json";
 
-const AssistantApp: React.FC = () => {
-  return (
-    <>
-                         {/* <Navbar /> */}
-      <AssistForm />
+import img1 from "../../images/Flag_map_of_Germany.svg";
+import img2 from "../../images/Flag_map_of_Germany.svg";
 
-      <div className="mx-auto py-8 lg:px-20 md:px-16 sm:px-2">
-        <div className="mx-auto max-w-[1024px]">
-          <h2 className="text-3xl font-bold mb-1 px-6">Recommendations</h2>
-        </div>
-        
-        <div className=" mx-4">
-          {recommendations.map((recommendation, index) => (
-            <div key={index} className="mx-auto max-w-[1024px] ">
-              <h1 className="text-2xl text-gray-500 font-bold py-8 px-2">{recommendation.headerTitle}</h1>
-              <Recommendation
-                title={recommendation.title}
-                description={recommendation.description}
-                imageUrl={recommendation.imageKey}
-                buttonLabel={recommendation.buttonLabel} headerTitle={recommendation.headerTitle}              />
-            </div>
-          ))}
-        </div>
-      </div>
+type ImageMapKeys = "expatrio1" | "gerFlag" | "expatrio2";
 
-    </>
-  );
+const imageMap: Record<ImageMapKeys, string> = {
+  expatrio1: img1,
+  gerFlag: img2,
+  expatrio2: img1,
 };
 
-export default AssistantApp;
+export default function AssistantApp() {
+  const { t } = useTranslation("common");
+  const [language, setLanguage] = useState('en'); 
+  // const [target, setTarget] = useState<'EMPLOYER' | 'JOBSEEKER'>('JOBSEEKER');  
 
+  const [target, setTarget] = useState<'EMPLOYER' | 'JOBSEEKER'>('EMPLOYER');  
+  const [isEligible, setIsEligible] = useState<boolean | null>(null);
+
+  const handleLanguageChange = (newLanguage: string) => {
+    setLanguage(newLanguage); // Update the language when the user switches it
+  };
+
+  const handleTargetChange = (newTarget: 'EMPLOYER' | 'JOBSEEKER') => {
+    setTarget(newTarget); 
+  };
+
+  const handleEligibility = (eligible: boolean) => {
+    setIsEligible(eligible);
+  };
+
+  return (
+    <div className="bg-white w-full max-w-[1440px] h-auto pt-[96px] pb-0 gap-10 opacity-100 mb-10 mx-auto items-center sm:px-4 xs:px-4 md:mx-8 lg:px-16">
+      <div className="w-full max-w-[1440px] h-auto py-0 px-4 sm:px-6 md:px-8 gap-[16px] items-center">
+        <h1 className="text-4xl font-bold text-center mb-2">
+          {t("applicationAssistant.title")}
+        </h1>
+        <p className="text-center text-gray-700 ">
+          {t("applicationAssistant.subtitle")}
+        </p>
+      </div>
+
+      { target === 'EMPLOYER' && (
+  <Questionnaire onEligibility={handleEligibility} language={language} target={target} />
+)}      
+
+
+      {isEligible !== null && (
+        <div>
+          {isEligible ? (
+            <div>
+              {recommendations.map((recommendation, index) => (
+                <div key={index} className="mx-auto max-w-[1024px] ">
+                  <h1 className="text-2xl text-gray-500 font-bold py-8 px-2">
+                  {t("recommendations.headerTitle")} 
+                  </h1>
+                  <Recommendation
+
+                  title={t("recommendations.title")} 
+                  description={t("recommendations.description")} 
+                  imageUrl={imageMap[recommendation.imageKey as ImageMapKeys]} 
+                  buttonLabel={t("recommendations.buttonLabel")}
+                  headerTitle={t("recommendations.headerTitle")}
+                  />
+                </div>
+              ))}
+            </div>
+          ) : (
+            <p className="text-center text-red-600 mt-6"> {t("noRecommendations")}</p>
+          )}
+        </div>
+      )}
+    </div>
+  );
+}

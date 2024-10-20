@@ -3,7 +3,7 @@
 // import InfoBlockWithIcons from '../components/InfoBlockWithIcons';
 // import { FaHome, FaMoneyBillWave, FaCheckCircle, FaBriefcase } from 'react-icons/fa';
 // import Faq from '../components/Faq';
-// import AssistForm from '../components/AssistForm';
+// import SimulatorForm from '../components/SimulatorForm';
 // import img5 from "../../images/image5.jpeg";
 // import infoBlocksData from '../data/infoBlocks.json';
 // import { useTranslation } from 'react-i18next';
@@ -63,7 +63,7 @@
 //       <div>
 //         <div className='sm:mx-2 xs:mx-2 md:mx-8'>
 //           <Faq/>
-//           <AssistForm/>
+//           <SimulatorForm/>
 //         </div>
 //       </div>
 //     </div>
@@ -77,7 +77,7 @@ import Image from 'next/image';
 import InfoBlockWithIcons from '../components/InfoBlockWithIcons';
 import { FaHome, FaMoneyBillWave, FaCheckCircle, FaBriefcase } from 'react-icons/fa';
 import Faq from '../components/Faq';
-import AssistForm from '../components/AssistForm';
+import SimulatorForm from '../components/SimulatorForm';
 import img5 from "../../images/image5.jpeg";
 import infoBlocksData from '../data/infoBlocks.json';
 import { useTranslation } from 'react-i18next';
@@ -135,8 +135,8 @@ const Employers: React.FC = () => {
       </div>
       <div>
         <div className='sm:mx-2 xs:mx-2 md:mx-8'>
-          <Faq/>
-          <AssistForm/>
+          <Faq isHome={false}/>
+          <SimulatorForm/>
         </div>
       </div>
     </div>

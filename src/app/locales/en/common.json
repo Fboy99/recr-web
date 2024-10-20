@@ -80,7 +80,7 @@
     "employers": "Employers"
   },
   
-    "assistForm": {
+    "SimulatorForm": {
       "title": "Application Assistant",
       "description": "The best place to start your application at the German Chancenkarte"
     }
@@ -159,8 +159,18 @@
   },
   "applicationAssistant":{
     "title":"Application Assistant",
-    "subtitle":"The best place to start your application at the German Chancenkarte"
-  }
+    "subtitle":"The best place to start your application at the German Chancenkarte",
+    "question":"Qst"
+  },
+  "recommendations":{
+    "headerTitle": "Blocked account header",
+    "title": "Blocked account title",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor, magna vel tincidunt lacinia.",
+    "imageKey": "expatrio1",
+    "buttonLabel": "View More"
+  },
+    "noRecommendations": "No recommendations available at the moment."
+    
   
     
 }

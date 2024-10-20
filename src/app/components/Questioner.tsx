@@ -287,26 +287,26 @@
 //             {currentQuestion.question}
 //           </label>
 
-//           {currentQuestion.type === 'yes-no' && (
-//             <div className="flex space-x-4"> {/* Flexbox to display items side by side */}
-//               {currentQuestion.options?.map((option, idx) => (
-//                 <label key={idx} className={`flex items-center p-4 bg-gray-100 border ${
-//                     idx === 0 ? 'rounded-l-full' : 'rounded-r-full'
-//                   } cursor-pointer hover:bg-gray-200 mr-0`}>
-//                   <input
-//                     type="radio"
-//                     name={`question-${progress}`}
-//                     value={option}
-//                     checked={currentQuestion.answer === option}
-//                     onChange={() => handleAnswerChange(option)}
-//                     className="w-6 h-6  mr-4 w-[20px ]h-[20px] bg-[#465D91] rounded-full border-8 border-gray-400 hover:bg-[#D4E4F6] "
+          // {currentQuestion.type === 'yes-no' && (
+          //   <div className="flex space-x-4"> {/* Flexbox to display items side by side */}
+          //     {currentQuestion.options?.map((option, idx) => (
+          //       <label key={idx} className={`flex items-center p-4 bg-gray-100 border ${
+          //           idx === 0 ? 'rounded-l-full' : 'rounded-r-full'
+          //         } cursor-pointer hover:bg-gray-200 mr-0`}>
+          //         <input
+          //           type="radio"
+          //           name={`question-${progress}`}
+          //           value={option}
+          //           checked={currentQuestion.answer === option}
+          //           onChange={() => handleAnswerChange(option)}
+          //           className="w-6 h-6  mr-4 w-[20px ]h-[20px] bg-[#465D91] rounded-full border-8 border-gray-400 hover:bg-[#D4E4F6] "
 
-//                   />
-//                   {option}
-//                 </label>
-//               ))}
-//             </div>
-//           )}
+          //         />
+          //         {option}
+          //       </label>
+          //     ))}
+          //   </div>
+          // )}
 
 // {currentQuestion.type === 'multiple-choice' && (
 //   <div className="space-y-4">
@@ -357,20 +357,20 @@
 //             </div>
 //           )}
 
-//           {currentQuestion.type === 'dropdown' && (
-//             <select
-//               className="w-1/2 p-4 border border-gray-300 rounded"
-//               value={currentQuestion.answer as string}
-//               onChange={(e) => handleAnswerChange(e.target.value)}
-//             >
-//               <option value="" disabled>Nationality...</option>
-//               {currentQuestion.options?.map((option, idx) => (
-//                 <option key={idx} value={option}>
-//                   {option}
-//                 </option>
-//               ))}
-//             </select>
-//           )}
+          // {currentQuestion.type === 'dropdown' && (
+          //   <select
+          //     className="w-1/2 p-4 border border-gray-300 rounded"
+          //     value={currentQuestion.answer as string}
+          //     onChange={(e) => handleAnswerChange(e.target.value)}
+          //   >
+          //     <option value="" disabled>Nationality...</option>
+          //     {currentQuestion.options?.map((option, idx) => (
+          //       <option key={idx} value={option}>
+          //         {option}
+          //       </option>
+          //     ))}
+          //   </select>
+          // )}
 
 // {currentQuestion.type === 'text-input' && (
 //   <div className="space-y-4">
@@ -429,6 +429,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { useQuery, gql } from '@apollo/client';
+import { useTranslation } from 'react-i18next';
 
 const GET_ASSISTANT_BY_LANGUAGE_AND_TARGET = gql`
   query GetAssistantByLanguageAndTarget($language: Language!, $target: UserTarget!) {
@@ -466,20 +467,42 @@ interface Question {
   target: string;
   userAnswer?: string | string[];
   points?: number;
-  // hasCorrectAnswer?: boolean;
-  // correctAnswer?: string[];
 }
 
 interface QuestionnaireProps {
   onEligibility: (eligible: boolean) => void;
-}
+  language: string; 
+  target: 'EMPLOYER' | 'JOBSEEKER';  }
 
 
-const Questionnaire: React.FC<QuestionnaireProps> = ({ onEligibility }) => {
+const Questionnaire: React.FC<QuestionnaireProps> = ({ onEligibility, language, target }) => {
+  const { t } = useTranslation();
+
+  console.log("Current language:", language.toUpperCase(),);
+  console.log("Current target:", target,);
+
+
+  // Use the target and language in the GraphQL query
   const { loading, error, data } = useQuery(GET_ASSISTANT_BY_LANGUAGE_AND_TARGET, {
-    variables: { language: 'AN', target: 'EMPLOYER' },
+    variables: {
+      language: (() => {
+        switch (language.toUpperCase()) {
+          case 'EN':
+            return 'AN';
+          case 'FR':
+            return 'FR';
+          case 'DE':
+            return 'GR';
+          default:
+            return language; 
+        }
+      })(),
+      target,
+    },
   });
 
+
+  
   const [progress, setProgress] = useState<number>(1);
   const [questions, setQuestions] = useState<Question[]>([]);
   const [totalPoints, setTotalPoints] = useState<number>(0);
@@ -502,8 +525,7 @@ const Questionnaire: React.FC<QuestionnaireProps> = ({ onEligibility }) => {
           target: item.target,
           userAnswer: item.type === 'multiple-selection' ? [] : '',
           points: item.answers.reduce((acc: number, ans: any) => acc + ans.point, 0),
-          // hasCorrectAnswer: item.answers.some((ans: any) => ans.point > 0),
-          // correctAnswer: item.answers.filter((ans: any) => ans.point > 0).map((ans: any) => ans.answer),
+
         };
         return question;
       });
@@ -527,9 +549,13 @@ const Questionnaire: React.FC<QuestionnaireProps> = ({ onEligibility }) => {
     } else if (currentQuestion.type === 'dropdown') {
       isAnswerProvided = currentQuestion.userAnswer ? true : false;
     } else if (currentQuestion.type === 'text-input') {
-      isAnswerProvided = Array.isArray(currentQuestion.userAnswer) && currentQuestion.userAnswer.every(input => input.trim() !== "");    }
+      // isAnswerProvided = Array.isArray(currentQuestion.userAnswer) && currentQuestion.userAnswer.every(input => input.trim() !== "");    }
+      const inputs = currentQuestion.userAnswer as string[];
+      isAnswerProvided = inputs && inputs.every(input => input.trim() !== "");
+      console.log('isAnswerProvided:',isAnswerProvided);
+    }
 
-    if (isAnswerProvided) {
+      if (isAnswerProvided) {
       setShowError(false);
       if (progress < questions.length) {
         setProgress((prevProgress) => prevProgress + 1);
@@ -730,7 +756,7 @@ const Questionnaire: React.FC<QuestionnaireProps> = ({ onEligibility }) => {
 
   const renderResults = () => {
     const eligibleMessage = totalPoints >= threshold ? (
-      <div className="flex flex-col p-6 bg-white h-auto">
+      <div className="flex flex-col p-6 bg-[#F1F4F9] h-auto">
         <h1 className="text-xl font-semibold text-green-600 mt-6 mb-4">Congratulations!</h1>
         <p className="mb-4">
           Based on your responses, you may be eligible for the Chancenkarte.
@@ -770,10 +796,10 @@ const Questionnaire: React.FC<QuestionnaireProps> = ({ onEligibility }) => {
         </div>
       </div>
     ) : (
-      <div className="flex flex-col p-6 bg-white h-auto">
+      <div className="flex flex-col p-6 bg-[#F1F4F9] h-auto">
         <h1 className="text-xl font-semibold text-red-600 mt-6 mb-4">Unfortunately!</h1>
         <p className="mb-4">
-          You do not meet the eligibility criteria for the German Opportunity Card.
+        You do not meet the eligibility criteria for the German Opportunity Card.
         </p>
         <div className="flex flex-row divide-x-2 divide-gray-300 border-2 rounded-lg">
           <div className="p-4 w-1/2">
@@ -812,7 +838,7 @@ const Questionnaire: React.FC<QuestionnaireProps> = ({ onEligibility }) => {
           <button
             className="w-auto h-auto px-6 py-2 rounded-full text-[#000000] bg-[#D4E4F6]"
             onClick={() => {
-              window.location.href = '../TestPage/';
+              window.location.href = '../Application-Assistant';
             }}
           >
             Retake test
@@ -837,10 +863,10 @@ const Questionnaire: React.FC<QuestionnaireProps> = ({ onEligibility }) => {
   const currentQuestion = questions[progress - 1];
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-white">
+    <div className="flex flex-col justify-center items-center min-h-screen bg-white">
       <div className="bg-gray-100 rounded-lg w-full max-w-4xl p-8 shadow-md">
         <div className="mb-8">
-          <div className="text-lg font-semibold mb-4">Question {progress} of {questions.length}</div>
+          <div className="text-lg font-semibold mb-4">{t('applicationAssistant.question')} {progress} of {questions.length}</div>
           <div className="flex space-x-2">
             {[...Array(questions.length)].map((_, idx) => (
               <div
@@ -856,7 +882,28 @@ const Questionnaire: React.FC<QuestionnaireProps> = ({ onEligibility }) => {
             {currentQuestion.question}
           </label>
 
-          {['yes-no', 'multiple-choice'].includes(currentQuestion.type) && (
+          {['yes-no'].includes(currentQuestion.type) && (
+  <div className="flex flex-row items-center"> {/* Changed to items-center */}
+    {currentQuestion.answers.map((option, idx) => (
+      <label key={idx} className={`flex items-center p-4 bg-gray-100 border ${
+        idx === 0 ? 'rounded-l-full' : 'rounded-r-full'
+      } cursor-pointer hover:bg-gray-200 w-1/6 h-16`}> {/* Set a consistent height */}
+        <input
+          type="radio"
+          name={`question-${progress}`}
+          value={option.answer}
+          checked={currentQuestion.userAnswer === option.answer}
+          onChange={() => handleAnswerChange(option.answer)}
+          className="w-6 h-6 mr-4 bg-[#465D91] rounded-full border-8 border-gray-400 hover:bg-[#D4E4F6]"
+        />
+        {option.answer}
+      </label>
+    ))}
+  </div>
+)}
+          
+
+          {['multiple-choice'].includes(currentQuestion.type) && (
             <div className="space-y-4">
               {currentQuestion.answers.map((option, idx) => (
                 <label key={idx} className="flex items-center p-4 bg-gray-100 border cursor-pointer hover:bg-gray-200">
@@ -874,6 +921,7 @@ const Questionnaire: React.FC<QuestionnaireProps> = ({ onEligibility }) => {
             </div>
           )}
 
+
 {currentQuestion.type === 'multiple-selection' && (
   <div className="flex flex-wrap space-x-2">
     {currentQuestion.answers.map((option, idx) => {
@@ -882,7 +930,7 @@ const Questionnaire: React.FC<QuestionnaireProps> = ({ onEligibility }) => {
         <label
           key={idx}
           className={`flex items-center justify-center px-5 py-4 border rounded-full cursor-pointer transition duration-200
-            ${isSelected ? 'bg-blue-500 text-white' : 'bg-gray-100 text-black hover:bg-gray-200'}
+            ${isSelected ?  'bg-[#D4E4F6] text-[#1A1B20]' : 'bg-gray-100 text-black hover:bg-gray-200'}
           `}
           onClick={() => handleAnswerChange(option.answer, !isSelected)} // Toggle selection on click
         >
@@ -894,21 +942,21 @@ const Questionnaire: React.FC<QuestionnaireProps> = ({ onEligibility }) => {
 )}
 
 
+{currentQuestion.type === 'dropdown' && (
+  <select
+    className="w-1/2 p-4 border border-gray-300 rounded"
+    value={currentQuestion.userAnswer as string}
+    onChange={(e) => handleAnswerChange(e.target.value)}
+  >
+    <option value="" disabled>Select an option...</option>
+    {currentQuestion.answers.map((option, idx) => (
+      <option key={idx} value={option.answer}>
+        {option.answer}
+      </option>
+    ))}
+  </select>
+)}
 
-          {currentQuestion.type === 'dropdown' && (
-            <select
-              className="w-1/2 p-4 border border-gray-300 rounded"
-              value={currentQuestion.userAnswer as string}
-              onChange={(e) => handleAnswerChange(e.target.value)}
-            >
-              <option value="" disabled>Select an option...</option>
-              {currentQuestion.answers.map((option, idx) => (
-                <option key={idx} value={option.answer}>
-                  {option.answer}
-                </option>
-              ))}
-            </select>
-          )}
 
 
 {currentQuestion.type === 'text-input' && (
@@ -924,13 +972,18 @@ const Questionnaire: React.FC<QuestionnaireProps> = ({ onEligibility }) => {
             const updatedAnswers = Array.isArray(currentQuestion.userAnswer) ? [...currentQuestion.userAnswer] : [];
             updatedAnswers[idx] = e.target.value;
             handleAnswerChange(updatedAnswers);
-          }}
-          placeholder={`Enter your ${idx === 0 ? 'first name' : 'last name'}`}
+          }
+        
+        }
+          // placeholder={`Enter your ${idx === 0 ? 'first name' : 'last name'}`}
         />
       </div>
     ))}
   </div>
 )}
+
+
+
 
 
           {showError && (
@@ -954,6 +1007,11 @@ const Questionnaire: React.FC<QuestionnaireProps> = ({ onEligibility }) => {
           </button>
         </div>
       </div>
+      {target=='EMPLOYER'?
+      <div className='rounded-lg w-full max-w-4xl pt-12 shadow-m'>
+        <p>Chancenkarte.com is an independent information portal. We aim to help you come to Germany, find a job and stay here. We are not government-funded and want to stay that way – fast and agile to serve your needs. We would like to accompany you on your way and provide you with necessary and useful tips and tools so that we can welcome you to Germany soon.</p>
+      </div>:''
+      }
     </div>
   );
 };
