@@ -614,63 +614,147 @@
 // ..................................................................................................
 // .............................................................................................
 
-// app/News/page.tsx
-'use client';
-import React from 'react';
-import { useQuery, gql } from '@apollo/client';
-import NewsCard from '../components/NewsCard';
-import { useTranslation } from 'react-i18next';
+// // app/News/page.tsx
 
-// GraphQL query to fetch articles
-const GET_ARTICLES = gql`
-  query GetArticles($limit: Int, $offset: Int) {
-    articles(limit: $limit, offset: $offset) {
-      id
-      title
-      description
-      imageUrls  
-      createAt
-    }
-  }
-`;
+// 'use client';
+// import React from 'react';
+// import { useQuery, gql } from '@apollo/client';
+// import NewsCard from '../components/NewsCard';
+// import { useTranslation } from 'react-i18next';
 
-// Define the Article type
-type Article = {
-  id: string;
-  title: string;
-  description: string;
-  imageUrls: string; 
-  createAt: string;
-};
+// const GET_ARTICLES = gql`
+//   query GetArticles($limit: Int, $offset: Int) {
+//     articles(limit: $limit, offset: $offset) {
+//       id
+//       title
+//       description
+//       imageUrls  
+//       createAt
+//     }
+//   }
+// `;
 
-const News: React.FC = () => {
-  const { t } = useTranslation('common');
+// type Article = {
+//   id: string;
+//   title: string;
+//   description: string;
+//   imageUrls: string; 
+//   createAt: string;
+// };
 
-  const { loading, error, data } = useQuery(GET_ARTICLES, {
-    variables: { limit: 4, offset: 2 },
-  });
+// const News: React.FC = () => {
+//   const { t } = useTranslation('common');
 
-  if (loading) return <p className='text-center'>Loading...</p>;
-  if (error) return <p className='text-center'>Error fetching articles: {error.message}</p>;
+//   const { loading, error, data } = useQuery(GET_ARTICLES, {
+//     variables: { limit: 4, offset: 2 },
+//   });
 
+//   console.log("GraphQL loading state:", loading); // Log loading state
+//   console.log("GraphQL error:", error); // Log any errors
+//   console.log("GraphQL data:", data); // Log the data fetched
+
+//   if (loading) return <p className='text-center'>Loading...</p>;
+//   if (error) return <p className='text-center'>Error fetching articles: {error.message}</p>;
+
+//   return (
+//     <div className="mx-auto max-w-[1080px] sm:px-4 xs:px-4 md:mx-8 lg:px-16">
+//       <h1 className="mt-16 text-4xl font-bold text-center py-12">{t('news.title')}</h1>
+//       <p className="mb-8 text-center text-black">{t('news.latest_opportunity')}</p>
+//       <div className="grid sm:grid-cols-1 gap-8 lg:grid-cols-2">
+//         {data.articles.map((article: Article) => (
+//           <NewsCard
+//             key={article.id}
+//             id={article.id} // Pass the article ID
+//             date={new Date(article.createAt).toDateString()}
+//             // imageUrl={article.imageUrls}  
+//             title={article.title}
+//             description={article.description}
+//           />
+//         ))}
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default News;
+
+
+
+// 'use client';
+
+// import React from 'react';
+// import { useQuery, gql } from '@apollo/client';
+// import NewsCard from '../components/NewsCard';
+// import { useTranslation } from 'react-i18next';
+
+// const GET_ARTICLES = gql`
+//   query GetArticles($limit: Int, $offset: Int) {
+//     articles(limit: $limit, offset: $offset) {
+//       id
+//       title
+//       description
+//       imageUrls
+//       createAt
+//     }
+//   }
+// `;
+
+// type Article = {
+//   id: string;
+//   title: string;
+//   description: string;
+//   imageUrls: string;
+//   createAt: string;
+// };
+
+// const News: React.FC = () => {
+//   const { t } = useTranslation('common');
+
+//   const { loading, error, data } = useQuery(GET_ARTICLES, {
+//     variables: { limit: 4, offset: 2 },
+//   });
+
+//   if (loading) return <p>Loading...</p>;
+//   if (error) return <p>Error fetching articles: {error.message}</p>;
+
+//   return (
+//     <div className="mx-auto max-w-[1080px]">
+//       <h1 className="mt-16 text-4xl font-bold text-center">{t('news.title')}</h1>
+//       <div className="grid lg:grid-cols-2 gap-8">
+//         {data.articles.map((article: Article) => (
+//           <NewsCard
+//             key={article.id}
+//             id={article.id}
+//             title={article.title}
+//             description={article.description}
+//             date={new Date(article.createAt).toDateString()}
+//           />
+//         ))}
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default News;
+
+import ArticleCard from "../components/ArtCard";
+
+const articles = [
+  { id: 1, title: 'First Article', description: 'This is the first article' },
+  { id: 2, title: 'Second Article', description: 'This is the second article' },
+  // Add more articles as needed
+];
+
+const News = () => {
   return (
-    <div className="mx-auto max-w-[1080px] sm:px-4 xs:px-4 md:mx-8 lg:px-16">
-      <h1 className="mt-16 text-4xl font-bold text-center py-12">{t('news.title')}</h1>
-      <p className="mb-8 text-center text-black">{t('news.latest_opportunity')}</p>
-      <div className="grid sm:grid-cols-1 gap-8 lg:grid-cols-2">
-        {data.articles.map((article: Article) => (
-          <NewsCard
-            key={article.id}
-            id={article.id} // Pass the article ID
-            date={new Date(article.createAt).toDateString()}
-            imageUrl={article.imageUrls}  
-            title={article.title}
-            description={article.description}
-          />
-        ))}
-      </div>
+    <div>
+      {articles.map((article) => (
+        <ArticleCard key={article.id} article={article} />
+      ))}
     </div>
   );
 };
 
 export default News;
+
+
