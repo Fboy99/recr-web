@@ -84,7 +84,7 @@ export function Features() {
 
   return (
     <div className="flex flex-col items-center justify-center w-full">
-      <SectionBanner title={t('opportunityCardTitle')} />
+      <SectionBanner title={t('opportunityCardTitle')} className=''/>
 
       {/* Feature Section 1 */}
       <div className="flex flex-col lg:flex-row items-center justify-center gap-2 lg:gap-6 lg:w-[1040px] lg:py-[32px] px-4">

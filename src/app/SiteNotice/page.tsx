@@ -1,4 +1,5 @@
 import React from 'react';
+import SectionHeader from '../components/SectionHeader';
 
 const SiteNotice: React.FC = () => {
   // Get the current date
@@ -14,13 +15,19 @@ const SiteNotice: React.FC = () => {
     //   <h1 className="text-3xl font-bold mb-4">Site Notice</h1>
     //   <p className="text-gray-600 mb-8">Last updated on {formattedDate}</p>
     <div className="my-16 mx-auto pb-10 sm:px-4 xs:px-4 md:mx-8 lg:px-16">
-    <div className="max-w-5xl mx-auto py-12">
+    {/* <div className="max-w-5xl mx-auto py-12">
      <h1 className="text-4xl font-bold text-center my-8">Site Notice</h1> 
-      <p className="text-center text-lg mb-16">Last updated on {formattedDate}</p> 
+      <p className="text-center text-lg mb-16">Last updated on {formattedDate}</p>  */}
+
+      <SectionHeader 
+        title={("siteNotice.title")} 
+        paragraph={`${("siteNotice.lastUpdate")} ${formattedDate}`} 
+        classAttribute='max-w-5xl mx-auto py-12'
+      /> 
 
       
     </div>
-    </div>
+    // </div>
   );
 };
 

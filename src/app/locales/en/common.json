@@ -75,16 +75,14 @@
     "firstNamePlaceholder": "First name",
     "lastNamePlaceholder": "Last name",
     "emailPlaceholder": "Email address",
+    "phonePlaceholder":"Phone number",
+    "companyNamePlaceholder":"Company name",
     "subscribeButton": "Subscribe now",
     "candidates": "Candidates",
     "employers": "Employers"
   },
-  
-    "SimulatorForm": {
-      "title": "Application Assistant",
-      "description": "The best place to start your application at the German Chancenkarte"
-    }
-  ,  "footer": {
+    
+    "footer": {
     "copyright": "©2024 Lorem ipsum. All rights reserved.",
     "privacyPolicy": "Privacy Policy",
     "siteNotice": "Site Notice"
@@ -162,6 +160,13 @@
     "subtitle":"The best place to start your application at the German Chancenkarte",
     "question":"Qst"
   },
+
+  "SimulatorForm":{
+    "title":"Application Assistant",
+    "subtitle":"The best place to start your application at the German Chancenkarte",
+    "question":"Qst"
+  },
+
   "recommendations":{
     "headerTitle": "Blocked account header",
     "title": "Blocked account title",
@@ -169,7 +174,19 @@
     "imageKey": "expatrio1",
     "buttonLabel": "View More"
   },
-    "noRecommendations": "No recommendations available at the moment."
+    "noRecommendations": "No recommendations available at the moment.",
+
+  "privacyPolicy":{
+    "title":"Privacy Policy",
+    "LastUpdate":"Last updated on"
+
+  },
+
+  "siteNotice":{
+    "title":"Privacy Policy",
+    "LastUpdate":"Last updated on"
+
+  }
     
   
     

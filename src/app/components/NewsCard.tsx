@@ -27,7 +27,7 @@
 //           Learn more
 //         </button> */}
 //         {/* <Button text='Learn More' className='text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'/> */}
-//         <Button text='Learn More' className="bg-[#E3F1FF] xs:w-full text-black py-2 px-6 rounded-full"/>
+//         <Button text='Learn More' className="bg-[#E3F1FF] xs:w-full text-[#181C20] py-2 px-6 rounded-full"/>
 //       </div>
 //     </div>
 //   );
@@ -64,7 +64,7 @@
 //         {/* <p className="text-gray-600 mb-2">{date}</p> */}
 //         <h3 className="text-lg font-semibold mb-2">{t(`${itemKey}.title`)}</h3>
 //         <p className="text-gray-800 mb-4">{t(`${itemKey}.description`)}</p>
-//         <Button text={t('newsCard.learnMore')} className="bg-[#E3F1FF] xs:w-full text-black py-2 px-6 rounded-full" />
+//         <Button text={t('newsCard.learnMore')} className="bg-[#E3F1FF] xs:w-full text-[#181C20] py-2 px-6 rounded-full" />
 //       </div>
 //     </div>
 //   );
@@ -96,7 +96,7 @@
 //         <p className="text-gray-600 mb-2">{date}</p>
 //         <h3 className="text-lg font-semibold mb-2">{t(`${itemKey}.title`)}</h3>
 //         <p className="text-gray-800 mb-4">{t(`${itemKey}.description`)}</p>
-//         <Button text={t('newsCard.learnMore')} className="bg-[#E3F1FF] xs:w-full text-black py-2 px-6 rounded-full" />
+//         <Button text={t('newsCard.learnMore')} className="bg-[#E3F1FF] xs:w-full text-[#181C20] py-2 px-6 rounded-full" />
 //       </div>
 //     </div>
 //   );
@@ -130,7 +130,7 @@
 //         <p className="text-gray-600 mb-2">{date}</p>
 //         <h3 className="text-lg font-semibold mb-2">{title}</h3> 
 //         <p className="text-gray-800 mb-4">{description}</p> 
-//         <Button text={t('newsCard.learnMore')} className="bg-[#E3F1FF] xs:w-full text-black py-2 px-6 rounded-full" />
+//         <Button text={t('newsCard.learnMore')} className="bg-[#E3F1FF] xs:w-full text-[#181C20] py-2 px-6 rounded-full" />
 //       </div>
 //     </div>
 //   );
@@ -150,8 +150,8 @@ import Button from './Button/Button';
 import { useTranslation } from 'react-i18next';
 import Image from 'next/image';
 
-// const NewsCard: React.FC<{ title: string; description: string; imageUrl: string; date: string; id: string }> = ({ title, description, imageUrl, date, id }) => {
-  const NewsCard: React.FC<{ title: string; description: string; date: string; id: string }> = ({ title, description,  date, id }) => {
+const NewsCard: React.FC<{ title: string; description: string; imageUrl: string; date: string; id: string }> = ({ title, description, imageUrl, date, id }) => {
+  // const NewsCard: React.FC<{ title: string; description: string; date: string; id: string }> = ({ title, description,  date, id }) => {
   
 const router = useRouter();
   const { t } = useTranslation('common');  // Only use translation for static text like button
@@ -164,7 +164,7 @@ const router = useRouter();
 
   return (
     <div className="bg-white shadow-md rounded-[20px] max-width-24">
-      {/* <img src={imageUrl} alt={title} className="rounded-t-[20px] w-full h-80 object-cover" /> */}
+      <img src={imageUrl} alt={title} className="rounded-t-[20px] w-full h-80 object-cover" />
 
         {/* <Image 
           src={imageUrl} 
@@ -177,7 +177,7 @@ const router = useRouter();
         <p className="text-gray-600 mb-2">{date}</p>
         <h3 className="text-lg font-semibold mb-2">{title}</h3> 
         <p className="text-gray-800 mb-4">{description}</p> 
-        <Button onClick={handleLearnMore} text={t('newsCard.learnMore')} className="bg-[#E3F1FF] xs:w-full text-black py-2 px-6 rounded-full" />
+        <Button onClick={handleLearnMore} text={t('newsCard.learnMore')} className="bg-[#E3F1FF] xs:w-full text-[#181C20] py-2 px-6 rounded-full" />
       </div>
     </div>
   );

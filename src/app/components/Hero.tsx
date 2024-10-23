@@ -47,6 +47,7 @@ export function Hero() {
         <h1 className="lg:text-[45px] lg:leading-[52px] font-bold text-center absolute top-[20%]">
           {t('workingIn')} <span className="bg-gradient-to-r from-[#000000] via-[#DD0000] to-[#FFCE00] bg-clip-text text-transparent gap-[4px]">{t('germany')}</span> {t('withOpportunityCard')}
         </h1>
+        <h1></h1>
         <p className="text-[#000000] lg:text-[22px] lg:leading-[28px] font-normal text-center absolute top-[30%]">
           {t('useYourProfessionalTraining')}
         </p>

@@ -2,7 +2,7 @@
 // import Check from "../../images//check.svg";
 // import Button from "./Button/Button";
 // import SectionBanner from "./SectionBanner";
-// import img1 from "../../images/image1.jpeg"
+// import img1 from "../../images/candidates_img.jpeg"
 // import img8 from "../../images/image8.jpeg"
 
 // export function Advantages() {
@@ -23,7 +23,7 @@
 //             className="rounded-t-[28px] object-cover lg:h-[300px]"
 //           />
 //           <div className="p-8">
-//             <h2 className="pt-6 text-2xl font-semibold lg:text-[32px]">
+//             <h2 className="pt-6 text-2xl font-semibold lg:text-[24px]">
 //               The Opportunity Card for candidates
 //             </h2>
 //             <p className="pt-[12px] text-[#36485C] lg:text-[18px]">
@@ -66,7 +66,7 @@
 //             className="rounded-t-[28px] object-cover lg:h-[300px]"
 //           />
 //           <div className="p-8">
-//             <h2 className="pt-6 text-2xl font-semibold lg:text-[32px]">
+//             <h2 className="pt-6 text-2xl font-semibold lg:text-[24px]">
 //               The Opportunity Card for employers
 //             </h2>
 //             <p className="pt-[12px] text-[#36485C] lg:text-[18px]">
@@ -107,7 +107,7 @@ import Image from "next/image";
 import Check from "../../images/check.svg";
 import Button from "./Button/Button";
 import SectionBanner from "./SectionBanner";
-import img1 from "../../images/image1.jpeg";
+import img1 from "../../images/candidates_img.jpeg";
 import img8 from "../../images/image8.jpeg";
 import { useTranslation } from 'next-i18next';
 
@@ -138,7 +138,7 @@ export function Advantages() {
             className="rounded-t-[28px] object-cover lg:h-[300px]"
           />
           <div className="p-8">
-            <h2 className="pt-6 text-2xl font-semibold lg:text-[32px]">
+            <h2 className="pt-6 text-2xl font-semibold lg:text-[24px]">
               {t("advantages.candidateTitle")}
             </h2>
             <p className="pt-[12px] text-[#36485C] lg:text-[18px]">
@@ -158,7 +158,7 @@ export function Advantages() {
           </div>
           <Button
             text={t("advantages.learnMore")}
-            className="text-[#141B2C] bg-[#DBE2F9] hover:bg-blue-500 hover:text-white focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 m-8 sm:mx-[24px] sm:my-[10px]"
+            className="text-[#141B2C] bg-[#DBE2F9] hover:bg-[#1E3A6D] hover:text-white focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 m-8 sm:mx-[24px] sm:my-[10px]"
           />
         </div>
 
@@ -172,7 +172,7 @@ export function Advantages() {
             className="rounded-t-[28px] object-cover lg:h-[300px]"
           />
           <div className="p-8">
-            <h2 className="pt-6 text-2xl font-semibold lg:text-[32px]">
+            <h2 className="pt-6 text-2xl font-semibold lg:text-[24px]">
               {t("advantages.employerTitle")}
             </h2>
             <p className="pt-[12px] text-[#36485C] lg:text-[18px]">
@@ -192,7 +192,7 @@ export function Advantages() {
           </div>
           <Button
             text={t("advantages.learnMore")}
-            className="text-[#141B2C] bg-[#DBE2F9] hover:bg-blue-500 focus:outline-none focus:ring-4 focus:ring-[#8A66FF] font-medium rounded-full text-sm px-5 py-2.5 m-8 transition-colors"
+            className="text-[#141B2C] bg-[#DBE2F9] hover:bg-[#1E3A6D] hover:text-white focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 m-8 sm:mx-[24px] sm:my-[10px]"
           />
         </div>
       </div>

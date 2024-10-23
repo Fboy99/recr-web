@@ -34,8 +34,9 @@ import Question from "./Questions"; // Corrected import
 import { useTranslation } from "react-i18next";
 import Questionnaire from "./Questioner";
 import SimulatorQuestion from "./SimulatorQuestion";
+import SectionBanner from "./SectionBanner";
 
-const AssistForm: React.FC = () => {
+const SimulatorForm: React.FC = () => {
 
   const { t } = useTranslation("common");
   const [language, setLanguage] = useState('en'); 
@@ -58,15 +59,18 @@ const AssistForm: React.FC = () => {
   return (
     // <div className="bg-gray-50 w-full max-w-[1440px] h-auto sm:px-4 md:px-8 pt-[96px] pb-0 gap-10 opacity-100 mb-10 mx-auto flex flex-col items-center">
     //   <div className="w-full max-w-[1440px] h-auto py-0 px-4 sm:px-6 md:px-8 gap-[16px] flex flex-col items-center">
-    <div>
+    <div className="bg-[#F1F4F9] w-full h-auto sm:px-4 md:px-8 pt-[96px] pb-0 gap-10 opacity-100 mb-10 mx-auto">
       <div>
 
-        <h1 className="text-4xl font-bold text-center mb-2">
+        {/* <h1 className="text-4xl font-bold text-center mb-2">
           {t('SimulatorForm.title')}
         </h1>
         <p className="text-center text-gray-700 mb-8">
           {t('SimulatorForm.description')}
-        </p>
+        </p> */}
+      <SectionBanner title={t("SimulatorForm.title")} subtitle= {t('SimulatorForm.description')}/>
+
+
       </div>
       { target === 'JOBSEEKER' && (
           <SimulatorQuestion language={language} target={target} />
@@ -76,5 +80,5 @@ const AssistForm: React.FC = () => {
           );
         };
 
-export default AssistForm;
+export default SimulatorForm;
 

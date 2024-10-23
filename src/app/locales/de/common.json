@@ -82,14 +82,13 @@
     "firstNamePlaceholder": "Vorname",
     "lastNamePlaceholder": "Nachname",
     "emailPlaceholder": "E-Mail-Adresse",
+    "phonePlaceholder":"Phone number",
+    "companyNamePlaceholder":"Company name",
     "subscribeButton": "Jetzt abonnieren",
     "candidates": "Kandidaten",
     "employers": "Arbeitgeber"
   },
-  "SimulatorForm": {
-    "title": "Bewerbungsassistent",
-    "description": "Der beste Ort, um Ihre Bewerbung bei der deutschen Chancenkarte zu starten"
-  },
+
   "footer": {
     "copyright": "©2024 Lorem ipsum. Alle Rechte vorbehalten.",
     "privacyPolicy": "Datenschutzbestimmungen",
@@ -176,6 +175,24 @@
     "imageKey": "gerFlag",
     "buttonLabel": "Exploreren",
     "eligible": true
+  },
+
+  "SimulatorForm":{
+    "title":"Bewerbungsassistent",
+    "subtitle":"Der beste Ort, um Ihre Bewerbung für die deutsche Chancenkarte zu beginnen",
+    "question":"Qstionnen de"
+  },
+
+  "privacyPolicy":{
+    "title":"Privacy Policy",
+    "LastUpdate":"Last updated on"
+
+  },
+
+  "siteNotice":{
+    "title":"Privacy Policy",
+    "LastUpdate":"Last updated on"
+
   }
   
 

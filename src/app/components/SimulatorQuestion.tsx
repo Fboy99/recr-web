@@ -45,14 +45,18 @@ const SimulatorQuestion: React.FC<SimulatorQuestionProps> = ({ language, target 
     variables: {
       language: (() => {
         switch (language.toUpperCase()) {
-          case 'EN':
-            return 'AN';
-          case 'FR':
-            return 'FR';
-          case 'DE':
-            return 'GR';
-          default:
-            return language; 
+            case 'EN':
+            case 'en':
+              return 'AN';
+            case 'FR':
+            case 'fr':
+              return 'FR';
+            case 'DE':
+            case 'de':
+              return 'GR';
+            default:
+              return language;
+          
         }
       })(),
       target,
@@ -123,9 +127,10 @@ const SimulatorQuestion: React.FC<SimulatorQuestionProps> = ({ language, target 
   if (isSubmitted) {
     return (
       <div className="flex justify-center items-center min-h-screen bg-gray-100">
-        <div className="bg-white w-[1040px] h-[720px] rounded-[28px] opacity-100 p-8 shadow-md overflow-y-auto relative">
-          <h1 className="text-xl font-semibold text-green-600 mt-6 mb-4">Thank you for participating in this simulation!</h1>
-          <p>Your responses have been recorded.</p>
+        <div className="bg-white w-[1040px] flex flex-col items-center justify-center h-[720px] rounded-[28px] opacity-100 p-8 shadow-md overflow-y-auto relative">
+          <h1 className="text-[32px] text-center font-semibold text-green-600 mt-6 mb-4">Thank you!</h1>
+          <p className='text-center py-8'>As soon as you can find suitable skilled workers with us, we will send you an e-mail.</p>
+          <p className='text-center'>We are currently working on the Chancenkarte Jobs! platform, where you will be able to find skilled workers with the Opportunity Card yourself in the future. You can find out more about this in the last step.</p>
         </div>
       </div>
     );
@@ -134,10 +139,10 @@ const SimulatorQuestion: React.FC<SimulatorQuestionProps> = ({ language, target 
   const currentQuestion = questions[progress - 1];
 
   return (
-    <div className="flex flex-col justify-center items-center min-h-screen bg-white">
-      <div className="bg-gray-100 rounded-lg w-full max-w-4xl p-8 shadow-md">
+    <div className="flex flex-col justify-center items-center bg-[#F1F4F9]">
+      <div className="bg-white rounded-lg w-full max-w-4xl p-8 shadow-md">
         <div className="mb-8">
-          <div className="text-lg font-semibold mb-4">{t('applicationAssistant.question')} {progress} of {questions.length}</div>
+          <div className="text-lg font-semibold mb-4">{t('SimulatorForm.question')} {progress} of {questions.length}</div>
           <div className="flex space-x-2">
             {[...Array(questions.length)].map((_, idx) => (
               <div

@@ -1,12 +1,13 @@
 "use client";
 import { useState } from "react";
-import { useTranslation } from "next-i18next";
+import { useTranslation } from "react-i18next";
 import Questionnaire from "../components/Questioner";
 import Recommendation from "../components/Recommendation";
 import recommendations from "../data/recommendations.json";
 
 import img1 from "../../images/Flag_map_of_Germany.svg";
 import img2 from "../../images/Flag_map_of_Germany.svg";
+import SectionHeader from "../components/SectionHeader";
 
 type ImageMapKeys = "expatrio1" | "gerFlag" | "expatrio2";
 
@@ -38,14 +39,8 @@ export default function AssistantApp() {
 
   return (
     <div className="bg-white w-full max-w-[1440px] h-auto pt-[96px] pb-0 gap-10 opacity-100 mb-10 mx-auto items-center sm:px-4 xs:px-4 md:mx-8 lg:px-16">
-      <div className="w-full max-w-[1440px] h-auto py-0 px-4 sm:px-6 md:px-8 gap-[16px] items-center">
-        <h1 className="text-4xl font-bold text-center mb-2">
-          {t("applicationAssistant.title")}
-        </h1>
-        <p className="text-center text-gray-700 ">
-          {t("applicationAssistant.subtitle")}
-        </p>
-      </div>
+        <SectionHeader title={t("applicationAssistant.title")} paragraph={t("applicationAssistant.subtitle")} classAttribute="w-full max-w-[1440px] h-auto py-0 px-4 sm:px-6 md:px-8 gap-[16px] items-center pt-6"></SectionHeader>
+      {/* </div> */}
 
       { target === 'EMPLOYER' && (
   <Questionnaire onEligibility={handleEligibility} language={language} target={target} />
@@ -72,9 +67,30 @@ export default function AssistantApp() {
                 </div>
               ))}
             </div>
-          ) : (
-            <p className="text-center text-red-600 mt-6"> {t("noRecommendations")}</p>
-          )}
+          ) : 
+
+                    
+          
+          <div>
+          {recommendations.map((recommendation, index) => (
+            <div key={index} className="mx-auto max-w-[1024px] ">
+              <h1 className="text-2xl text-gray-500 font-bold py-8 px-2">
+              {t("recommendations.headerTitle")} 
+              </h1>
+              <Recommendation
+
+              title={t("recommendations.title")} 
+              description={t("recommendations.description")} 
+              imageUrl={imageMap[recommendation.imageKey as ImageMapKeys]} 
+              buttonLabel={t("recommendations.buttonLabel")}
+              headerTitle={t("recommendations.headerTitle")}
+              />
+            </div>
+          ))}
+        </div>
+
+          
+          }
         </div>
       )}
     </div>

@@ -47,7 +47,7 @@ export default Button;
 //     <button
 //       onClick={onClick}
 //       className={`px-4 py-2 rounded-full border ${
-//         active ? "bg-[#E3F1FF] text-black" : "bg-transparent text-gray-700"
+//         active ? "bg-[#E3F1FF] text-[#181C20]" : "bg-transparent text-gray-700"
 //       } ${className}`}
 //       style={{
 //         borderColor: active ? "#E3F1FF" : "gray",

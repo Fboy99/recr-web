@@ -348,7 +348,7 @@
 //                   className={`block p-4 text-left rounded-full cursor-pointer border ${
 //                     (currentQuestion.answer as string[]).includes(option)
 //                       ? 'bg-[#D4E4F6] text-[#1A1B20]'
-//                       : 'bg-gray-100 text-black hover:bg-gray-200'
+//                       : 'bg-gray-100 text-[#181C20] hover:bg-gray-200'
 //                   }`}
 //                 >
 //                   {option}
@@ -756,7 +756,10 @@ const Questionnaire: React.FC<QuestionnaireProps> = ({ onEligibility, language, 
 
   const renderResults = () => {
     const eligibleMessage = totalPoints >= threshold ? (
-      <div className="flex flex-col p-6 bg-[#F1F4F9] h-auto">
+            // <div className="flex flex-col p-6 bg-[#F1F4F9] h-auto">
+
+      <div className="flex flex-col p-6 bg-white h-auto">
+
         <h1 className="text-xl font-semibold text-green-600 mt-6 mb-4">Congratulations!</h1>
         <p className="mb-4">
           Based on your responses, you may be eligible for the Chancenkarte.
@@ -796,8 +799,10 @@ const Questionnaire: React.FC<QuestionnaireProps> = ({ onEligibility, language, 
         </div>
       </div>
     ) : (
-      <div className="flex flex-col p-6 bg-[#F1F4F9] h-auto">
-        <h1 className="text-xl font-semibold text-red-600 mt-6 mb-4">Unfortunately!</h1>
+      // <div className="flex flex-col p-6 bg-[#F1F4F9] h-auto">
+      <div className="flex flex-col p-6 bg-white h-auto">
+
+      <h1 className="text-xl font-semibold text-red-600 mt-6 mb-4">Unfortunately!</h1>
         <p className="mb-4">
         You do not meet the eligibility criteria for the German Opportunity Card.
         </p>
@@ -863,8 +868,8 @@ const Questionnaire: React.FC<QuestionnaireProps> = ({ onEligibility, language, 
   const currentQuestion = questions[progress - 1];
 
   return (
-    <div className="flex flex-col justify-center items-center min-h-screen bg-white">
-      <div className="bg-gray-100 rounded-lg w-full max-w-4xl p-8 shadow-md">
+    <div className="flex flex-col justify-center items-center min-h-screen ">
+      <div className="rounded-[28px] w-full max-w-4xl p-8 shadow-md bg-[#F1F4F9]">
         <div className="mb-8">
           <div className="text-lg font-semibold mb-4">{t('applicationAssistant.question')} {progress} of {questions.length}</div>
           <div className="flex space-x-2">
@@ -882,38 +887,69 @@ const Questionnaire: React.FC<QuestionnaireProps> = ({ onEligibility, language, 
             {currentQuestion.question}
           </label>
 
-          {['yes-no'].includes(currentQuestion.type) && (
-  <div className="flex flex-row items-center"> {/* Changed to items-center */}
+           {['yes-no'].includes(currentQuestion.type) && (
+          <div className="flex flex-row items-center"> 
+            {currentQuestion.answers.map((option, idx) => (
+              <label key={idx} className={`flex items-center p-4 bg-white border ${
+                idx === 0 ? 'rounded-l-full' : 'rounded-r-full'
+              } cursor-pointer hover:bg-gray-100 w-1/6 h-16`}>
+                <input
+                  type="radio"
+                  name={`question-${progress}`}
+                  value={option.answer}
+                  checked={currentQuestion.userAnswer === option.answer}
+                  onChange={() => handleAnswerChange(option.answer)}
+                  className="w-6 h-6 mr-4 bg-[#465D91] rounded-full border-8 border-gray-400 hover:bg-[#D4E4F6]"
+        />
+
+                {option.answer}
+              </label>
+            ))}
+          </div>
+        )} 
+
+{/* {['yes-no'].includes(currentQuestion.type) && (
+  <div className="flex flex-row items-center">
     {currentQuestion.answers.map((option, idx) => (
-      <label key={idx} className={`flex items-center p-4 bg-gray-100 border ${
-        idx === 0 ? 'rounded-l-full' : 'rounded-r-full'
-      } cursor-pointer hover:bg-gray-200 w-1/6 h-16`}> {/* Set a consistent height */}
+      <label
+        key={idx}
+        className={`flex items-center p-4 border cursor-pointer w-1/6 h-16 
+          ${currentQuestion.userAnswer === option.answer ? 'bg-green-500' : 'bg-gray-100'} 
+          ${idx === 0 ? 'rounded-l-full' : 'rounded-r-full'} 
+          hover:bg-white`}
+      >
         <input
           type="radio"
           name={`question-${progress}`}
           value={option.answer}
           checked={currentQuestion.userAnswer === option.answer}
           onChange={() => handleAnswerChange(option.answer)}
-          className="w-6 h-6 mr-4 bg-[#465D91] rounded-full border-8 border-gray-400 hover:bg-[#D4E4F6]"
+          className="hidden" // Hide the default radio button
         />
+        <span className={`w-6 h-6 mr-4 inline-block rounded-full border-2 
+          ${currentQuestion.userAnswer === option.answer ? 'bg-green-500 border-green-500' : 'bg-gray-100 border-gray-400'}`}></span>
         {option.answer}
       </label>
     ))}
   </div>
-)}
+)} */}
+
+
+
           
 
           {['multiple-choice'].includes(currentQuestion.type) && (
             <div className="space-y-4">
               {currentQuestion.answers.map((option, idx) => (
-                <label key={idx} className="flex items-center p-4 bg-gray-100 border cursor-pointer hover:bg-gray-200">
+                <label key={idx} className="flex items-center p-4 rounded-[16px] bg-white border cursor-pointer hover:bg-gray-200">
                   <input
                     type="radio"
                     name={`question-${progress}`}
                     value={option.answer}
                     checked={currentQuestion.userAnswer === option.answer}
                     onChange={() => handleAnswerChange(option.answer)}
-                    className="w-6 h-6 mr-4"
+                    className="w-6 h-6 mr-4 bg-[#465D91] text-green-800"
+
                   />
                   {option.answer}
                 </label>
@@ -930,11 +966,11 @@ const Questionnaire: React.FC<QuestionnaireProps> = ({ onEligibility, language, 
         <label
           key={idx}
           className={`flex items-center justify-center px-5 py-4 border rounded-full cursor-pointer transition duration-200
-            ${isSelected ?  'bg-[#D4E4F6] text-[#1A1B20]' : 'bg-gray-100 text-black hover:bg-gray-200'}
+            ${isSelected ?  'bg-[#D4E4F6] text-[#1A1B20]' : 'bg-gray-100 text-[#181C20] hover:bg-gray-200'}
           `}
           onClick={() => handleAnswerChange(option.answer, !isSelected)} // Toggle selection on click
         >
-          <span className="text-sm">{option.answer}</span> {/* Smaller font size */}
+          <span className="text-sm">{option.answer}</span> 
         </label>
       );
     })}
@@ -944,7 +980,7 @@ const Questionnaire: React.FC<QuestionnaireProps> = ({ onEligibility, language, 
 
 {currentQuestion.type === 'dropdown' && (
   <select
-    className="w-1/2 p-4 border border-gray-300 rounded"
+    className="w-1/2 p-4 border border-gray-300 bg-white rounded"
     value={currentQuestion.userAnswer as string}
     onChange={(e) => handleAnswerChange(e.target.value)}
   >
@@ -993,7 +1029,7 @@ const Questionnaire: React.FC<QuestionnaireProps> = ({ onEligibility, language, 
 
         <div className="flex justify-between">
           <button
-            className="bg-[#FFFFFF] text-[#465D91] px-6 py-3 rounded-full"
+            className="bg-[#FFFFFF] text-[#465D91] border-[#757780] border-[1px] px-6 py-3 rounded-full"
             onClick={handleBack}
             disabled={progress === 1}
           >
@@ -1009,7 +1045,7 @@ const Questionnaire: React.FC<QuestionnaireProps> = ({ onEligibility, language, 
       </div>
       {target=='EMPLOYER'?
       <div className='rounded-lg w-full max-w-4xl pt-12 shadow-m'>
-        <p>Chancenkarte.com is an independent information portal. We aim to help you come to Germany, find a job and stay here. We are not government-funded and want to stay that way – fast and agile to serve your needs. We would like to accompany you on your way and provide you with necessary and useful tips and tools so that we can welcome you to Germany soon.</p>
+        <p className="text-[#42474E] font-roboto text-base font-normal leading-6 tracking-wide text-left">Chancenkarte.com is an independent information portal. We aim to help you come to Germany, find a job and stay here. We are not government-funded and want to stay that way – fast and agile to serve your needs. We would like to accompany you on your way and provide you with necessary and useful tips and tools so that we can welcome you to Germany soon.</p>
       </div>:''
       }
     </div>

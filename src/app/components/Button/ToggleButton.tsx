@@ -7,7 +7,7 @@
 //     <button
 //       onClick={onClick}
 //       className={`px-4 py-2 border ${
-//         active ? "bg-[#E3F1FF] text-black" : "bg-transparent text-gray-700"
+//         active ? "bg-[#E3F1FF] text-[#181C20]" : "bg-transparent text-gray-700"
 //       }`}
 //       style={{
 //         borderColor: active ? "#E3F1FF" : "gray",
@@ -43,7 +43,7 @@ const ToggleButton: React.FC<ToggleButtonProps> = ({
     <button
       onClick={onClick}
       className={`px-4 py-2 border xs:w-1/2 sm:w-1/2 md:w-1/2 text-[13px]  ${
-        active ? "bg-[#DBE2F9] text-black" : "bg-transparent text-gray-700"
+        active ? "bg-[#DBE2F9] text-[#181C20]" : "bg-transparent text-gray-700"
       } ${
         isLeft ? "rounded-l-full" : "rounded-r-full"
       }`}

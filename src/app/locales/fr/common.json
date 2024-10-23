@@ -72,14 +72,13 @@
     "firstNamePlaceholder": "Prénom",
     "lastNamePlaceholder": "Nom",
     "emailPlaceholder": "Adresse e-mail",
+    "phonePlaceholder":"Phone number",
+    "companyNamePlaceholder":"Company name",
     "subscribeButton": "Abonnez-vous maintenant",
     "candidates": "Candidats",
     "employers": "Employeurs"
   },
-  "SimulatorForm": {
-    "title": "Assistant de Candidature",
-    "description": "Le meilleur endroit pour commencer votre candidature à la Chancenkarte allemande"
-  },
+
   "footer": {
     "copyright": "©2024 Lorem ipsum. Tous droits réservés.",
     "privacyPolicy": "Politique de Confidentialité",
@@ -144,6 +143,27 @@
     "imageKey": "expatrio1",
     "buttonLabel": "Voir Plus"
   },
-    "noRecommendations": "Pas de recommandations disponibles pour le moment."
+    "noRecommendations": "Pas de recommandations disponibles pour le moment.",
+
+    "SimulatorForm":{
+      "title":"Assistant de Candidature",
+      "subtitle":"Le meilleur endroit pour commencer votre candidature pour la carte de chance allemande",
+      "question":"Question de"
+    },
+    "privacyPolicy":{
+      "title":"Privacy Policy",
+      "LastUpdate":"Last updated on"
+  
+    },
+
+
+  "siteNotice":{
+    "title":"Privacy Policy",
+    "LastUpdate":"Last updated on"
+
   }
+    
+  }
+
+
   

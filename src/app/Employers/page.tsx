@@ -24,11 +24,11 @@
 //   const { t } = useTranslation('common');
 
 //   return (
-//     <div className="my-16 bg-white text-black pb-12 sm:px-4 xs:px-4 md:mx-8 lg:px-16">
+//     <div className="my-16 bg-white text-[#181C20] pb-12 sm:px-4 xs:px-4 md:mx-8 lg:px-16">
 //       <div className="mx-auto py-12 max-w-[1080px]">
 //         <div className="w-full max-w-screen-lg mx-auto">
 //           <h1 className="text-4xl font-bold text-center mb-2">{t('employers.title')}</h1>
-//           <p className="text-center text-black mb-12">Why we care about the opportunity card</p>
+//           <p className="text-center text-[#181C20] mb-12">Why we care about the opportunity card</p>
 //           <div className="flex flex-col items-center">
 //             <div className="w-full mb-8 flex justify-center">
 //               <Image
@@ -81,6 +81,7 @@ import SimulatorForm from '../components/SimulatorForm';
 import img5 from "../../images/image5.jpeg";
 import infoBlocksData from '../data/infoBlocks.json';
 import { useTranslation } from 'react-i18next';
+import SectionHeader from '../components/SectionHeader';
 
 const iconMap = {
   FaHome,
@@ -97,19 +98,20 @@ const Employers: React.FC = () => {
   const { t } = useTranslation('common');
 
   return (
-    <div className="my-16 bg-white text-black pb-12 sm:px-4 xs:px-4 md:mx-8 lg:px-16">
+    <div className="my-16 bg-white text-[#181C20] pb-12 sm:px-4 xs:px-4 md:mx-8 lg:px-16">
       <div className="mx-auto py-12 max-w-[1080px]">
-        <div className="w-full max-w-screen-lg mx-auto">
-          <h1 className="text-4xl font-bold text-center mb-2">{t('employers.title')}</h1>
-          <p className="text-center text-black mb-12">{t('employers.opportunity_card')}</p>
+        {/* <div className="w-full max-w-screen-lg mx-auto"> */}
+         {/*  <h1 className="text-4xl font-bold text-center mb-2">{t('employers.title')}</h1>
+          <p className="text-center text-[#181C20] mb-12">{t('employers.opportunity_card')}</p> */}
+          <SectionHeader title={t('employers.title')} paragraph={t('employers.opportunity_card')} classAttribute='w-full max-w-screen-lg mx-auto'/>
           <div className="flex flex-col items-center">
             <div className="w-full mb-8 flex justify-center">
               <Image
                 src={img5}
                 alt="About us"
-                width={1080}
-                height={800}
-                className="rounded-[20px]"
+                width={1040}
+                height={720}
+                className="rounded-[28px]"
               />
             </div>
             <div className="w-full text-center space-y-8">
@@ -131,15 +133,16 @@ const Employers: React.FC = () => {
               </div>
             </div>
           </div>
-        </div>
+        {/* </div> */}
       </div>
+
       <div>
         <div className='sm:mx-2 xs:mx-2 md:mx-8'>
           <Faq isHome={false}/>
           <SimulatorForm/>
         </div>
       </div>
-    </div>
+    </div> 
   );
 };
 

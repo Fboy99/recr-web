@@ -6,10 +6,11 @@ import { FaHome, FaMoneyBillWave, FaCheckCircle, FaBriefcase } from 'react-icons
 import ImgFeature from '../components/FeatureImg';
 import Faq from '../components/Faq';
 import FeatureIcon from '../components/FeatureIcon';
-import img10 from "../../images/image10.jpeg";
+import candidates_img from "../../images/candidates_img.jpeg";
 import img3 from "../../images/image3.jpeg";
 import img5 from "../../images/image5.jpeg";
 import { useTranslation } from 'react-i18next';
+import SectionHeader from '../components/SectionHeader';
 
 const Candidates: React.FC = () => {
   const { t } = useTranslation('common');
@@ -39,17 +40,22 @@ const Candidates: React.FC = () => {
 
   return (
     <div className="my-16 mx-auto pb-10 sm:px-4 xs:px-4 md:mx-8">
-      <div className="max-w-5xl mx-auto py-12">
-        <h1 className="text-4xl font-bold text-center my-8">{t('candidates.title')}</h1>
-        <p className="text-center text-lg mb-16">{t('candidates.subtitle')}</p>
+        <div className="mx-auto py-12 max-w-[1080px]">
 
+        {/* <h1 className="text-4xl font-bold text-center my-8">{t('candidates.title')}</h1>
+        <p className="text-center text-lg mb-16">{t('candidates.subtitle')}</p> */}
+
+        <SectionHeader title={t('candidates.title')} paragraph={t('candidates.subtitle')} classAttribute=''/>
+
+        {/* <div className="max-w-5xl mx-auto py-10"> */}
+        <div className='mx-auto max-w-5xl '>
         <div className="flex justify-center mb-8">
           <Image
-            src={img10}
+            src={candidates_img}
             alt={t('candidates.aboutUsAlt')}
-            width={1080}
-            height={800}
-            className="rounded-lg max-w-full h-auto"
+            width={1040}
+            height={720}
+            className="rounded-[28px] max-w-full h-auto"
           />
         </div>
 
@@ -107,6 +113,7 @@ const Candidates: React.FC = () => {
         </div>
       </div>
       <Faq isHome={false}/>
+      </div>
       </div>
   );
 };

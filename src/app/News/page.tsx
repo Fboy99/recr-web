@@ -46,7 +46,7 @@
 //         <Navbar />
 //       <div className="container mx-auto px-6 lg:px-16">
 //         <h1 className="text-4xl font-bold text-center mb-2 py-12">News</h1>
-//         <p className="text-center text-black mb-12">Learn all the latest about the opportunity card</p>
+//         <p className="text-center text-[#181C20] mb-12">Learn all the latest about the opportunity card</p>
 
 //       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 px-56">
 //         {newsData.map((newsItem, index) => (
@@ -121,7 +121,7 @@
 //   return (
 //       <div className=" mx-auto max-w-[1080px] sm:px-4 xs:px-4 md:mx-8 lg:px-16">
 //         <h1 className="mt-16 text-4xl font-bold text-center py-12">News</h1>
-//         <p className="mb-8 text-center text-black ">Learn all the latest about the opportunity card</p>
+//         <p className="mb-8 text-center text-[#181C20] ">Learn all the latest about the opportunity card</p>
 //         {/* <div className="w-full mb-8 flex justify-center">
 //             <Image
 //               src={img11}
@@ -169,7 +169,7 @@
 //   return (
 //     <div className="mx-auto max-w-[1080px] sm:px-4 xs:px-4 md:mx-8 lg:px-16">
 //       <h1 className="mt-16 text-4xl font-bold text-center py-12">News</h1>
-//       <p className="mb-8 text-center text-black">Learn all the latest about the opportunity card</p>
+//       <p className="mb-8 text-center text-[#181C20]">Learn all the latest about the opportunity card</p>
       
 //       <div className="grid sm:grid-cols-1 gap-8 lg:grid-cols-2">
 //         {newsData.map((newsItem, index) => (
@@ -201,7 +201,7 @@
 //   return (
 //     <div className="mx-auto max-w-[1080px] sm:px-4 xs:px-4 md:mx-8 lg:px-16">
 //       <h1 className="mt-16 text-4xl font-bold text-center py-12">{t('news.title')}</h1>
-//       <p className="mb-8 text-center text-black">{t('news.latest_opportunity')}</p>
+//       <p className="mb-8 text-center text-[#181C20]">{t('news.latest_opportunity')}</p>
 
 //       <div className="grid sm:grid-cols-1 gap-8 lg:grid-cols-2">
 //         {newsData.map((newsItem, index) => (
@@ -283,7 +283,7 @@
 //   return (
 //     <div className="mx-auto max-w-[1080px] sm:px-4 xs:px-4 md:mx-8 lg:px-16">
 //       <h1 className="mt-16 text-4xl font-bold text-center py-12">{t('news.title')}</h1>
-//       <p className="mb-8 text-center text-black">{t('news.latest_opportunity')}</p>
+//       <p className="mb-8 text-center text-[#181C20]">{t('news.latest_opportunity')}</p>
 
 //       <div className="grid sm:grid-cols-1 gap-8 lg:grid-cols-2">
 //         {data.articles.map((newsItem: NewsItem) => (
@@ -353,7 +353,7 @@
 //   return (
 //     <div className="mx-auto max-w-[1080px] sm:px-4 xs:px-4 md:mx-8 lg:px-16">
 //       <h1 className="mt-16 text-4xl font-bold text-center py-12">{t('news.title')}</h1>
-//       <p className="mb-8 text-center text-black">{t('news.latest_opportunity')}</p>
+//       <p className="mb-8 text-center text-[#181C20]">{t('news.latest_opportunity')}</p>
 
 //       <div className="grid sm:grid-cols-1 gap-8 lg:grid-cols-2">
 //         {newsData.map((newsItem: NewsItem, index: number) => (
@@ -381,7 +381,7 @@
 // import NewsCard from '../components/NewsCard';
 // import { useTranslation } from 'react-i18next';
 
-// import image from '../../images/image1.jpeg'
+// import image from '../../images/candidates_img.jpeg'
 
 // import { StaticImageData } from 'next/image';
 
@@ -434,7 +434,7 @@
 //   return (
 //     <div className="mx-auto max-w-[1080px] sm:px-4 xs:px-4 md:mx-8 lg:px-16">
 //       <h1 className="mt-16 text-4xl font-bold text-center py-12">{t('news.title')}</h1>
-//       <p className="mb-8 text-center text-black">{t('news.latest_opportunity')}</p>
+//       <p className="mb-8 text-center text-[#181C20]">{t('news.latest_opportunity')}</p>
 
 //       <div className="grid sm:grid-cols-1 gap-8 lg:grid-cols-2">
 //         {data.articles.map((article: Article) => (
@@ -517,7 +517,7 @@
 //   return (
 //     <div className="mx-auto max-w-[1080px] sm:px-4 xs:px-4 md:mx-8 lg:px-16">
 //       <h1 className="mt-16 text-4xl font-bold text-center py-12">{t('news.title')}</h1>
-//       <p className="mb-8 text-center text-black">{t('news.latest_opportunity')}</p>
+//       <p className="mb-8 text-center text-[#181C20]">{t('news.latest_opportunity')}</p>
 
 //       <div className="grid sm:grid-cols-1 gap-8 lg:grid-cols-2">
 //         {data.articles.map((article: Article) => (
@@ -588,7 +588,7 @@
 //   return (
 //     <div className="mx-auto max-w-[1080px] sm:px-4 xs:px-4 md:mx-8 lg:px-16">
 //       <h1 className="mt-16 text-4xl font-bold text-center py-12">{t('news.title')}</h1>
-//       <p className="mb-8 text-center text-black">{t('news.latest_opportunity')}</p>
+//       <p className="mb-8 text-center text-[#181C20]">{t('news.latest_opportunity')}</p>
 
 //       <div className="grid sm:grid-cols-1 gap-8 lg:grid-cols-2">
 //         {data.articles.map((article: Article) => (
@@ -616,67 +616,70 @@
 
 // // app/News/page.tsx
 
-// 'use client';
-// import React from 'react';
-// import { useQuery, gql } from '@apollo/client';
-// import NewsCard from '../components/NewsCard';
-// import { useTranslation } from 'react-i18next';
+'use client';
+import React from 'react';
+import { useQuery, gql } from '@apollo/client';
+import NewsCard from '../components/NewsCard';
+import { useTranslation } from 'react-i18next';
+import SectionHeader from '../components/SectionHeader';
 
-// const GET_ARTICLES = gql`
-//   query GetArticles($limit: Int, $offset: Int) {
-//     articles(limit: $limit, offset: $offset) {
-//       id
-//       title
-//       description
-//       imageUrls  
-//       createAt
-//     }
-//   }
-// `;
+const GET_ARTICLES = gql`
+  query GetArticles($limit: Int, $offset: Int) {
+    articles(limit: $limit, offset: $offset) {
+      id
+      title
+      description
+      imageUrls  
+      createAt
+    }
+  }
+`;
 
-// type Article = {
-//   id: string;
-//   title: string;
-//   description: string;
-//   imageUrls: string; 
-//   createAt: string;
-// };
+type Article = {
+  id: string;
+  title: string;
+  description: string;
+  imageUrls: string; 
+  createAt: string;
+};
 
-// const News: React.FC = () => {
-//   const { t } = useTranslation('common');
+const News: React.FC = () => {
+  const { t } = useTranslation('common');
 
-//   const { loading, error, data } = useQuery(GET_ARTICLES, {
-//     variables: { limit: 4, offset: 2 },
-//   });
+  const { loading, error, data } = useQuery(GET_ARTICLES, {
+    variables: { limit: 4, offset: 2 },
+  });
 
-//   console.log("GraphQL loading state:", loading); // Log loading state
-//   console.log("GraphQL error:", error); // Log any errors
-//   console.log("GraphQL data:", data); // Log the data fetched
+  console.log("GraphQL loading state:", loading); // Log loading state
+  console.log("GraphQL error:", error); // Log any errors
+  console.log("GraphQL data:", data); // Log the data fetched
 
-//   if (loading) return <p className='text-center'>Loading...</p>;
-//   if (error) return <p className='text-center'>Error fetching articles: {error.message}</p>;
+  if (loading) return <p className='text-center'>Loading...</p>;
+  if (error) return <p className='text-center'>Error fetching articles: {error.message}</p>;
 
-//   return (
-//     <div className="mx-auto max-w-[1080px] sm:px-4 xs:px-4 md:mx-8 lg:px-16">
-//       <h1 className="mt-16 text-4xl font-bold text-center py-12">{t('news.title')}</h1>
-//       <p className="mb-8 text-center text-black">{t('news.latest_opportunity')}</p>
-//       <div className="grid sm:grid-cols-1 gap-8 lg:grid-cols-2">
-//         {data.articles.map((article: Article) => (
-//           <NewsCard
-//             key={article.id}
-//             id={article.id} // Pass the article ID
-//             date={new Date(article.createAt).toDateString()}
-//             // imageUrl={article.imageUrls}  
-//             title={article.title}
-//             description={article.description}
-//           />
-//         ))}
-//       </div>
-//     </div>
-//   );
-// };
+  return (
+    <div className="mx-auto max-w-[1080px] sm:px-4 xs:px-4 md:mx-8 lg:px-16">
+      {/* <h1 className="mt-16 text-4xl font-bold text-center py-12">{t('news.title')}</h1>
+      <p className="mb-8 text-center text-[#181C20]">{t('news.latest_opportunity')}</p> */}
+      <SectionHeader title={t('news.title')} paragraph={t('news.latest_opportunity')} classAttribute="pt-28 pb-4"/>
 
-// export default News;
+      <div className="grid sm:grid-cols-1 gap-8 lg:grid-cols-2">
+        {data.articles.map((article: Article) => (
+          <NewsCard
+            key={article.id}
+            id={article.id} // Pass the article ID
+            date={new Date(article.createAt).toDateString()}
+            imageUrl={article.imageUrls}  
+            title={article.title}
+            description={article.description}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default News;
 
 
 
@@ -736,25 +739,3 @@
 // };
 
 // export default News;
-
-import ArticleCard from "../components/ArtCard";
-
-const articles = [
-  { id: 1, title: 'First Article', description: 'This is the first article' },
-  { id: 2, title: 'Second Article', description: 'This is the second article' },
-  // Add more articles as needed
-];
-
-const News = () => {
-  return (
-    <div>
-      {articles.map((article) => (
-        <ArticleCard key={article.id} article={article} />
-      ))}
-    </div>
-  );
-};
-
-export default News;
-
-

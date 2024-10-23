@@ -223,11 +223,13 @@ const config: Config = {
         },
       },
       screens: {
-        'xs': {'min': '0px', 'max': '539px'},
-        'sm': {'min': '540px', 'max': '767px'},
-        'md': {'min': '768px', 'max': '1024px'},
-        'lg': {'min': '1025px'},
+        'xs': {'min': '0px', 'max': '599px'},
+        'sm': {'min': '600px', 'max': '839px'},
+        'md': {'min': '840px', 'max': '1199px'},
+        'lg': {'min': '1200px'},
       },
+
+
       backgroundImage: {
         'hero-bg-image': "url('/images/hero.jpeg')",
       },

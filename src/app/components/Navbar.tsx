@@ -8,7 +8,7 @@ import Logo from "../../images/Logo.svg";
 import Menu from "../../images/Menu.svg"; 
 import Icon from "../../images/france.png"; 
 import Icon2 from "../../images/germany.png"; 
-import Icon3 from "../../images/england.png"; 
+import Icon3 from "../../images/United Kingdom (GB).png"; 
 import '../../i18n/i18n';
 
 // Define a type for the language object
@@ -74,7 +74,7 @@ export function Navbar() {
       <div className="flex items-center">
         <Link href="/" className="flex items-center hover:no-underline" onClick={() => handleLinkClick("")}>
           <Image src={Logo} alt="Logo" width={24} height={24} />
-          <h1 className="ml-2 text-xl font-bold text-black">{t('logo')}</h1>
+          <h1 className="ml-2 text-xl font-bold text-[#181C20]">{t('logo')}</h1>
         </Link>
       </div>
 
@@ -85,7 +85,7 @@ export function Navbar() {
               <Link
                 href={item.path}
                 className={`text-base font-medium hover:no-underline ${
-                  activeLink === item.name ? "text-blue-600" : "text-black"
+                  activeLink === item.name ? "text-blue-600" : "text-[#181C20]"
                 }`}
                 style={{ maxWidth: '150px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}
                 onClick={() => handleLinkClick(item.name)}
@@ -115,7 +115,7 @@ export function Navbar() {
                   onClick={() => handleLanguageChange(lang)}
                 >
                   <Image src={lang.flag} alt={lang.name} width={20} height={20} />
-                  <span className="ml-2 text-sm text-black">{lang.name}</span>
+                  <span className="ml-2 text-sm text-[#181C20]">{lang.name}</span>
                 </div>
               ))}
             </div>
@@ -134,7 +134,7 @@ export function Navbar() {
               href={item.path}
               key={index}
               className={`block p-2 text-center text-gray-200 bg-[#181C20] font-medium hover:bg-gray-800 hover:no-underline ${
-                activeLink === item.name ? "text-blue-600" : "text-black"
+                activeLink === item.name ? "text-blue-600" : "text-[#181C20]"
               }`}
               onClick={() => handleLinkClick(item.name)}
             >
@@ -217,7 +217,7 @@ export function Navbar() {
 //       <div className="flex items-center">
 //         <Link href="/" className="flex items-center hover:no-underline" onClick={() => handleLinkClick("")}>
 //           <Image src={Logo} alt="Logo" width={24} height={24} />
-//           <h1 className="ml-2 text-xl font-bold text-black">{t('logo')}</h1>
+//           <h1 className="ml-2 text-xl font-bold text-[#181C20]">{t('logo')}</h1>
 //         </Link>
 //       </div>
 
@@ -228,7 +228,7 @@ export function Navbar() {
 //               <Link
 //                 href={item.path}
 //                 className={`text-base font-medium hover:no-underline ${
-//                   activeLink === item.name ? "text-blue-600" : "text-black"
+//                   activeLink === item.name ? "text-blue-600" : "text-[#181C20]"
 //                 }`}
 //                 style={{ maxWidth: '150px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}
 //                 onClick={() => handleLinkClick(item.name)}
@@ -258,7 +258,7 @@ export function Navbar() {
 //                   onClick={() => handleLanguageChange(lang)}
 //                 >
 //                   <Image src={lang.flag} alt={lang.name} width={20} height={20} />
-//                   <span className="ml-2 text-sm text-black">{lang.name}</span>
+//                   <span className="ml-2 text-sm text-[#181C20]">{lang.name}</span>
 //                 </div>
 //               ))}
 //             </div>
@@ -277,7 +277,7 @@ export function Navbar() {
 //               href={item.path}
 //               key={index}
 //               className={`block p-2 text-center text-gray-200 bg-[#181C20] font-medium hover:bg-gray-800 hover:no-underline ${
-//                 activeLink === item.name ? "text-blue-600" : "text-black"
+//                 activeLink === item.name ? "text-blue-600" : "text-[#181C20]"
 //               }`}
 //               onClick={() => handleLinkClick(item.name)}
 //             >
