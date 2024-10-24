@@ -659,8 +659,7 @@ const News: React.FC = () => {
 
   return (
     <div className="mx-auto max-w-[1080px] sm:px-4 xs:px-4 md:mx-8 lg:px-16">
-      {/* <h1 className="mt-16 text-4xl font-bold text-center py-12">{t('news.title')}</h1>
-      <p className="mb-8 text-center text-[#181C20]">{t('news.latest_opportunity')}</p> */}
+
       <SectionHeader title={t('news.title')} paragraph={t('news.latest_opportunity')} classAttribute="pt-28 pb-4"/>
 
       <div className="grid sm:grid-cols-1 gap-8 lg:grid-cols-2">

@@ -155,7 +155,7 @@ import React from 'react';
 import { useQuery, gql } from '@apollo/client';
 import { useParams } from 'next/navigation';
 import SectionHeader from '@/app/components/SectionHeader';
-import Image from 'next/image';
+// import Image from 'next/image';
 
 const GET_ARTICLE_BY_ID = gql`
   query GetArticleById($id: ID!) {
@@ -201,13 +201,15 @@ const ArticleDetail: React.FC = () => {
           {/* Conditionally render the image or a small placeholder if the image URL is missing */}
           <div className="w-full mb-8 flex justify-center">
             {article.imageUrls ? (
-              <Image
-                src={article.imageUrls}
-                alt={article.title}
-                width={1040}
-                height={720}
-                className="rounded-[20px] text-center"
-              />
+            <img src={article.imageUrls} alt={article.title} className="title" width={400} height={400}/>
+
+              // <Image
+              //   src={article.imageUrls}
+              //   alt={article.title}
+              //   width={1040}
+              //   height={720}
+              //   className="title"
+              // />
             ) : (
               <div className="w-32 h-32 bg-gray-300 rounded-full flex items-center justify-center">
                 <span className="text-gray-500"></span>

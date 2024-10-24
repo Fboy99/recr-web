@@ -142,13 +142,14 @@
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 // src/app/components/NewsCard.tsx
-'use client'; // Ensure this is a client component
+
+'use client'; 
 
 import React from 'react';
 import { useRouter } from 'next/navigation';
 import Button from './Button/Button';
 import { useTranslation } from 'react-i18next';
-import Image from 'next/image';
+// import Image from 'next/image';
 
 const NewsCard: React.FC<{ title: string; description: string; imageUrl: string; date: string; id: string }> = ({ title, description, imageUrl, date, id }) => {
   // const NewsCard: React.FC<{ title: string; description: string; date: string; id: string }> = ({ title, description,  date, id }) => {
@@ -164,15 +165,17 @@ const router = useRouter();
 
   return (
     <div className="bg-white shadow-md rounded-[20px] max-width-24">
-      {/* <img src={imageUrl} alt={title} className="rounded-t-[20px] w-full h-80 object-cover" /> */}
+      <img src={imageUrl} alt={title} className="rounded-t-[20px] w-full h-80 object-cover" />
 
-        <Image 
+        {/* <Image 
           src={imageUrl} 
           alt={title} 
           className="rounded-t-[20px] w-full h-80 object-cover"
           width={400}
           height={300}
-        />
+          quality={16}
+        /> */}
+
       <div className="p-4">
         <p className="text-gray-600 mb-2">{date}</p>
         <h3 className="text-lg font-semibold mb-2">{title}</h3> 

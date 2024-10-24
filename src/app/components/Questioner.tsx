@@ -1,118 +1,3 @@
-// import React, { useState, useEffect } from 'react';
-// import { useQuery, gql } from '@apollo/client';
-// import { useTranslation } from 'react-i18next';
-
-// const GET_ASSISTANT_BY_LANGUAGE_AND_TARGET = gql`
-//   query GetAssistantByLanguageAndTarget($language: Language!, $target: UserTarget!) {
-//     AssistantByLanguageAndTarget(language: $language, target: $target) {
-//       id
-//       type
-//       question
-//       description
-//       answers {
-//         point
-//         answer
-//       }
-//       createAt
-//       updateAt
-//       language
-//       target
-//       caregorie
-//     }
-//   }
-// `;
-
-// interface Answer {
-//   point: number;
-//   answer: string;
-// }
-
-// interface Question {
-//   id: string;
-//   type: 'yes-no' | 'multiple-choice' | 'multiple-selection' | 'dropdown' | 'text-input';
-//   question: string;
-//   description: string;
-//   answers: Answer[];
-//   createAt: string;
-//   updateAt: string;
-//   language: string;
-//   target: string;
-//   caregorie:string;
-//   userAnswer?: string | string[];
-//   points?: number;
-// }
-
-
-// interface QuestionnaireProps {
-//   onEligibility: (eligible: boolean) => void;
-//   language: string; 
-//   target: 'EMPLOYER' | 'JOBSEEKER';  }
-
-
-// const Questionnaire: React.FC<QuestionnaireProps> = ({ onEligibility, language, target }) => {
-//   const { t } = useTranslation("common");
-
-//   console.log("Current language:", language.toUpperCase(),);
-//   console.log("Current target:", target,);
-
-
-//   // Use the target and language in the GraphQL query
-//   const { loading, error, data } = useQuery(GET_ASSISTANT_BY_LANGUAGE_AND_TARGET, {
-//     variables: {
-//       language: (() => {
-//         switch (language.toUpperCase()) {
-//           case 'EN':
-//             return 'AN';
-//           case 'FR':
-//             return 'FR';
-//           case 'DE':
-//             return 'GR';
-//           default:
-//             return language; 
-//         }
-//       })(),
-//       target,
-//     },
-//   });
-
-
-  
-//   const [progress, setProgress] = useState<number>(1);
-//   const [questions, setQuestions] = useState<Question[]>([]);
-//   const [totalPoints, setTotalPoints] = useState<number>(0);
-//   const threshold = 5;
-//   const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
-//   const [showError, setShowError] = useState<boolean>(false);
-
-//   useEffect(() => {
-//     if (data) {
-//       const fetchedQuestions: Question[] = data.AssistantByLanguageAndTarget.map((item: any) => {
-//         const question: Question = {
-//           id: item.id,
-//           type: item.type,
-//           question: item.question,
-//           description: item.description,
-//           answers: item.answers,
-//           createAt: item.createAt,
-//           updateAt: item.updateAt,
-//           language: item.language,
-//           caregorie:item.caregorie,
-//           target: item.target,
-//           userAnswer: item.type === 'multiple-selection' ? [] : '',
-//           points: item.answers.reduce((acc: number, ans: any) => acc + ans.point, 0),
-
-//         };
-//         return question;
-//       });
-//       setQuestions(fetchedQuestions);
-//     }
-//   }, [data]);
-
-//   if (loading) return <p className='text-center'>Loading...</p>;
-//   if (error) return <p className='text-center'>Error: {error.message}</p>;
-//   if (questions.length === 0) return <p className='text-center'>No questions available.</p>;
-
-
 import React, { useState, useEffect } from 'react';
 import { useQuery, gql } from '@apollo/client';
 import { useTranslation } from 'react-i18next';
@@ -152,27 +37,27 @@ interface Question {
   updateAt: string;
   language: string;
   target: string;
-  caregorie: string;
+  caregorie:string;
   userAnswer?: string | string[];
   points?: number;
 }
 
+
 interface QuestionnaireProps {
   onEligibility: (eligible: boolean) => void;
   language: string; 
-  target: 'EMPLOYER' | 'JOBSEEKER';  
-}
+  target: 'EMPLOYER' | 'JOBSEEKER';  }
+
 
 const Questionnaire: React.FC<QuestionnaireProps> = ({ onEligibility, language, target }) => {
   const { t } = useTranslation("common");
 
-  console.log("Current language:", language.toUpperCase());
-  console.log("Current target:", target);
+  console.log("Current language:", language.toUpperCase(),);
+  console.log("Current target:", target,);
+
 
   // Use the target and language in the GraphQL query
-  const { loading, error, data } = useQuery<{ 
-    AssistantByLanguageAndTarget: Question[] 
-  }>(GET_ASSISTANT_BY_LANGUAGE_AND_TARGET, {
+  const { loading, error, data } = useQuery(GET_ASSISTANT_BY_LANGUAGE_AND_TARGET, {
     variables: {
       language: (() => {
         switch (language.toUpperCase()) {
@@ -190,6 +75,8 @@ const Questionnaire: React.FC<QuestionnaireProps> = ({ onEligibility, language, 
     },
   });
 
+
+  
   const [progress, setProgress] = useState<number>(1);
   const [questions, setQuestions] = useState<Question[]>([]);
   const [totalPoints, setTotalPoints] = useState<number>(0);
@@ -199,7 +86,7 @@ const Questionnaire: React.FC<QuestionnaireProps> = ({ onEligibility, language, 
 
   useEffect(() => {
     if (data) {
-      const fetchedQuestions: Question[] = data.AssistantByLanguageAndTarget.map((item) => {
+      const fetchedQuestions: Question[] = data.AssistantByLanguageAndTarget.map((item: any) => {
         const question: Question = {
           id: item.id,
           type: item.type,
@@ -209,10 +96,11 @@ const Questionnaire: React.FC<QuestionnaireProps> = ({ onEligibility, language, 
           createAt: item.createAt,
           updateAt: item.updateAt,
           language: item.language,
-          caregorie: item.caregorie,
+          caregorie:item.caregorie,
           target: item.target,
           userAnswer: item.type === 'multiple-selection' ? [] : '',
-          points: item.answers.reduce((acc: number, ans: Answer) => acc + ans.point, 0),
+          points: item.answers.reduce((acc: number, ans: any) => acc + ans.point, 0),
+
         };
         return question;
       });
@@ -223,6 +111,119 @@ const Questionnaire: React.FC<QuestionnaireProps> = ({ onEligibility, language, 
   if (loading) return <p className='text-center'>Loading...</p>;
   if (error) return <p className='text-center'>Error: {error.message}</p>;
   if (questions.length === 0) return <p className='text-center'>No questions available.</p>;
+
+
+// import React, { useState, useEffect } from 'react';
+// import { useQuery, gql } from '@apollo/client';
+// import { useTranslation } from 'react-i18next';
+
+// const GET_ASSISTANT_BY_LANGUAGE_AND_TARGET = gql`
+//   query GetAssistantByLanguageAndTarget($language: Language!, $target: UserTarget!) {
+//     AssistantByLanguageAndTarget(language: $language, target: $target) {
+//       id
+//       type
+//       question
+//       description
+//       answers {
+//         point
+//         answer
+//       }
+//       createAt
+//       updateAt
+//       language
+//       target
+//       caregorie
+//     }
+//   }
+// `;
+
+// interface Answer {
+//   point: number;
+//   answer: string;
+// }
+
+// interface Question {
+//   id: string;
+//   type: 'yes-no' | 'multiple-choice' | 'multiple-selection' | 'dropdown' | 'text-input';
+//   question: string;
+//   description: string;
+//   answers: Answer[];
+//   createAt: string;
+//   updateAt: string;
+//   language: string;
+//   target: string;
+//   caregorie: string;
+//   userAnswer?: string | string[];
+//   points?: number;
+// }
+
+// interface QuestionnaireProps {
+//   onEligibility: (eligible: boolean) => void;
+//   language: string; 
+//   target: 'EMPLOYER' | 'JOBSEEKER';  
+// }
+
+// const Questionnaire: React.FC<QuestionnaireProps> = ({ onEligibility, language, target }) => {
+//   const { t } = useTranslation("common");
+
+//   console.log("Current language:", language.toUpperCase());
+//   console.log("Current target:", target);
+
+//   // Use the target and language in the GraphQL query
+//   const { loading, error, data } = useQuery<{ 
+//     AssistantByLanguageAndTarget: Question[] 
+//   }>(GET_ASSISTANT_BY_LANGUAGE_AND_TARGET, {
+//     variables: {
+//       language: (() => {
+//         switch (language.toUpperCase()) {
+//           case 'EN':
+//             return 'AN';
+//           case 'FR':
+//             return 'FR';
+//           case 'DE':
+//             return 'GR';
+//           default:
+//             return language; 
+//         }
+//       })(),
+//       target,
+//     },
+//   });
+
+//   const [progress, setProgress] = useState<number>(1);
+//   const [questions, setQuestions] = useState<Question[]>([]);
+//   const [totalPoints, setTotalPoints] = useState<number>(0);
+//   const threshold = 5;
+//   const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
+//   const [showError, setShowError] = useState<boolean>(false);
+
+//   useEffect(() => {
+//     if (data) {
+//       const fetchedQuestions: Question[] = data.AssistantByLanguageAndTarget.map((item) => {
+//         const question: Question = {
+//           id: item.id,
+//           type: item.type,
+//           question: item.question,
+//           description: item.description,
+//           answers: item.answers,
+//           createAt: item.createAt,
+//           updateAt: item.updateAt,
+//           language: item.language,
+//           caregorie: item.caregorie,
+//           target: item.target,
+//           userAnswer: item.type === 'multiple-selection' ? [] : '',
+//           points: item.answers.reduce((acc: number, ans: Answer) => acc + ans.point, 0),
+//         };
+//         return question;
+//       });
+//       setQuestions(fetchedQuestions);
+//     }
+//   }, [data]);
+
+
+//   if (loading) return <p className='text-center'>Loading...</p>;
+//   if (error) return <p className='text-center'>Error: {error.message}</p>;
+//   if (questions.length === 0) return <p className='text-center'>No questions available.</p>;
 
   
   const handleNext = () => {
