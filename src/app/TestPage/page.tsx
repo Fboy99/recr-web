@@ -131,7 +131,7 @@ export default function TestPage() {
           {t("applicationAssistant.subtitle")}
         </p>
       </div>
-      <Questionnaire onEligibility={handleEligibility} />
+      <Questionnaire onEligibility={handleEligibility} language={""} target={"JOBSEEKER"} />
       {isEligible !== null && (
         <div>
           {isEligible ? (
@@ -159,3 +159,4 @@ export default function TestPage() {
     </div>
   );
 }
+

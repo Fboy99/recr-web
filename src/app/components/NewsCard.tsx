@@ -164,15 +164,15 @@ const router = useRouter();
 
   return (
     <div className="bg-white shadow-md rounded-[20px] max-width-24">
-      <img src={imageUrl} alt={title} className="rounded-t-[20px] w-full h-80 object-cover" />
+      {/* <img src={imageUrl} alt={title} className="rounded-t-[20px] w-full h-80 object-cover" /> */}
 
-        {/* <Image 
+        <Image 
           src={imageUrl} 
           alt={title} 
           className="rounded-t-[20px] w-full h-80 object-cover"
           width={400}
           height={300}
-        /> */}
+        />
       <div className="p-4">
         <p className="text-gray-600 mb-2">{date}</p>
         <h3 className="text-lg font-semibold mb-2">{title}</h3> 

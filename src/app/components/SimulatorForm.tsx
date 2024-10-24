@@ -67,8 +67,9 @@ const SimulatorForm: React.FC = () => {
   const { language } = useLanguage(); // Access language from context
   const { t } = useTranslation("common");
 
-  const [target, setTarget] = useState<"EMPLOYER" | "JOBSEEKER">("EMPLOYER");
-  const [isEligible, setIsEligible] = useState<boolean | null>(null);
+  // const [target, setTarget] = useState<"EMPLOYER" | "JOBSEEKER">("EMPLOYER");
+  const [target] = useState<"EMPLOYER" | "JOBSEEKER">("EMPLOYER");
+  // const [isEligible, setIsEligible] = useState<boolean | null>(null);
 
   return (
     <div className="bg-[#F1F4F9] w-full sm:px-4 md:px-8 pt-[64px] gap-10 opacity-100 mb-10 mx-auto pb-8">

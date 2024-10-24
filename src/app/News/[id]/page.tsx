@@ -155,6 +155,7 @@ import React from 'react';
 import { useQuery, gql } from '@apollo/client';
 import { useParams } from 'next/navigation';
 import SectionHeader from '@/app/components/SectionHeader';
+import Image from 'next/image';
 
 const GET_ARTICLE_BY_ID = gql`
   query GetArticleById($id: ID!) {
@@ -183,7 +184,7 @@ const ArticleDetail: React.FC = () => {
     <div className="my-16 bg-white text-[#181C20] pb-12 sm:px-4 xs:px-4 md:mx-8 lg:px-16">
       <div className="mx-auto py-12 max-w-[1080px] text-center">
         <h1 className="text-3xl font-bold mb-4">Article Not Found</h1>
-        <p className="text-lg text-gray-500 mb-8">It seems this article doesn't exist.</p>
+        <p className="text-lg text-gray-500 mb-8">It seems this article doesnt exist.</p>
       </div>
     </div>
   );
@@ -200,9 +201,9 @@ const ArticleDetail: React.FC = () => {
           {/* Conditionally render the image or a small placeholder if the image URL is missing */}
           <div className="w-full mb-8 flex justify-center">
             {article.imageUrls ? (
-              <img
+              <Image
                 src={article.imageUrls}
-                // alt={article.title}
+                alt={article.title}
                 width={1040}
                 height={720}
                 className="rounded-[20px] text-center"

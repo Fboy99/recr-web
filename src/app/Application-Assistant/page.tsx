@@ -28,16 +28,16 @@ export default function AssistantApp() {
 
   // const [target, setTarget] = useState<'EMPLOYER' | 'JOBSEEKER'>('JOBSEEKER');  
 
-  const [target, setTarget] = useState<'JOBSEEKER' | 'EMPLOYER'>('JOBSEEKER');  
+  const [target,] = useState<'JOBSEEKER' | 'EMPLOYER'>('JOBSEEKER');  
   const [isEligible, setIsEligible] = useState<boolean | null>(null);
 
-  const handleLanguageChange = (newLanguage: string) => {
-    // setLanguage(newLanguage); // Update the language when the user switches it
-  };
+  // const handleLanguageChange = (newLanguage: string) => {
+  //   // setLanguage(newLanguage); // Update the language when the user switches it
+  // };
 
-  const handleTargetChange = (newTarget: 'EMPLOYER' | 'JOBSEEKER') => {
-    setTarget(newTarget); 
-  };
+  // const handleTargetChange = (newTarget: 'EMPLOYER' | 'JOBSEEKER') => {
+  //   setTarget(newTarget); 
+  // };
 
   const handleEligibility = (eligible: boolean) => {
     setIsEligible(eligible);

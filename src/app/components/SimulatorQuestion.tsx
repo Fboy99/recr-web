@@ -1,3 +1,127 @@
+// import React, { useState, useEffect } from 'react';
+// import { useQuery, gql } from '@apollo/client';
+// import { useTranslation } from 'react-i18next';
+
+// const GET_ASSISTANT_BY_LANGUAGE_AND_TARGET = gql`
+//   query GetAssistantByLanguageAndTarget($language: Language!, $target: UserTarget!) {
+//     AssistantByLanguageAndTarget(language: $language, target: $target) {
+//       id
+//       type
+//       question
+//       description
+//       answers {
+//         answer
+//       }
+//       createAt
+//       updateAt
+//       language
+//       target
+//     }
+//   }
+// `;
+
+// interface Question {
+//   id: string;
+//   type: 'yes-no' | 'multiple-choice' | 'multiple-selection' | 'dropdown' | 'text-input';
+//   question: string;
+//   description: string;
+//   answers: { answer: string }[];
+//   createAt: string;
+//   updateAt: string;
+//   language: string;
+//   target: string;
+//   userAnswer?: string | string[];
+// }
+
+// // interface SimulatorQuestionProps {
+// //   language: string; 
+// //   target: 'EMPLOYER' | 'JOBSEEKER';  
+// // }
+
+
+// interface SimulatorQuestionProps {
+//   language: "en" | "fr" | "de";
+//   target: "EMPLOYER" | "JOBSEEKER";
+// }
+
+// interface Answer {
+//   answer: string;
+  
+// }
+
+
+// // Define the Assistant interface
+// interface Assistant {
+//   id: string;
+//   type: 'yes-no' | 'multiple-choice' | 'multiple-selection' | 'dropdown' | 'text-input';
+//   question: string;
+//   description: string;
+//   answers: Answer[];
+//   createAt: string;
+//   updateAt: string;
+//   language: string;
+//   target: string;
+//   userAnswer?: string | string[]; // Optional property for user answers
+// }
+
+// // Define the shape of the data returned by the GraphQL query
+
+// // interface QueryData {
+// //   AssistantByLanguageAndTarget: Assistant[];
+// // }
+
+// const SimulatorQuestion: React.FC<SimulatorQuestionProps> = ({ language, target }) => {
+//   const { t } = useTranslation("common");
+
+//   const { loading, error, data } = useQuery(GET_ASSISTANT_BY_LANGUAGE_AND_TARGET, {
+//     variables: {
+//       language: (() => {
+//         switch (language.toUpperCase()) {
+//             case 'EN':
+//             case 'en':
+//               return 'AN';
+//             case 'FR':
+//             case 'fr':
+//               return 'FR';
+//             case 'DE':
+//             case 'de':
+//               return 'GR';
+//             default:
+//               return language;
+          
+//         }
+//       })(),
+//       target,
+//     },
+//   });
+
+//   const [progress, setProgress] = useState<number>(1);
+//   const [questions, setQuestions] = useState<Question[]>([]);
+//   const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
+//   const [showError, setShowError] = useState<boolean>(false);
+
+//   useEffect(() => {
+//     if (data) {
+//       const fetchedQuestions: Assistant[] = data.AssistantByLanguageAndTarget.map((item) => ({
+//         id: item.id,
+//         type: item.type,
+//         question: item.question,
+//         description: item.description,
+//         answers: item.answers,
+//         createAt: item.createAt,
+//         updateAt: item.updateAt,
+//         language: item.language,
+//         target: item.target,
+//         userAnswer: item.type === 'multiple-selection' ? [] : '',
+//       }));
+//       setQuestions(fetchedQuestions);
+//     }
+//   }, [data]);
+
+//   if (loading) return <p className='text-center'>Loading...</p>;
+//   if (error) return <p className='text-center'>Error: {error.message}</p>;
+//   if (questions.length === 0) return <p className='text-center'>No questions available.</p>;
+
 import React, { useState, useEffect } from 'react';
 import { useQuery, gql } from '@apollo/client';
 import { useTranslation } from 'react-i18next';
@@ -20,25 +144,31 @@ const GET_ASSISTANT_BY_LANGUAGE_AND_TARGET = gql`
   }
 `;
 
-interface Question {
+// Define your Answer interface
+interface Answer {
+  answer: string;
+}
+
+// Define the Assistant interface
+interface Assistant {
   id: string;
   type: 'yes-no' | 'multiple-choice' | 'multiple-selection' | 'dropdown' | 'text-input';
   question: string;
   description: string;
-  answers: { answer: string }[];
+  answers: Answer[];
   createAt: string;
   updateAt: string;
   language: string;
   target: string;
-  userAnswer?: string | string[];
+  userAnswer?: string | string[]; // Optional property for user answers
 }
 
-// interface SimulatorQuestionProps {
-//   language: string; 
-//   target: 'EMPLOYER' | 'JOBSEEKER';  
-// }
+// Define the shape of the data returned by the GraphQL query
+interface QueryData {
+  AssistantByLanguageAndTarget: Assistant[];
+}
 
-
+// Define props for the SimulatorQuestion component
 interface SimulatorQuestionProps {
   language: "en" | "fr" | "de";
   target: "EMPLOYER" | "JOBSEEKER";
@@ -47,22 +177,18 @@ interface SimulatorQuestionProps {
 const SimulatorQuestion: React.FC<SimulatorQuestionProps> = ({ language, target }) => {
   const { t } = useTranslation("common");
 
-  const { loading, error, data } = useQuery(GET_ASSISTANT_BY_LANGUAGE_AND_TARGET, {
+  const { loading, error, data } = useQuery<QueryData>(GET_ASSISTANT_BY_LANGUAGE_AND_TARGET, {
     variables: {
       language: (() => {
         switch (language.toUpperCase()) {
-            case 'EN':
-            case 'en':
-              return 'AN';
-            case 'FR':
-            case 'fr':
-              return 'FR';
-            case 'DE':
-            case 'de':
-              return 'GR';
-            default:
-              return language;
-          
+          case 'EN':
+            return 'AN';
+          case 'FR':
+            return 'FR';
+          case 'DE':
+            return 'GR';
+          default:
+            return language;
         }
       })(),
       target,
@@ -70,13 +196,13 @@ const SimulatorQuestion: React.FC<SimulatorQuestionProps> = ({ language, target 
   });
 
   const [progress, setProgress] = useState<number>(1);
-  const [questions, setQuestions] = useState<Question[]>([]);
+  const [questions, setQuestions] = useState<Assistant[]>([]);
   const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
   const [showError, setShowError] = useState<boolean>(false);
 
   useEffect(() => {
     if (data) {
-      const fetchedQuestions: Question[] = data.AssistantByLanguageAndTarget.map((item: any) => ({
+      const fetchedQuestions: Assistant[] = data.AssistantByLanguageAndTarget.map(item => ({
         id: item.id,
         type: item.type,
         question: item.question,
@@ -92,9 +218,9 @@ const SimulatorQuestion: React.FC<SimulatorQuestionProps> = ({ language, target 
     }
   }, [data]);
 
-  if (loading) return <p className='text-center'>Loading...</p>;
-  if (error) return <p className='text-center'>Error: {error.message}</p>;
-  if (questions.length === 0) return <p className='text-center'>No questions available.</p>;
+  if (loading) return <p className="text-center">Loading...</p>;
+  if (error) return <p className="text-center">Error: {error.message}</p>;
+  if (questions.length === 0) return <p className="text-center">No questions available.</p>;
 
   const handleNext = () => {
     const currentQuestion = questions[progress - 1];

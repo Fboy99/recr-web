@@ -186,7 +186,7 @@ export default function Faq({ isHome = false }: FaqProps) {
   });
 
   // Fetch FAQs based on the selected tab (language and target)
-  const { loading, error, data } = useQuery(GET_ALL_FAQS, {
+  const { data } = useQuery(GET_ALL_FAQS, {
     variables: {
       language:"AN",
       target: "JOBSEEKER"
