@@ -83,11 +83,11 @@ export function Features() {
   const { t } = useTranslation('common');
 
   return (
-    <div className="flex flex-col items-center justify-center w-full">
+    <div className="flex flex-col items-center w-full ">
       <SectionBanner title={t('opportunityCardTitle')} className=''/>
 
       {/* Feature Section 1 */}
-      <div className="flex flex-col lg:flex-row items-center justify-center gap-2 lg:gap-6 lg:w-[1040px] lg:py-[32px] px-4">
+      <div className=" flex flex-col lg:flex-row items-center justify-center gap-2 lg:gap-6 lg:w-[1040px]  px-4">
         <div className="lg:w-1/2 flex flex-col">
           {/* <h1 className="pt-[12px] text-2xl sm:text-left sm:px-2 xs:text-left xs:px-2 font-medium text-[#172026] lg:text-[24px] lg:leading-[36px]"> */}
           <h1 className="pt-[12px] text-2xl sm:text-left sm:px-2 xs:text-left xs:px-2 font-medium text-[#172026] lg:text-[24px] lg:leading-[36px]">
@@ -121,7 +121,7 @@ export function Features() {
       </div>
 
       {/* Feature Section 3 */}
-      <div className="flex flex-col sm:flex-col-reverse xs:flex-col-reverse md:flex-col-reverse lg:flex-row-reverse items-center justify-center gap-4 lg:gap-12 lg:w-[1040px] lg:py-[32px]">
+      <div className=" flex flex-col sm:flex-col-reverse xs:flex-col-reverse md:flex-col-reverse lg:flex-row-reverse items-center justify-center gap-4 lg:gap-12 lg:w-[1040px] lg:py-[32px]">
         <Image
           src={img4}
           alt="Feature 4 Bild"

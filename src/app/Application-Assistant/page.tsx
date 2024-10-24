@@ -8,6 +8,8 @@ import recommendations from "../data/recommendations.json";
 import img1 from "../../images/Flag_map_of_Germany.svg";
 import img2 from "../../images/Flag_map_of_Germany.svg";
 import SectionHeader from "../components/SectionHeader";
+import { useLanguage } from "../contexts/LanguageContext"; // Use the language context
+
 
 type ImageMapKeys = "expatrio1" | "gerFlag" | "expatrio2";
 
@@ -17,16 +19,20 @@ const imageMap: Record<ImageMapKeys, string> = {
   expatrio2: img1,
 };
 
+
+
 export default function AssistantApp() {
   const { t } = useTranslation("common");
-  const [language, setLanguage] = useState('en'); 
+  // const [language, setLanguage] = useState('en'); 
+  // const [language, setLanguage] =useState<'en' | 'de' | 'fr'>('en'); 
+
   // const [target, setTarget] = useState<'EMPLOYER' | 'JOBSEEKER'>('JOBSEEKER');  
 
-  const [target, setTarget] = useState<'EMPLOYER' | 'JOBSEEKER'>('EMPLOYER');  
+  const [target, setTarget] = useState<'JOBSEEKER' | 'EMPLOYER'>('JOBSEEKER');  
   const [isEligible, setIsEligible] = useState<boolean | null>(null);
 
   const handleLanguageChange = (newLanguage: string) => {
-    setLanguage(newLanguage); // Update the language when the user switches it
+    // setLanguage(newLanguage); // Update the language when the user switches it
   };
 
   const handleTargetChange = (newTarget: 'EMPLOYER' | 'JOBSEEKER') => {
@@ -37,12 +43,15 @@ export default function AssistantApp() {
     setIsEligible(eligible);
   };
 
+  const { language } = useLanguage(); // Access language from context
+
+
   return (
     <div className="bg-white w-full max-w-[1440px] h-auto pt-[96px] pb-0 gap-10 opacity-100 mb-10 mx-auto items-center sm:px-4 xs:px-4 md:mx-8 lg:px-16">
         <SectionHeader title={t("applicationAssistant.title")} paragraph={t("applicationAssistant.subtitle")} classAttribute="w-full max-w-[1440px] h-auto py-0 px-4 sm:px-6 md:px-8 gap-[16px] items-center pt-6"></SectionHeader>
       {/* </div> */}
 
-      { target === 'EMPLOYER' && (
+      { target === 'JOBSEEKER' && (
   <Questionnaire onEligibility={handleEligibility} language={language} target={target} />
 )}      
 

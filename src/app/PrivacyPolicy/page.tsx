@@ -1,6 +1,6 @@
 import React from 'react';
 import SectionHeader from '../components/SectionHeader';
-import { useTranslation } from 'next-i18next';
+import { useTranslation } from 'react-i18next';
 
 const PrivacyPolicy: React.FC = () => {
   // const { t } = useTranslation("common");

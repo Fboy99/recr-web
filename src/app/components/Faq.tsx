@@ -211,7 +211,7 @@ export default function Faq({ isHome = false }: FaqProps) {
   };
 
   return (
-    <div className="flex flex-col items-center pt-4 sm:px-4 md:px-8">
+    <div className="flex flex-col items-center sm:px-4 md:px-8">
       {/* <h1 className="text-[#181C20] text-[36px] sm:text-[25px] xs:text-[23px] md:text-[28px] font-medium text-center">
         {t("Frequently Asked Questions")}
       </h1> */}
@@ -220,7 +220,7 @@ export default function Faq({ isHome = false }: FaqProps) {
 
 
       {isHome && ( // Conditionally render toggle buttons if on home page
-      <div className="flex my-4 lg:mb-16">
+      <div className="flex mb-4 lg:mb-16">
         <ToggleButton
           active={selectedTab === "JOBSEEKER"}
           onClick={() => {

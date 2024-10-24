@@ -446,6 +446,7 @@ const GET_ASSISTANT_BY_LANGUAGE_AND_TARGET = gql`
       updateAt
       language
       target
+      caregorie
     }
   }
 `;
@@ -465,6 +466,7 @@ interface Question {
   updateAt: string;
   language: string;
   target: string;
+  caregorie:string;
   userAnswer?: string | string[];
   points?: number;
 }
@@ -476,7 +478,7 @@ interface QuestionnaireProps {
 
 
 const Questionnaire: React.FC<QuestionnaireProps> = ({ onEligibility, language, target }) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation("common");
 
   console.log("Current language:", language.toUpperCase(),);
   console.log("Current target:", target,);
@@ -522,6 +524,7 @@ const Questionnaire: React.FC<QuestionnaireProps> = ({ onEligibility, language, 
           createAt: item.createAt,
           updateAt: item.updateAt,
           language: item.language,
+          caregorie:item.caregorie,
           target: item.target,
           userAnswer: item.type === 'multiple-selection' ? [] : '',
           points: item.answers.reduce((acc: number, ans: any) => acc + ans.point, 0),
@@ -665,7 +668,10 @@ const Questionnaire: React.FC<QuestionnaireProps> = ({ onEligibility, language, 
 
   // const renderResults = () => {
   //   const eligibleMessage = totalPoints >= threshold ? (
+  //           // <div className="flex flex-col p-6 bg-[#F1F4F9] h-auto">
+
   //     <div className="flex flex-col p-6 bg-white h-auto">
+
   //       <h1 className="text-xl font-semibold text-green-600 mt-6 mb-4">Congratulations!</h1>
   //       <p className="mb-4">
   //         Based on your responses, you may be eligible for the Chancenkarte.
@@ -678,35 +684,39 @@ const Questionnaire: React.FC<QuestionnaireProps> = ({ onEligibility, language, 
   //         </div>
   //         <div className="p-4 w-1/2">
   //           <ul className="list-none space-y-4">
-  //             <li className="flex justify-between">
-  //               <span>Age</span>
-  //               <span className='font-bold'>1 point</span>
-  //             </li>
-  //             <li className="flex justify-between">
-  //               <span>Education</span>
-  //               <span className='font-bold'>2 points</span>
-  //             </li>
-  //             <li className="flex justify-between">
-  //               <span>Work Experience</span>
-  //               <span className='font-bold'>2 points</span>
-  //             </li>
-  //             <li className="flex justify-between">
-  //               <span>Language Proficiency</span>
-  //               <span className='font-bold'>1 point</span>
-  //             </li>
-  //             <li className="flex justify-between">
-  //               <span>Other Factors</span>
-  //               <span className='font-bold'>1 point</span>
-  //             </li>
+  //             {questions.map((question, index) => {
+  //               const userAnswer = Array.isArray(question.userAnswer)
+  //                 ? question.userAnswer.join(', ')
+  //                 : question.userAnswer;
+  
+  //               const answerPoints = question.answers.reduce((total, answer) => {
+  //                 if (
+  //                   (Array.isArray(question.userAnswer) && question.userAnswer.includes(answer.answer)) ||
+  //                   question.userAnswer === answer.answer
+  //                 ) {
+  //                   return total + answer.point;
+  //                 }
+  //                 return total;
+  //               }, 0);
+  
+  //               return (
+  //                 <li key={index} className="flex justify-between">
+  //                   <span>{question.question}</span>
+  //                   <span className="font-bold">{userAnswer} ({answerPoints} points)</span>
+  //                 </li>
+  //               );
+  //             })}
   //           </ul>
   //         </div>
   //       </div>
   //     </div>
   //   ) : (
+  //     // <div className="flex flex-col p-6 bg-[#F1F4F9] h-auto">
   //     <div className="flex flex-col p-6 bg-white h-auto">
-  //       <h1 className="text-xl font-semibold text-red-600 mt-6 mb-4">Unfortunately!</h1>
+
+  //     <h1 className="text-xl font-semibold text-red-600 mt-6 mb-4">Unfortunately!</h1>
   //       <p className="mb-4">
-  //         You do not meet the eligibility criteria for the German Opportunity Card.
+  //       You do not meet the eligibility criteria for the German Opportunity Card.
   //       </p>
   //       <div className="flex flex-row divide-x-2 divide-gray-300 border-2 rounded-lg">
   //         <div className="p-4 w-1/2">
@@ -716,33 +726,36 @@ const Questionnaire: React.FC<QuestionnaireProps> = ({ onEligibility, language, 
   //         </div>
   //         <div className="p-4 w-1/2">
   //           <ul className="list-none space-y-4">
-  //             <li className="flex justify-between">
-  //               <span>Age</span>
-  //               <span className='font-bold'>1 point</span>
-  //             </li>
-  //             <li className="flex justify-between">
-  //               <span>Education</span>
-  //               <span className='font-bold'>3 points</span>
-  //             </li>
-  //             <li className="flex justify-between">
-  //               <span>Work Experience</span>
-  //               <span className='font-bold'>4 points</span>
-  //             </li>
-  //             <li className="flex justify-between">
-  //               <span>Language Proficiency</span>
-  //               <span className='font-bold'>2 points</span>
-  //             </li>
-  //             <li className="flex justify-between">
-  //               <span>Other Factors</span>
-  //               <span className='font-bold'>1 point</span>
-  //             </li>
+  //             {questions.map((question, index) => {
+  //               const userAnswer = Array.isArray(question.userAnswer)
+  //                 ? question.userAnswer.join(', ')
+  //                 : question.userAnswer;
+  
+  //               const answerPoints = question.answers.reduce((total, answer) => {
+  //                 if (
+  //                   (Array.isArray(question.userAnswer) && question.userAnswer.includes(answer.answer)) ||
+  //                   question.userAnswer === answer.answer
+  //                 ) {
+  //                   return total + answer.point;
+  //                 }
+  //                 return total;
+  //               }, 0);
+  
+  //               return (
+  //                 <li key={index} className="flex justify-between">
+  //                   <span>{question.question}</span>
+  //                   <span className="font-bold">{userAnswer} ({answerPoints} points)</span>
+  //                 </li>
+  //               );
+  //             })}
   //           </ul>
   //         </div>
   //       </div>
   //       <div className="mt-16">
-  //         <button className="w-auto h-auto px-6 py-2 rounded-full text-[#000000] bg-[#D4E4F6]"
+  //         <button
+  //           className="w-auto h-auto px-6 py-2 rounded-full text-[#000000] bg-[#D4E4F6]"
   //           onClick={() => {
-  //             window.location.href = '../TestPage/';
+  //             window.location.href = '../Application-Assistant';
   //           }}
   //         >
   //           Retake test
@@ -750,20 +763,24 @@ const Questionnaire: React.FC<QuestionnaireProps> = ({ onEligibility, language, 
   //       </div>
   //     </div>
   //   );
-
+  
   //   return <div className="flex flex-col">{eligibleMessage}</div>;
   // };
 
+
   const renderResults = () => {
+    const questionsByCategory: Record<string, Question[]> = questions.reduce((acc: Record<string, Question[]>, question) => {
+      if (!acc[question.caregorie]) {
+        acc[question.caregorie] = [];
+      }
+      acc[question.caregorie].push(question);
+      return acc;
+    }, {});
+  
     const eligibleMessage = totalPoints >= threshold ? (
-            // <div className="flex flex-col p-6 bg-[#F1F4F9] h-auto">
-
       <div className="flex flex-col p-6 bg-white h-auto">
-
         <h1 className="text-xl font-semibold text-green-600 mt-6 mb-4">Congratulations!</h1>
-        <p className="mb-4">
-          Based on your responses, you may be eligible for the Chancenkarte.
-        </p>
+        <p className="mb-4">Based on your responses, you may be eligible for the Chancenkarte.</p>
         <div className="flex flex-row divide-x-2 divide-gray-300 border-2 rounded-lg">
           <div className="p-4 w-1/2">
             <h2 className="text-lg font-bold mb-4">Total Points: {totalPoints}</h2>
@@ -772,25 +789,45 @@ const Questionnaire: React.FC<QuestionnaireProps> = ({ onEligibility, language, 
           </div>
           <div className="p-4 w-1/2">
             <ul className="list-none space-y-4">
-              {questions.map((question, index) => {
-                const userAnswer = Array.isArray(question.userAnswer)
-                  ? question.userAnswer.join(', ')
-                  : question.userAnswer;
-  
-                const answerPoints = question.answers.reduce((total, answer) => {
-                  if (
-                    (Array.isArray(question.userAnswer) && question.userAnswer.includes(answer.answer)) ||
-                    question.userAnswer === answer.answer
-                  ) {
-                    return total + answer.point;
-                  }
-                  return total;
+              {Object.entries(questionsByCategory).map(([category, categoryQuestions], index) => {
+                const categoryPoints = categoryQuestions.reduce((sum, question) => {
+                  return sum + question.answers.reduce((total, answer) => {
+                    if (Array.isArray(question.userAnswer) && question.userAnswer.includes(answer.answer)) {
+                      return total + answer.point;
+                    } else if (question.userAnswer === answer.answer) {
+                      return total + answer.point;
+                    }
+                    return total;
+                  }, 0);
                 }, 0);
   
                 return (
-                  <li key={index} className="flex justify-between">
-                    <span>{question.question}</span>
-                    <span className="font-bold">{userAnswer} ({answerPoints} points)</span>
+                  <li key={index} className="mb-4">
+                    <h3 className="font-bold mb-2">{category} (Total Points: {categoryPoints})</h3>
+                    <ul>
+                      {categoryQuestions.map((question, idx) => {
+                        const userAnswer = Array.isArray(question.userAnswer)
+                          ? question.userAnswer.join(', ')
+                          : question.userAnswer;
+  
+                        const answerPoints = question.answers.reduce((total, answer) => {
+                          if (
+                            (Array.isArray(question.userAnswer) && question.userAnswer.includes(answer.answer)) ||
+                            question.userAnswer === answer.answer
+                          ) {
+                            return total + answer.point;
+                          }
+                          return total;
+                        }, 0);
+  
+                        return (
+                          <li key={idx} className="flex justify-between">
+                            {/* <span>{question.question}</span> */}
+                            <span className="font-bold">{userAnswer} ({answerPoints} points)</span>
+                          </li>
+                        );
+                      })}
+                    </ul>
                   </li>
                 );
               })}
@@ -799,13 +836,9 @@ const Questionnaire: React.FC<QuestionnaireProps> = ({ onEligibility, language, 
         </div>
       </div>
     ) : (
-      // <div className="flex flex-col p-6 bg-[#F1F4F9] h-auto">
       <div className="flex flex-col p-6 bg-white h-auto">
-
-      <h1 className="text-xl font-semibold text-red-600 mt-6 mb-4">Unfortunately!</h1>
-        <p className="mb-4">
-        You do not meet the eligibility criteria for the German Opportunity Card.
-        </p>
+        <h1 className="text-xl font-semibold text-red-600 mt-6 mb-4">Unfortunately!</h1>
+        <p className="mb-4">You do not meet the eligibility criteria for the German Opportunity Card.</p>
         <div className="flex flex-row divide-x-2 divide-gray-300 border-2 rounded-lg">
           <div className="p-4 w-1/2">
             <h2 className="text-lg font-bold mb-4">Total Points: {totalPoints}</h2>
@@ -814,25 +847,45 @@ const Questionnaire: React.FC<QuestionnaireProps> = ({ onEligibility, language, 
           </div>
           <div className="p-4 w-1/2">
             <ul className="list-none space-y-4">
-              {questions.map((question, index) => {
-                const userAnswer = Array.isArray(question.userAnswer)
-                  ? question.userAnswer.join(', ')
-                  : question.userAnswer;
-  
-                const answerPoints = question.answers.reduce((total, answer) => {
-                  if (
-                    (Array.isArray(question.userAnswer) && question.userAnswer.includes(answer.answer)) ||
-                    question.userAnswer === answer.answer
-                  ) {
-                    return total + answer.point;
-                  }
-                  return total;
+              {Object.entries(questionsByCategory).map(([category, categoryQuestions], index) => {
+                const categoryPoints = categoryQuestions.reduce((sum, question) => {
+                  return sum + question.answers.reduce((total, answer) => {
+                    if (Array.isArray(question.userAnswer) && question.userAnswer.includes(answer.answer)) {
+                      return total + answer.point;
+                    } else if (question.userAnswer === answer.answer) {
+                      return total + answer.point;
+                    }
+                    return total;
+                  }, 0);
                 }, 0);
   
                 return (
-                  <li key={index} className="flex justify-between">
-                    <span>{question.question}</span>
-                    <span className="font-bold">{userAnswer} ({answerPoints} points)</span>
+                  <li key={index} className="mb-4">
+                    <h3 className="font-bold mb-2">{category} (Total Points: {categoryPoints})</h3>
+                    <ul>
+                      {categoryQuestions.map((question, idx) => {
+                        const userAnswer = Array.isArray(question.userAnswer)
+                          ? question.userAnswer.join(', ')
+                          : question.userAnswer;
+  
+                        const answerPoints = question.answers.reduce((total, answer) => {
+                          if (
+                            (Array.isArray(question.userAnswer) && question.userAnswer.includes(answer.answer)) ||
+                            question.userAnswer === answer.answer
+                          ) {
+                            return total + answer.point;
+                          }
+                          return total;
+                        }, 0);
+  
+                        return (
+                          <li key={idx} className="flex justify-between">
+                            {/* <span>{question.question}</span> */}
+                            <span className="font-bold">{userAnswer} ({answerPoints} points)</span>
+                          </li>
+                        );
+                      })}
+                    </ul>
                   </li>
                 );
               })}
@@ -854,6 +907,7 @@ const Questionnaire: React.FC<QuestionnaireProps> = ({ onEligibility, language, 
   
     return <div className="flex flex-col">{eligibleMessage}</div>;
   };
+  
 
   if (isSubmitted) {
     return (
@@ -868,24 +922,26 @@ const Questionnaire: React.FC<QuestionnaireProps> = ({ onEligibility, language, 
   const currentQuestion = questions[progress - 1];
 
   return (
-    <div className="flex flex-col justify-center items-center min-h-screen ">
+    <div className="flex flex-col justify-center items-center ">
       <div className="rounded-[28px] w-full max-w-4xl p-8 shadow-md bg-[#F1F4F9]">
         <div className="mb-8">
-          <div className="text-lg font-semibold mb-4">{t('applicationAssistant.question')} {progress} of {questions.length}</div>
-          <div className="flex space-x-2">
-            {[...Array(questions.length)].map((_, idx) => (
-              <div
-                key={idx}
-                className={`h-[4px] rounded-full ${idx < progress ? 'bg-[#465D91]' : 'bg-[#D9E2FF]'} w-full`}
-              ></div>
-            ))}
-          </div>
+          <div className="text-lg font-roboto mb-4 text-[#42474E]">{t('applicationAssistant.question')} {progress} of {questions.length}</div>
+
         </div>
 
         <div className="mb-12" style={{ minHeight: '420px' }}>
-          <label className="block text-xl mb-4">
+          <label className="block text-xl mb-8 mt-8">
             {currentQuestion.question}
           </label>
+
+          <div className="flex space-x-1 ">
+            {[...Array(questions.length)].map((_, idx) => (
+              <div
+                key={idx}
+                className={`h-[4px] rounded-full mb-10 ${idx < progress ? 'bg-[#465D91]' : 'bg-[#D9E2FF]'} w-full`}
+              ></div>
+            ))}
+          </div>
 
            {['yes-no'].includes(currentQuestion.type) && (
           <div className="flex flex-row items-center"> 

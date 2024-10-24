@@ -139,7 +139,7 @@ const Employers: React.FC = () => {
       <div>
         <div className='sm:mx-2 xs:mx-2 md:mx-8'>
           <Faq isHome={false}/>
-          <SimulatorForm/>
+          <SimulatorForm />
         </div>
       </div>
     </div> 

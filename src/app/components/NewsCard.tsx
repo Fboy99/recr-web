@@ -157,8 +157,8 @@ const router = useRouter();
   const { t } = useTranslation('common');  // Only use translation for static text like button
 
   const handleLearnMore = () => {
-    console.log("Navigating to:", `/news/${id}`); // Corrected to use string interpolation
-    router.push(`/news/${id}`); // Ensure it's wrapped in quotes
+    console.log("Navigating to:", `../News/${id}`); // Corrected to use string interpolation
+    router.push(`../News/${id}`); // Ensure it's wrapped in quotes
   };
   console.log("Rendering NewsCard with id:", id); // Debug log for the id
 

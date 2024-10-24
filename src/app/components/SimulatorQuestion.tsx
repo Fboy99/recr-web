@@ -33,13 +33,19 @@ interface Question {
   userAnswer?: string | string[];
 }
 
+// interface SimulatorQuestionProps {
+//   language: string; 
+//   target: 'EMPLOYER' | 'JOBSEEKER';  
+// }
+
+
 interface SimulatorQuestionProps {
-  language: string; 
-  target: 'EMPLOYER' | 'JOBSEEKER';  
+  language: "en" | "fr" | "de";
+  target: "EMPLOYER" | "JOBSEEKER";
 }
 
 const SimulatorQuestion: React.FC<SimulatorQuestionProps> = ({ language, target }) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation("common");
 
   const { loading, error, data } = useQuery(GET_ASSISTANT_BY_LANGUAGE_AND_TARGET, {
     variables: {
@@ -126,8 +132,8 @@ const SimulatorQuestion: React.FC<SimulatorQuestionProps> = ({ language, target 
 
   if (isSubmitted) {
     return (
-      <div className="flex justify-center items-center min-h-screen bg-gray-100">
-        <div className="bg-white w-[1040px] flex flex-col items-center justify-center h-[720px] rounded-[28px] opacity-100 p-8 shadow-md overflow-y-auto relative">
+      <div className="flex justify-center items-center ">
+        <div className="bg-white w-[1040px] flex flex-col items-center justify-center min-h-[680px] rounded-[28px] opacity-100 p-8 shadow-md overflow-y-auto relative">
           <h1 className="text-[32px] text-center font-semibold text-green-600 mt-6 mb-4">Thank you!</h1>
           <p className='text-center py-8'>As soon as you can find suitable skilled workers with us, we will send you an e-mail.</p>
           <p className='text-center'>We are currently working on the Chancenkarte Jobs! platform, where you will be able to find skilled workers with the Opportunity Card yourself in the future. You can find out more about this in the last step.</p>
@@ -155,21 +161,29 @@ const SimulatorQuestion: React.FC<SimulatorQuestionProps> = ({ language, target 
 
         <div className="mb-12" style={{ minHeight: '420px' }}>
           <label className="block text-xl mb-4">{currentQuestion.question}</label>
+
           {['yes-no', 'multiple-choice', 'multiple-selection', 'dropdown', 'text-input'].includes(currentQuestion.type) && (
             <div>
-              {currentQuestion.type === 'yes-no' && currentQuestion.answers.map((option, idx) => (
-                <label key={idx} className="flex items-center p-4 bg-gray-100 border cursor-pointer hover:bg-gray-200">
-                  <input
+
+              {currentQuestion.type === 'yes-no' &&(
+          <div className="flex flex-row items-center"> 
+           {currentQuestion.answers.map((option, idx) => (
+                <label key={idx} className={`flex items-center p-4 bg-white border ${
+                idx === 0 ? 'rounded-l-full' : 'rounded-r-full'
+              } cursor-pointer hover:bg-gray-100 w-1/6 h-16`}>     
+                   <input
                     type="radio"
                     name={`question-${progress}`}
                     value={option.answer}
                     checked={currentQuestion.userAnswer === option.answer}
                     onChange={() => handleAnswerChange(option.answer)}
-                    className="w-6 h-6 mr-4"
+                    className="w-6 h-6 mr-4 bg-[#465D91] rounded-full border-8 border-gray-400 hover:bg-[#D4E4F6]"
                   />
                   {option.answer}
                 </label>
-              ))}
+              ))}</div>)}
+
+
               {currentQuestion.type === 'multiple-choice' && currentQuestion.answers.map((option, idx) => (
                 <label key={idx} className="flex items-center p-4 bg-gray-100 border cursor-pointer hover:bg-gray-200">
                   <input
@@ -183,20 +197,33 @@ const SimulatorQuestion: React.FC<SimulatorQuestionProps> = ({ language, target 
                   {option.answer}
                 </label>
               ))}
-              {currentQuestion.type === 'multiple-selection' && currentQuestion.answers.map((option, idx) => (
-                <label key={idx} className="flex items-center justify-center px-5 py-4 border rounded-full cursor-pointer transition duration-200">
-                  <input
-                    type="checkbox"
-                    checked={(currentQuestion.userAnswer as string[]).includes(option.answer)}
-                    onChange={() => handleAnswerChange(option.answer, true)}
-                    className="hidden"
-                  />
-                  <span className="text-sm">{option.answer}</span>
-                </label>
-              ))}
+
+
+
+{currentQuestion.type === 'multiple-selection' && (
+  <div className="flex flex-wrap space-x-2">
+    {currentQuestion.answers.map((option, idx) => {
+      const isSelected = (currentQuestion.userAnswer as string[]).includes(option.answer);
+      return (
+        <label
+          key={idx}
+          className={`flex items-center justify-center px-5 py-4 border rounded-full cursor-pointer transition duration-200
+            ${isSelected ?  'bg-[#D4E4F6] text-[#1A1B20]' : 'bg-gray-100 text-[#181C20] hover:bg-gray-200'}
+          `}
+          onClick={() => handleAnswerChange(option.answer, !isSelected)} // Toggle selection on click
+        >
+          <span className="text-sm">{option.answer}</span> 
+        </label>
+      );
+    })}
+  </div>
+)}
+
+
               {currentQuestion.type === 'dropdown' && (
                 <select
-                  className="w-1/2 p-4 border border-gray-300 rounded"
+                  className="w-1/2 p-4 border border-gray-300 bg-white rounded"
+
                   value={currentQuestion.userAnswer as string}
                   onChange={(e) => handleAnswerChange(e.target.value)}
                 >
@@ -206,6 +233,7 @@ const SimulatorQuestion: React.FC<SimulatorQuestionProps> = ({ language, target 
                   ))}
                 </select>
               )}
+              
               {currentQuestion.type === 'text-input' && (
                 <input
                   type="text"
@@ -216,6 +244,7 @@ const SimulatorQuestion: React.FC<SimulatorQuestionProps> = ({ language, target 
               )}
             </div>
           )}
+
 
           {showError && (
             <div className="text-red-500 my-4">Please provide an answer to the current question.</div>

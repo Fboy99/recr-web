@@ -4,6 +4,7 @@ import './globals.css';
 import { Navbar } from './components/Navbar';
 import Footer from './components/Footer';
 import ApolloProvider from "@/apollo/ApolloProvider";
+import { LanguageProvider } from './contexts/LanguageContext';
 
 
 const inter = Inter({ subsets: ['latin'] });
@@ -38,8 +39,10 @@ export default function RootLayout({
           "
 
         >
-          <Navbar />
+        <LanguageProvider>
+        <Navbar />
           {children}
+        </LanguageProvider>
         </div>
 
         <Footer/>
@@ -48,3 +51,4 @@ export default function RootLayout({
       </body>
     </html>
   );}
+
