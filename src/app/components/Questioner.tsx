@@ -1,118 +1,3 @@
-import React, { useState, useEffect } from 'react';
-import { useQuery, gql } from '@apollo/client';
-import { useTranslation } from 'react-i18next';
-
-const GET_ASSISTANT_BY_LANGUAGE_AND_TARGET = gql`
-  query GetAssistantByLanguageAndTarget($language: Language!, $target: UserTarget!) {
-    AssistantByLanguageAndTarget(language: $language, target: $target) {
-      id
-      type
-      question
-      description
-      answers {
-        point
-        answer
-      }
-      createAt
-      updateAt
-      language
-      target
-      caregorie
-    }
-  }
-`;
-
-interface Answer {
-  point: number;
-  answer: string;
-}
-
-interface Question {
-  id: string;
-  type: 'yes-no' | 'multiple-choice' | 'multiple-selection' | 'dropdown' | 'text-input';
-  question: string;
-  description: string;
-  answers: Answer[];
-  createAt: string;
-  updateAt: string;
-  language: string;
-  target: string;
-  caregorie:string;
-  userAnswer?: string | string[];
-  points?: number;
-}
-
-
-interface QuestionnaireProps {
-  onEligibility: (eligible: boolean) => void;
-  language: string; 
-  target: 'EMPLOYER' | 'JOBSEEKER';  }
-
-
-const Questionnaire: React.FC<QuestionnaireProps> = ({ onEligibility, language, target }) => {
-  const { t } = useTranslation("common");
-
-  console.log("Current language:", language.toUpperCase(),);
-  console.log("Current target:", target,);
-
-
-  // Use the target and language in the GraphQL query
-  const { loading, error, data } = useQuery(GET_ASSISTANT_BY_LANGUAGE_AND_TARGET, {
-    variables: {
-      language: (() => {
-        switch (language.toUpperCase()) {
-          case 'EN':
-            return 'AN';
-          case 'FR':
-            return 'FR';
-          case 'DE':
-            return 'GR';
-          default:
-            return language; 
-        }
-      })(),
-      target,
-    },
-  });
-
-
-  
-  const [progress, setProgress] = useState<number>(1);
-  const [questions, setQuestions] = useState<Question[]>([]);
-  const [totalPoints, setTotalPoints] = useState<number>(0);
-  const threshold = 5;
-  const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
-  const [showError, setShowError] = useState<boolean>(false);
-
-  useEffect(() => {
-    if (data) {
-      const fetchedQuestions: Question[] = data.AssistantByLanguageAndTarget.map((item: any) => {
-        const question: Question = {
-          id: item.id,
-          type: item.type,
-          question: item.question,
-          description: item.description,
-          answers: item.answers,
-          createAt: item.createAt,
-          updateAt: item.updateAt,
-          language: item.language,
-          caregorie:item.caregorie,
-          target: item.target,
-          userAnswer: item.type === 'multiple-selection' ? [] : '',
-          points: item.answers.reduce((acc: number, ans: any) => acc + ans.point, 0),
-
-        };
-        return question;
-      });
-      setQuestions(fetchedQuestions);
-    }
-  }, [data]);
-
-  if (loading) return <p className='text-center'>Loading...</p>;
-  if (error) return <p className='text-center'>Error: {error.message}</p>;
-  if (questions.length === 0) return <p className='text-center'>No questions available.</p>;
-
-
 // import React, { useState, useEffect } from 'react';
 // import { useQuery, gql } from '@apollo/client';
 // import { useTranslation } from 'react-i18next';
@@ -152,27 +37,27 @@ const Questionnaire: React.FC<QuestionnaireProps> = ({ onEligibility, language, 
 //   updateAt: string;
 //   language: string;
 //   target: string;
-//   caregorie: string;
+//   caregorie:string;
 //   userAnswer?: string | string[];
 //   points?: number;
 // }
 
+
 // interface QuestionnaireProps {
 //   onEligibility: (eligible: boolean) => void;
 //   language: string; 
-//   target: 'EMPLOYER' | 'JOBSEEKER';  
-// }
+//   target: 'EMPLOYER' | 'JOBSEEKER';  }
+
 
 // const Questionnaire: React.FC<QuestionnaireProps> = ({ onEligibility, language, target }) => {
 //   const { t } = useTranslation("common");
 
-//   console.log("Current language:", language.toUpperCase());
-//   console.log("Current target:", target);
+//   console.log("Current language:", language.toUpperCase(),);
+//   console.log("Current target:", target,);
+
 
 //   // Use the target and language in the GraphQL query
-//   const { loading, error, data } = useQuery<{ 
-//     AssistantByLanguageAndTarget: Question[] 
-//   }>(GET_ASSISTANT_BY_LANGUAGE_AND_TARGET, {
+//   const { loading, error, data } = useQuery(GET_ASSISTANT_BY_LANGUAGE_AND_TARGET, {
 //     variables: {
 //       language: (() => {
 //         switch (language.toUpperCase()) {
@@ -190,6 +75,8 @@ const Questionnaire: React.FC<QuestionnaireProps> = ({ onEligibility, language, 
 //     },
 //   });
 
+
+  
 //   const [progress, setProgress] = useState<number>(1);
 //   const [questions, setQuestions] = useState<Question[]>([]);
 //   const [totalPoints, setTotalPoints] = useState<number>(0);
@@ -199,7 +86,7 @@ const Questionnaire: React.FC<QuestionnaireProps> = ({ onEligibility, language, 
 
 //   useEffect(() => {
 //     if (data) {
-//       const fetchedQuestions: Question[] = data.AssistantByLanguageAndTarget.map((item) => {
+//       const fetchedQuestions: Question[] = data.AssistantByLanguageAndTarget.map((item: any) => {
 //         const question: Question = {
 //           id: item.id,
 //           type: item.type,
@@ -209,10 +96,11 @@ const Questionnaire: React.FC<QuestionnaireProps> = ({ onEligibility, language, 
 //           createAt: item.createAt,
 //           updateAt: item.updateAt,
 //           language: item.language,
-//           caregorie: item.caregorie,
+//           caregorie:item.caregorie,
 //           target: item.target,
 //           userAnswer: item.type === 'multiple-selection' ? [] : '',
-//           points: item.answers.reduce((acc: number, ans: Answer) => acc + ans.point, 0),
+//           points: item.answers.reduce((acc: number, ans: any) => acc + ans.point, 0),
+
 //         };
 //         return question;
 //       });
@@ -220,10 +108,117 @@ const Questionnaire: React.FC<QuestionnaireProps> = ({ onEligibility, language, 
 //     }
 //   }, [data]);
 
+import React, { useState, useEffect } from 'react';
+import { useQuery, gql } from '@apollo/client';
+import { useTranslation } from 'react-i18next';
 
-//   if (loading) return <p className='text-center'>Loading...</p>;
-//   if (error) return <p className='text-center'>Error: {error.message}</p>;
-//   if (questions.length === 0) return <p className='text-center'>No questions available.</p>;
+const GET_ASSISTANT_BY_LANGUAGE_AND_TARGET = gql`
+  query GetAssistantByLanguageAndTarget($language: Language!, $target: UserTarget!) {
+    AssistantByLanguageAndTarget(language: $language, target: $target) {
+      id
+      type
+      question
+      description
+      answers {
+        point
+        answer
+      }
+      createAt
+      updateAt
+      language
+      target
+      caregorie
+    }
+  }
+`;
+
+interface Answer {
+  point: number;
+  answer: string;
+}
+
+interface Question {
+  id: string;
+  type: 'yes-no' | 'multiple-choice' | 'multiple-selection' | 'dropdown' | 'text-input';
+  question: string;
+  description: string;
+  answers: Answer[];
+  createAt: string;
+  updateAt: string;
+  language: string;
+  target: string;
+  caregorie: string;
+  userAnswer?: string | string[];
+  points?: number;
+}
+
+interface QueryResponse {
+  AssistantByLanguageAndTarget: Question[];
+}
+
+interface QuestionnaireProps {
+  onEligibility: (eligible: boolean) => void;
+  language: string; 
+  target: 'EMPLOYER' | 'JOBSEEKER';  
+}
+
+const Questionnaire: React.FC<QuestionnaireProps> = ({ onEligibility, language, target }) => {
+  const { t } = useTranslation("common");
+
+  console.log("Current language:", language.toUpperCase());
+  console.log("Current target:", target);
+
+  const { loading, error, data } = useQuery<QueryResponse>(GET_ASSISTANT_BY_LANGUAGE_AND_TARGET, {
+    variables: {
+      language: (() => {
+        switch (language.toUpperCase()) {
+          case 'EN':
+            return 'AN';
+          case 'FR':
+            return 'FR';
+          case 'DE':
+            return 'GR';
+          default:
+            return language; 
+        }
+      })(),
+      target,
+    },
+  });
+
+  const [progress, setProgress] = useState<number>(1);
+  const [questions, setQuestions] = useState<Question[]>([]);
+  const [totalPoints, setTotalPoints] = useState<number>(0);
+  const threshold = 5;
+  const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
+  const [showError, setShowError] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (data) {
+      const fetchedQuestions: Question[] = data.AssistantByLanguageAndTarget.map((item) => {
+        const question: Question = {
+          id: item.id,
+          type: item.type,
+          question: item.question,
+          description: item.description,
+          answers: item.answers,
+          createAt: item.createAt,
+          updateAt: item.updateAt,
+          language: item.language,
+          caregorie: item.caregorie,
+          target: item.target,
+          userAnswer: item.type === 'multiple-selection' ? [] : '',
+          points: item.answers.reduce((acc: number, ans: Answer) => acc + ans.point, 0),
+        };
+        return question;
+      });
+      setQuestions(fetchedQuestions);
+    }
+  }, [data]);
+
+  if (loading) return <p className='text-center'>Loading...</p>;
+  if (error) return <p className='text-center'>Error: {error.message}</p>;
+  if (questions.length === 0) return <p className='text-center'>No questions available.</p>;
 
   
   const handleNext = () => {
@@ -238,7 +233,6 @@ const Questionnaire: React.FC<QuestionnaireProps> = ({ onEligibility, language, 
     } else if (currentQuestion.type === 'dropdown') {
       isAnswerProvided = currentQuestion.userAnswer ? true : false;
     } else if (currentQuestion.type === 'text-input') {
-      // isAnswerProvided = Array.isArray(currentQuestion.userAnswer) && currentQuestion.userAnswer.every(input => input.trim() !== "");    }
       const inputs = currentQuestion.userAnswer as string[];
       isAnswerProvided = inputs && inputs.every(input => input.trim() !== "");
       console.log('isAnswerProvided:',isAnswerProvided);
@@ -351,107 +345,6 @@ const Questionnaire: React.FC<QuestionnaireProps> = ({ onEligibility, language, 
     setTotalPoints(points);
   };
   
-
-  // const renderResults = () => {
-  //   const eligibleMessage = totalPoints >= threshold ? (
-  //           // <div className="flex flex-col p-6 bg-[#F1F4F9] h-auto">
-
-  //     <div className="flex flex-col p-6 bg-white h-auto">
-
-  //       <h1 className="text-xl font-semibold text-green-600 mt-6 mb-4">Congratulations!</h1>
-  //       <p className="mb-4">
-  //         Based on your responses, you may be eligible for the Chancenkarte.
-  //       </p>
-  //       <div className="flex flex-row divide-x-2 divide-gray-300 border-2 rounded-lg">
-  //         <div className="p-4 w-1/2">
-  //           <h2 className="text-lg font-bold mb-4">Total Points: {totalPoints}</h2>
-  //           <p className="mb-4">You meet the eligibility criteria for the German Opportunity Card.</p>
-  //           <button className="w-[90px] h-[32px] rounded-full text-[#4dba1a] bg-[#FFDAD6]">Eligible</button>
-  //         </div>
-  //         <div className="p-4 w-1/2">
-  //           <ul className="list-none space-y-4">
-  //             {questions.map((question, index) => {
-  //               const userAnswer = Array.isArray(question.userAnswer)
-  //                 ? question.userAnswer.join(', ')
-  //                 : question.userAnswer;
-  
-  //               const answerPoints = question.answers.reduce((total, answer) => {
-  //                 if (
-  //                   (Array.isArray(question.userAnswer) && question.userAnswer.includes(answer.answer)) ||
-  //                   question.userAnswer === answer.answer
-  //                 ) {
-  //                   return total + answer.point;
-  //                 }
-  //                 return total;
-  //               }, 0);
-  
-  //               return (
-  //                 <li key={index} className="flex justify-between">
-  //                   <span>{question.question}</span>
-  //                   <span className="font-bold">{userAnswer} ({answerPoints} points)</span>
-  //                 </li>
-  //               );
-  //             })}
-  //           </ul>
-  //         </div>
-  //       </div>
-  //     </div>
-  //   ) : (
-  //     // <div className="flex flex-col p-6 bg-[#F1F4F9] h-auto">
-  //     <div className="flex flex-col p-6 bg-white h-auto">
-
-  //     <h1 className="text-xl font-semibold text-red-600 mt-6 mb-4">Unfortunately!</h1>
-  //       <p className="mb-4">
-  //       You do not meet the eligibility criteria for the German Opportunity Card.
-  //       </p>
-  //       <div className="flex flex-row divide-x-2 divide-gray-300 border-2 rounded-lg">
-  //         <div className="p-4 w-1/2">
-  //           <h2 className="text-lg font-bold mb-4">Total Points: {totalPoints}</h2>
-  //           <p className="mb-4">You do not meet the eligibility criteria for the German Opportunity Card.</p>
-  //           <button className="w-[90px] h-[32px] rounded-full text-[#BA1A1A] bg-[#FFDAD6]">Ineligible</button>
-  //         </div>
-  //         <div className="p-4 w-1/2">
-  //           <ul className="list-none space-y-4">
-  //             {questions.map((question, index) => {
-  //               const userAnswer = Array.isArray(question.userAnswer)
-  //                 ? question.userAnswer.join(', ')
-  //                 : question.userAnswer;
-  
-  //               const answerPoints = question.answers.reduce((total, answer) => {
-  //                 if (
-  //                   (Array.isArray(question.userAnswer) && question.userAnswer.includes(answer.answer)) ||
-  //                   question.userAnswer === answer.answer
-  //                 ) {
-  //                   return total + answer.point;
-  //                 }
-  //                 return total;
-  //               }, 0);
-  
-  //               return (
-  //                 <li key={index} className="flex justify-between">
-  //                   <span>{question.question}</span>
-  //                   <span className="font-bold">{userAnswer} ({answerPoints} points)</span>
-  //                 </li>
-  //               );
-  //             })}
-  //           </ul>
-  //         </div>
-  //       </div>
-  //       <div className="mt-16">
-  //         <button
-  //           className="w-auto h-auto px-6 py-2 rounded-full text-[#000000] bg-[#D4E4F6]"
-  //           onClick={() => {
-  //             window.location.href = '../Application-Assistant';
-  //           }}
-  //         >
-  //           Retake test
-  //         </button>
-  //       </div>
-  //     </div>
-  //   );
-  
-  //   return <div className="flex flex-col">{eligibleMessage}</div>;
-  // };
 
 
   const renderResults = () => {
